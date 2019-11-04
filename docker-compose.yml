@@ -10,7 +10,7 @@ services:
       - database:/var/lib/postgresql/data
 
   app:
-    image: app
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-9-september-2019/personal-projects/call_in
     restart: always
     env_file:
       - dev.env
