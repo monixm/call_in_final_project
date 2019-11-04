@@ -39,6 +39,8 @@ RUN mkdir -p /backend | \
     mkdir -p /media-files | \
     mkdir -p /static-files
 
+COPY ./nginx/default.conf /etc/nginx/conf.d
+
 COPY ./backend/requirements.yml /backend/requirements.yml
 
 RUN /opt/miniconda/bin/conda env create -f /backend/requirements.yml
@@ -55,5 +57,6 @@ RUN npm run build
 COPY ./backend /backend
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*
+
 
 WORKDIR /backend
