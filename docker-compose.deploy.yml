@@ -49,6 +49,7 @@ networks:  # <-- and here
     driver: bridge
 
 volumes:
+  config:
   database:
   static-files:
   media-files:
