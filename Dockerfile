@@ -37,7 +37,8 @@ RUN mkdir -p /backend | \
     mkdir -p /frontend | \
     mkdir -p /scripts | \
     mkdir -p /media-files | \
-    mkdir -p /static-files
+    mkdir -p /static-files | \
+    mkdir -p /nginx
 
 COPY ./nginx/default.conf /etc/nginx/conf.d
 
