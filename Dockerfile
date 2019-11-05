@@ -46,6 +46,9 @@ RUN /opt/miniconda/bin/conda env create -f /backend/requirements.yml
 ENV PATH /opt/miniconda/bin:$PATH
 ENV PATH /opt/miniconda/envs/backend/bin:$PATH
 
+# Don't write pycache files
+ENV PYTHONDONTWRITEBYTECODE 1
+
 WORKDIR /frontend
 COPY ./frontend/package.json /frontend/
 RUN npm install

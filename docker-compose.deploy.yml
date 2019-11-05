@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  app:
+  backend:
     image: registry.gitlab.propulsion-home.ch/full-stack/batch-9-september-2019/personal-projects/call_in
     restart: always
     networks:
@@ -11,6 +11,7 @@ services:
       - prod.env
     command: 'sh /scripts/run.sh'
     volumes:
+      - frontend:/frontend-build
       - static-files:/static-files
       - media-files:/media-files
     depends_on:
@@ -31,7 +32,8 @@ services:
     volumes:
       - static-files:/static-files
       - media-files:/media-files
-      - config:/etc/nginx/conf.d
+      - ./config:/etc/nginx/conf.d
+      - frontend:/frontend
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
@@ -49,7 +51,7 @@ networks:  # <-- and here
     driver: bridge
 
 volumes:
-  config:
+  frontend:
   database:
   static-files:
   media-files:
