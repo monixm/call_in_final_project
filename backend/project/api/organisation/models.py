@@ -7,7 +7,7 @@ class Organisation(models.Model):
     name = models.CharField(verbose_name='name', max_length=200)
     user = models.ForeignKey(
         verbose_name='user',
-        to=settings.AUTH_USER_MODEL,
+        to=User,
         on_delete=models.SET_NULL,
         null=True
     )
