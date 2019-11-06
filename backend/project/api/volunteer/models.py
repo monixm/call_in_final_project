@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+
+
 
 
 class Volunteer(models.Model):
@@ -7,3 +10,6 @@ class Volunteer(models.Model):
     last_name = models.CharField(max_length=200)
     location = models.TextField()
     user = models.ForeignKey(to=User, related_name='volunteer', on_delete=models.CASCADE)
+
+
+
