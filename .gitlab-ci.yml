@@ -22,6 +22,7 @@ build:
 
 lint:
   stage: lint
+  allow_failure: true
   script:
     - echo $CI_COMMIT_REF_NAME
     - echo $CI_PIPELINE_ID
