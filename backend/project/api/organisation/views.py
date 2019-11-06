@@ -34,6 +34,7 @@ class OrganisationCreateView(GenericAPIView):
 # /api/organisations/<int:id>/ PATCH: Update an organisation by id (only by organisation owner or admin).
 # /api/organisations/<int:id>/ DELETE: Delete an organisation by id (only by organisation owner or admin).
 
+
 class OrganisationGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     queryset = Organisation.objects.all()
     serializer_class = OrganisationSerializer
@@ -46,6 +47,7 @@ class OrganisationGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
 
 # /api/organisations/ngos/ GET: Get the all the ngos
 
+
 class GetNGO(ListAPIView):
     serializer_class = OrganisationSerializer
     queryset = Organisation.objects.all()
@@ -56,6 +58,7 @@ class GetNGO(ListAPIView):
 
 # /api/organisations/projects/ GET: Get the all the projects
 
+
 class GetProjects(ListAPIView):
     serializer_class = OrganisationSerializer
     queryset = Organisation.objects.all()
@@ -65,6 +68,8 @@ class GetProjects(ListAPIView):
         return projects
 
 # /api/organisations/<int:user_id>/ GET: Get the all the organisations created by a specific user in chronological order
+
+
 class GetUserOrgs(ListAPIView):
     serializer_class = OrganisationSerializer
 
@@ -76,4 +81,3 @@ class GetUserOrgs(ListAPIView):
 
 # Get a list of all calls/events created by a given organisation
 # 1 endpoint for call and 1 endpoint for event of an organisation - u can combine these in frontend
-

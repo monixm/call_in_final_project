@@ -17,6 +17,7 @@ class GetVolunteers(GenericAPIView):
 
 # /api/volunteers/new/ POST: Create a new volunteer
 
+
 class VolunteerCreateView(GenericAPIView):
     serializer_class = VolunteerSerializer
     # permission_classes = IsAuthenticated
@@ -33,6 +34,8 @@ class VolunteerCreateView(GenericAPIView):
 # GET: Get the details of a volunteer by providing the id of the volunteer
 # PATCH: Update a volunteer by id (only by volunteer owner or admin)
 # DELETE: Delete a volunteer by id (only by volunteer owner or admin)
+
+
 class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer

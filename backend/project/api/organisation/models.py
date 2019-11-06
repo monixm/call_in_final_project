@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
+
 class Organisation(models.Model):
     name = models.CharField(verbose_name='name', max_length=200)
     user = models.ForeignKey(
@@ -59,7 +60,7 @@ class Organisation(models.Model):
     website = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200)
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
-    terms_of_services=models.BooleanField(choices=BOOL_CHOICES, default=True)
+    terms_of_services = models.BooleanField(choices=BOOL_CHOICES, default=True)
 
 # focus
 # calls

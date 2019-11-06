@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import GetOrganisations, OrganisationCreateView, OrganisationGetUpdateDeleteView, GetNGO, GetProjects, GetUserOrgs
 
 app_name = 'organisations'

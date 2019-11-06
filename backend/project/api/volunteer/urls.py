@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import GetVolunteers, VolunteerCreateView, VolunteerGetUpdateDeleteView
 
 app_name = 'volunteers'
