@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'project.api.volunteer',
+    'project.api.volunteers',
+    'project.api.calls',
+    'project.api.call_options',
+    'project.api.focus'
 ]
 
 MIDDLEWARE = [
