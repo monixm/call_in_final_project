@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'project.api.volunteer',
-    'project.api.registration',
+    'project.api.organisation',
 ]
 
 MIDDLEWARE = [
