@@ -79,3 +79,4 @@ class GetUserOrgs(ListAPIView):
         return queryset
 
 # Get a list of all calls/events created by a given organisation
+# 1 endpoint for call and 1 endpoint for event of an organisation - u can combine these in frontend

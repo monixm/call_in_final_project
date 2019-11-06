@@ -42,7 +42,6 @@ class Organisation(models.Model):
         upload_to='media-files/organisation/images',
         verbose_name='image',
         blank=True,
-        default='default.jpg'  # ======= HOW TO AVOID THE DEFAULT?
     )
     document = models.FileField(
         upload_to='media-files/organisation/file',
@@ -55,10 +54,10 @@ class Organisation(models.Model):
         auto_now_add=True,
         null=True
     )
-    location = models.CharField(max_length=200, default='location')
-    description = models.TextField(verbose_name='description', default='description')
-    website = models.CharField(max_length=200, default='', blank=True)
-    phone = models.CharField(max_length=200, default='phone')
+    location = models.CharField(max_length=200)
+    description = models.TextField(verbose_name='description')
+    website = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=200)
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
     terms_of_services=models.BooleanField(choices=BOOL_CHOICES, default=True)
 
