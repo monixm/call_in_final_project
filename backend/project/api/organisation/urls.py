@@ -11,5 +11,4 @@ urlpatterns = [
     path('ngos/', GetNGO.as_view()),
     path('projects/', GetProjects.as_view()),
     path('user/<int:user_id>/', GetUserOrgs.as_view()),
-
 ]

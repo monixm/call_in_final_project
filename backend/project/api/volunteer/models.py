@@ -2,7 +2,6 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
-
 class Volunteer(models.Model):
     user = models.ForeignKey(
         verbose_name='user',

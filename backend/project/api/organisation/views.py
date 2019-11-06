@@ -1,6 +1,4 @@
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-
 from .serializer import OrganisationSerializer
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
@@ -32,7 +30,6 @@ class OrganisationCreateView(GenericAPIView):
         organisation = serializer.create(serializer.validated_data)
         return Response(OrganisationSerializer(organisation).data)
 
-
 # /api/organisations/<int:id>/ GET: Get the details of an organisation by providing the id of the organisation.
 # /api/organisations/<int:id>/ PATCH: Update an organisation by id (only by organisation owner or admin).
 # /api/organisations/<int:id>/ DELETE: Delete an organisation by id (only by organisation owner or admin).
@@ -57,7 +54,6 @@ class GetNGO(ListAPIView):
         ngos = self.queryset.filter(type='Non-profit organisation')
         return ngos
 
-
 # /api/organisations/projects/ GET: Get the all the projects
 
 class GetProjects(ListAPIView):
@@ -80,3 +76,4 @@ class GetUserOrgs(ListAPIView):
 
 # Get a list of all calls/events created by a given organisation
 # 1 endpoint for call and 1 endpoint for event of an organisation - u can combine these in frontend
+
