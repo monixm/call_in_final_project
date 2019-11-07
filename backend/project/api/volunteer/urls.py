@@ -3,7 +3,7 @@ from django.urls import path, include
 
 from .views import GetVolunteers
 
-app_name = 'volunteers'
+app_name = 'volunteer'
 
 urlpatterns = [
     path('', GetVolunteers.as_view())

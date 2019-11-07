@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'project.api.volunteer',
+    'project.api.call',
+    'project.api.call_option',
+    'project.api.focus'
 ]
 
 MIDDLEWARE = [
