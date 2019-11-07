@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -34,15 +35,25 @@ class Volunteer(models.Model):
 
     profile_picture = models.ImageField(
         verbose_name='profile picture',
-        upload_to='profile_pictures',
+        upload_to='volunteers/profile_pictures',
         null=True,
         blank=True
     )
 
+    PUBLIC = 'public'
+    PRIVATE = 'private'
+    CONTROLLED = 'controlled'
+    SECRET = 'secret'
     privacy_setting = models.CharField(
-        verbose_name='privacy settings',
+        verbose_name='privacy setting',
         max_length=1,
-        choices=PRIVACY_SETTINGS
+        choices=(
+            (PUBLIC, PUBLIC),
+            (PRIVATE, PRIVATE),
+            (CONTROLLED, CONTROLLED),
+            (SECRET, SECRET),
+        ),
+        default=PRIVATE
     )
 
     user = models.ForeignKey(
@@ -51,3 +62,10 @@ class Volunteer(models.Model):
         related_name='volunteer',
         on_delete=models.CASCADE
     )
+
+    # interests=focus
+    # call_option
+    # events
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
