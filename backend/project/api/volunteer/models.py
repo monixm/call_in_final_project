@@ -4,7 +4,7 @@ from django.db import models
 
 class Volunteer(models.Model):
 
-    PRIVACY_SETTINGS =  (
+    PRIVACY_SETTINGS = (
         ('public', 'Public'),
         ('private', 'Private'),
         ('controlled', 'Controlled'),
@@ -48,6 +48,6 @@ class Volunteer(models.Model):
     user = models.ForeignKey(
         verbose_name='user',
         to=User,
-        related_name='volunteers',
+        related_name='volunteer',
         on_delete=models.CASCADE
     )

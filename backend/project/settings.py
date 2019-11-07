@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'project.api.volunteers',
-    'project.api.calls',
-    'project.api.call_options',
+    'project.api.volunteer',
+    'project.api.call',
+    'project.api.call_option',
     'project.api.focus'
 ]
 

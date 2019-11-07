@@ -1,7 +1,7 @@
 from django.urls import path
-from project.api.calls.views import GetAllCalls, CreateCall, GetUpdateDeleteCall
+from project.api.call.views import GetAllCalls, CreateCall, GetUpdateDeleteCall
 
-app_name = 'calls'
+app_name = 'call'
 
 urlpatterns = [
     path('', GetAllCalls.as_view()),
