@@ -1,19 +1,13 @@
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
 
 class Volunteer(models.Model):
-    user = models.ForeignKey(
-        verbose_name='user',
-        to=User,
-        on_delete=models.SET_NULL,
-        null=True
-    )
+
+    # Attributes:
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
-    user = models.ForeignKey(to=User, related_name='volunteer', on_delete=models.CASCADE)
     profile_pic = models.ImageField(
         upload_to='media-files/volunteer/images',
         verbose_name='image',
@@ -33,6 +27,10 @@ class Volunteer(models.Model):
         ),
         default=PRIVATE
     )
+
+    # Relations:
+    user = models.ForeignKey(verbose_name='user', to=User, on_delete=models.CASCADE, null=True)
+
     # interests=focus
     # call_option
     # events
@@ -40,3 +38,24 @@ class Volunteer(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+#
+# class VolunteerConfirmation(models.Model):
+#     user = models.ForeignKey(
+#         verbose_name='volunteer',
+#         to=User,
+#         on_delete=models.CASCADE,
+#         related_name='volunteer',
+#     )
+#     call = models.ForeignKey(
+#         to=Call,
+#         on_delete=models.CASCADE,
+#         related_name='call',
+#     )
+#     timestamp = models.DateTimeField(default=datetime.now)
+#
+#     class Meta:
+#         unique_together = [('user', 'call')]
+#
+#     def __str__(self):
+#         return f'User {self.user} confirmed volunteering in {self.call}'

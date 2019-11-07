@@ -47,3 +47,4 @@ class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
         return Response(data='User was deleted', status=status.HTTP_204_NO_CONTENT)
 
 # /api/volunteers/<int:call_id>/ GET: Get the list of all the volunteers that sent a volunteering request to a specific call
+# /api/volunteering/request/<int:call_id>/ POST": Create a new volunteering request. (only by volunteer owner or admin).
