@@ -1,11 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from backend.project.api.call_options.models import CallOption
-from backend.project.api.focus.models import Focus
-
 
 class Volunteer(models.Model):
+
     PRIVACY_SETTINGS =  (
         ('public', 'Public'),
         ('private', 'Private'),
@@ -30,7 +28,7 @@ class Volunteer(models.Model):
 
     social_media = models.CharField(
         verbose_name='social media',
-        max_length='100',
+        max_length=100,
         blank=True
     )
 

@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Calls
+from .models import Call
 
 
-class CallsSerializer(serializers.ModelSerializer):
+class CallSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Calls
-        field = '__all__'
+        model = Call
+        fields = '__all__'
 
