@@ -3,14 +3,10 @@ from django.db import models
 
 
 class Organisation(models.Model):
+
+
+    # Attributes:
     name = models.CharField(verbose_name='name', max_length=200)
-    user = models.ForeignKey(
-        verbose_name='user',
-        to=User,
-        on_delete=models.SET_NULL,
-        null=True
-    )
-    # user = models.ForeignKey(to=User, related_name='organisation', on_delete=models.CASCADE)
     NGO = 'Non-profit organisation'
     PROJECT = 'Project'
     type = models.CharField(
@@ -37,7 +33,6 @@ class Organisation(models.Model):
         ),
         default=PRIVATE
     )
-
     profile_pic = models.ImageField(
         upload_to='media-files/organisation/images',
         verbose_name='image',
@@ -61,9 +56,20 @@ class Organisation(models.Model):
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
     terms_of_services = models.BooleanField(choices=BOOL_CHOICES, default=True)
 
+    # Relations:
+    user = models.ForeignKey(
+        verbose_name='user',
+        to=User,
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
 # focus
 # calls
 # events
+
+    class Meta:
+        ordering = ['created']
 
     def __str__(self):
         return self.name + ' ' + ' - ' + self.type
