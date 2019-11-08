@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'project.api.volunteer',
     'project.api.call',
     'project.api.call_option',
-    'project.api.focus'
+    'project.api.focus',
     'project.api.organisation',
 ]
 

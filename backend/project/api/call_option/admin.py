@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import CallOptions
+from .models import CallOption
 
 
 app_name = 'project.api.call_option'
 
-admin.site.register(CallOptions)
+admin.site.register(CallOption)

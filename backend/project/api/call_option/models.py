@@ -9,19 +9,21 @@ class CallOption(models.Model):
         to=Call,
         verbose_name='call',
         on_delete=models.CASCADE,
-        related_name='call_option'
+        related_name='call_options'
     )
 
     title = models.CharField(
         verbose_name='title',
         max_length=100
     )
-    option_nr = models.IntegerField(
-        verbose_name='option number'
-    )
 
     volunteers = models.ManyToManyField(
         Volunteer,
         verbose_name='volunteer participating',
-        related_name='call_option'
+        related_name='call_option',
+        null=True,
+        blank=True
     )
+
+    def __str__(self):
+        return f'{self.title} - Call: {self.call}'

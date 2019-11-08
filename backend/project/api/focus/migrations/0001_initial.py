@@ -8,10 +8,6 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('volunteer', '0002_auto_20191106_1433'),
-    ]
-
     operations = [
         migrations.CreateModel(
             name='Focus',

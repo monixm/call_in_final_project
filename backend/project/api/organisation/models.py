@@ -4,8 +4,8 @@ from django.db import models
 
 class Organisation(models.Model):
 
-
     # Attributes:
+
     name = models.CharField(verbose_name='name', max_length=200)
     NGO = 'Non-profit organisation'
     PROJECT = 'Project'

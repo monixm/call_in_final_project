@@ -39,7 +39,7 @@ class Volunteer(models.Model):
     SECRET = 'secret'
     privacy_setting = models.CharField(
         verbose_name='privacy setting',
-        max_length=1,
+        max_length=50,
         choices=(
             (PUBLIC, PUBLIC),
             (PRIVATE, PRIVATE),

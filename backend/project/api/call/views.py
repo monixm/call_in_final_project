@@ -52,3 +52,14 @@ class GetUpdateDeleteCall(GenericAPIView):
         call = Call.objects.get(id=call_id)
         call.delete()
         return Response('call deleted')
+
+
+class GetListCallOfVol(GenericAPIView):
+    queryset = Call.objects.all()
+    serializer_class = CallSerializer
+
+    def get(self, request, **kwargs):
+        vol_id = self.kwargs.get('vol_id')
+        call = Call.objects.filter(call_options__volunteers__in=vol_id)
+        serializer = CallSerializer(call, many=True)
+        return Response(serializer.data)
