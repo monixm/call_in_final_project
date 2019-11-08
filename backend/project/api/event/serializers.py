@@ -8,12 +8,3 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = '__all__'
         ordering = ['created']
-
-
-    # def create(self, validated_data):
-    #     return Event.objects.create(**validated_data)
-    #
-    # def update(self, instance, validated_data):
-    #     instance.title = validated_data.get('title', instance.title)
-    #
-    #     return instance
