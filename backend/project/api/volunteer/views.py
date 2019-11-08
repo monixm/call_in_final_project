@@ -1,8 +1,8 @@
+from django.http import Http404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 from project.api.call_option.models import CallOption
-from project.api.call_option.serializer import CallOptionSerializer
 from .models import Volunteer
 from .serializer import VolunteerSerializer
 
@@ -11,7 +11,6 @@ from .serializer import VolunteerSerializer
 class GetVolunteers(GenericAPIView):
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer
-    # permission_classes = IsAuthenticated
 
     def get(self, request, *args, **kwargs):
         serializer = VolunteerSerializer(self.queryset.all(), many=True)
@@ -48,16 +47,16 @@ class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
         self.perform_destroy(instance)
         return Response(data='User was deleted', status=status.HTTP_204_NO_CONTENT)
 
-# /api/volunteers/<int:call_id>/ GET: Get the list of all the volunteers that sent a volunteering request to a specific call
+# /api/volunteers/request/call/<int:call_id>/ POST: Confirm a volunteer's participation in a Call (only by volunteer)
 
 
-class GetCallVolunteers(GenericAPIView):
-    queryset = CallOption.objects.all()
-    serializer_class = CallOptionSerializer
-
-    def get(self, request):
-        queryset = CallOption.objects.filter(call_id__user=request.user)
-        serializer = CallOption(queryset, many=True)
-        return Response(serializer.data, status.HTTP_200_OK)
-
-# /api/volunteering/request/<int:call_id>/ POST: Confirm a volunteer's participation in a Call (only by volunteer)
+class ConfirmCallVolunteer(GenericAPIView):
+    def patch(self, request, *args, **kwargs):
+        call_option_id = self.kwargs.get('call_id')
+        try:
+            selected_call = CallOption.objects.get(id=call_option_id)
+        except CallOption.DoesNotExist:
+            raise Http404
+        volunteer = Volunteer.objects.get(id=request.user.id)
+        selected_call.volunteers.add(volunteer)
+        return Response('Your participation in the Call is confirmed', status.HTTP_200_OK)
