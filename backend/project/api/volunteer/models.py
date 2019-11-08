@@ -57,7 +57,5 @@ class Volunteer(models.Model):
         on_delete=models.CASCADE
     )
 
-    # events
-
     def __str__(self):
         return self.first_name + ' ' + self.last_name
