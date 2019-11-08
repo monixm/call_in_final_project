@@ -63,24 +63,3 @@ class Volunteer(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
-
-#
-# class VolunteerConfirmation(models.Model):
-#     user = models.ForeignKey(
-#         verbose_name='volunteer',
-#         to=User,
-#         on_delete=models.CASCADE,
-#         related_name='volunteer',
-#     )
-#     call = models.ForeignKey(
-#         to=Call,
-#         on_delete=models.CASCADE,
-#         related_name='call',
-#     )
-#     timestamp = models.DateTimeField(default=datetime.now)
-#
-#     class Meta:
-#         unique_together = [('user', 'call')]
-#
-#     def __str__(self):
-#         return f'User {self.user} confirmed volunteering in {self.call}'

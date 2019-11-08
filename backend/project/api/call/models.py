@@ -16,12 +16,11 @@ class Call(models.Model):
         blank=True
     )
 
-    organization = models.ForeignKey(
-        verbose_name='organization',
-        to=Organisation,
-        related_name='call',
-        on_delete=models.CASCADE,
-        null=True
+    organisation = models.ForeignKey(
+      verbose_name='organisation',
+      to=Organisation,
+      related_name='call',
+      on_delete=models.CASCADE
     )
 
     created = models.DateTimeField(
@@ -53,4 +52,3 @@ class Call(models.Model):
 
     def __str__(self):
         return f'{self.title}'
-
