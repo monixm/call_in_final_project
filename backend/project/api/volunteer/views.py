@@ -1,6 +1,12 @@
+from django.http import Http404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
+
+from project.api.call.models import Call
+from project.api.call.serializer import CallSerializer
+from project.api.call_option.models import CallOption
+from project.api.call_option.serializer import CallOptionSerializer
 from .models import Volunteer
 from .serializer import VolunteerSerializer
 
@@ -47,4 +53,42 @@ class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
         return Response(data='User was deleted', status=status.HTTP_204_NO_CONTENT)
 
 # /api/volunteers/<int:call_id>/ GET: Get the list of all the volunteers that sent a volunteering request to a specific call
-# /api/volunteering/request/<int:call_id>/ POST": Create a new volunteering request. (only by volunteer owner or admin).
+
+class GetCallVolunteers(GenericAPIView):
+    queryset = CallOption.objects.all()
+    serializer_class = CallOptionSerializer
+
+    def get(self, request):
+        queryset = CallOption.objects.filter(call_id__user=request.user)
+        serializer = CallOption(queryset, many=True)
+        return Response(serializer.data, status.HTTP_200_OK)
+
+# /api/volunteering/request/<int:call_id>/ POST: Confirm a volunteer's participation in a Call (only by volunteer)
+#
+# class ConfirmCallVolunteer(GenericAPIView):
+#     serializer_class = CallOptionSerializer
+#
+#     def patch(self, request, *args, **kwargs):
+#
+
+
+
+        # call_option_id = self.kwargs['call_id']
+        # try:
+        #     selected_call_option = CallOption.objects.get(id=call_option_id)
+        # except CallOption.DoesNotExist:
+        #     raise Http404
+        # serializer = CallOptionSerializer(instance=selected_call_option)
+        # serializer.is_valid(raise_exception=True)
+        # serializer.save(volunteers=request.user.id)
+        # return Response('You confirmed your participation in the Call', status.HTTP_200_OK)
+
+
+   # def post(self, request, *args, **kwargs):
+   #      call_option_id = self.kwargs['call_id']
+   #      try:
+   #          selected_call = CallOption.objects.get(id=call_option_id)
+   #      except CallOption.DoesNotExist:
+   #          raise Http404
+   #      Volunteers.objects.get_or_create(user=request.user, call=selected_call)
+   #      return Response('You confirmed your participation in the Call', status.HTTP_200_OK)
