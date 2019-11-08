@@ -1,12 +1,12 @@
 from django.db import models
 from project.api.volunteer.models import Volunteer
-from project.api.organization.models import Organization
+from project.api.organisation.models import Organisation
 
 
 class Focus(models.Model):
-    organization = models.ForeignKey(
-      verbose_name='organization',
-      to=Organization,
+    organisation = models.ForeignKey(
+      verbose_name='organisation',
+      to=Organisation,
       related_name='focus',
       on_delete=models.CASCADE
     )

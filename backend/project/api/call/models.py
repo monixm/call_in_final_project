@@ -1,5 +1,5 @@
 from django.db import models
-from project.api.organization.models import Organization
+from project.api.organisation.models import Organisation
 
 
 class Call(models.Model):
@@ -16,11 +16,11 @@ class Call(models.Model):
         blank=True
     )
 
-    organization = models.ForeignKey(
-      verbose_name='organization',
-      to=Organization,
+    organisation = models.ForeignKey(
+      verbose_name='organisation',
+      to=Organisation,
       related_name='call',
-      on_delete=models.CASCADE()
+      on_delete=models.CASCADE
     )
 
     created = models.DateTimeField(
