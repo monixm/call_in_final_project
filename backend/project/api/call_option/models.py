@@ -18,10 +18,9 @@ class CallOption(models.Model):
     )
 
     volunteers = models.ManyToManyField(
-        Volunteer,
+        to=Volunteer,
         verbose_name='volunteer participating',
-        related_name='call_option',
-        null=True,
+        related_name='call_options',
         blank=True
     )
 
