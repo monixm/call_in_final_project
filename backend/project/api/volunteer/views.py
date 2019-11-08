@@ -2,10 +2,7 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
-
-from project.api.call.models import Call
 from project.api.call_option.models import CallOption
-from project.api.call_option.serializer import CallOptionSerializer
 from .models import Volunteer
 from .serializer import VolunteerSerializer
 
@@ -14,7 +11,6 @@ from .serializer import VolunteerSerializer
 class GetVolunteers(GenericAPIView):
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer
-    # permission_classes = IsAuthenticated
 
     def get(self, request, *args, **kwargs):
         serializer = VolunteerSerializer(self.queryset.all(), many=True)
@@ -58,9 +54,9 @@ class ConfirmCallVolunteer(GenericAPIView):
     def patch(self, request, *args, **kwargs):
         call_option_id = self.kwargs.get('call_id')
         try:
-            selected_call = CallOption.objects.get(id = call_option_id)
+            selected_call = CallOption.objects.get(id=call_option_id)
         except CallOption.DoesNotExist:
             raise Http404
-        volunteer = Volunteer.objects.get(id = request.user.id)
+        volunteer = Volunteer.objects.get(id=request.user.id)
         selected_call.volunteers.add(volunteer)
         return Response('Your participation in the Call is confirmed', status.HTTP_200_OK)
