@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth import get_user_model
 from call_in.backend.project.api.helpers import code_generator
 
 
@@ -19,7 +18,7 @@ class UserProfile(models.Model):
         verbose_name='code',
         help_text='random code used for registration and for password reset',
         max_length=15,
-        default = code_generator
+        default=code_generator
     )
 
     def __str__(self):
@@ -30,4 +29,3 @@ class UserProfile(models.Model):
         profile, created = UserProfile.objects.get_or_create(user=instance)
         if created:
             profile.save()
-

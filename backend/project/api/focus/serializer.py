@@ -6,4 +6,3 @@ class FocusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Focus
         fields = '__all__'
-

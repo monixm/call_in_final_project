@@ -27,9 +27,9 @@ class PasswordResetSerializer(serializers.Serializer):
 
 
 class PasswordResetValidationSerializer(PasswordResetSerializer):
-    code = serializers.CharField(label='Validation code',write_only=True,)
-    password = serializers.CharField(label='password',write_only=True,)
-    password_repeat = serializers.CharField(label='password',write_only=True,)
+    code = serializers.CharField(label='Validation code', write_only=True,)
+    password = serializers.CharField(label='password', write_only=True,)
+    password_repeat = serializers.CharField(label='password', write_only=True,)
 
     def validate(self, data):
         user = data.get('email')
