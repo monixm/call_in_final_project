@@ -76,8 +76,19 @@ class GetUserOrgs(ListAPIView):
     def get_queryset(self):
         queryset = Organisation.objects.all().order_by('created')
         user = self.kwargs.get('user_id')
-        queryset = queryset.filter(type=user)
+        queryset = queryset.filter(user=user)
         return queryset
 
 # Get a list of all calls/events created by a given organisation
 # 1 endpoint for call and 1 endpoint for event of an organisation - u can combine these in frontend
+
+# GET: Get the all the events from a specific organisation in chronological order.
+
+# class GetOrgEvents(ListAPIView):
+#     serializer_class = EventSerializer
+#
+#     def get_queryset(self):
+#         queryset = Event.objects.all()
+#         organisation = self.kwargs.get('org_id')
+#         queryset = queryset.filter(type=organisation)
+#         return queryset

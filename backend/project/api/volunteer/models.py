@@ -3,27 +3,43 @@ from django.db import models
 
 
 class Volunteer(models.Model):
-    user = models.ForeignKey(
-        verbose_name='user',
-        to=User,
-        on_delete=models.SET_NULL,
-        null=True
+
+    # Attributes:
+    first_name = models.CharField(
+        verbose_name='first name',
+        max_length=50
     )
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    user = models.ForeignKey(to=User, related_name='volunteer', on_delete=models.CASCADE)
-    profile_pic = models.ImageField(
-        upload_to='media-files/volunteer/images',
-        verbose_name='image',
+
+    last_name = models.CharField(
+        verbose_name='last name',
+        max_length=50
     )
+
+    location = models.TextField(
+        verbose_name='location',
+        max_length=50
+    )
+
+    social_media = models.CharField(
+        verbose_name='social media',
+        max_length=100,
+        blank=True
+    )
+
+    profile_picture = models.ImageField(
+        verbose_name='profile picture',
+        upload_to='volunteers/profile_pictures',
+        null=True,
+        blank=True
+    )
+
     PUBLIC = 'public'
     PRIVATE = 'private'
     CONTROLLED = 'controlled'
     SECRET = 'secret'
     privacy_setting = models.CharField(
-        verbose_name='privacy_setting',
-        max_length=100,
+        verbose_name='privacy setting',
+        max_length=1,
         choices=(
             (PUBLIC, PUBLIC),
             (PRIVATE, PRIVATE),
@@ -32,10 +48,18 @@ class Volunteer(models.Model):
         ),
         default=PRIVATE
     )
+
+    # Relations:
+    user = models.ForeignKey(
+        verbose_name='user',
+        to=User,
+        related_name='volunteer',
+        on_delete=models.CASCADE
+    )
+
     # interests=focus
     # call_option
     # events
-    # social media
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name

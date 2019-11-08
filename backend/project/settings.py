@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'project.api.volunteer',
+    'project.api.call',
+    'project.api.call_option',
+    'project.api.focus',
     'project.api.organisation',
     'project.api.event',
 ]
