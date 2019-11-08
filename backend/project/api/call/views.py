@@ -60,6 +60,6 @@ class GetListCallOfVol(GenericAPIView):
 
     def get(self, request, **kwargs):
         vol_id = self.kwargs.get('vol_id')
-        call = Call.objects.filter(call_options__volunteers__in=vol_id)
-        serializer = CallSerializer(call, many=True)
+        calls = Call.objects.filter(call_options__volunteers=vol_id)
+        serializer = CallSerializer(calls, many=True)
         return Response(serializer.data)
