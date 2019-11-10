@@ -76,7 +76,6 @@ class SearchView(GenericAPIView):
             if 'items' in interests:
                 queries.append(Q(interests_items_icontains=search_string))
 
-
         if len(queries):
             query = queries.pop()
             # Or the Q object with the ones remaining in the list
