@@ -41,7 +41,8 @@ class ParticipantsView(GenericAPIView):
             event.participants.add(volunteer)
             event.save()
             return Response(status=status.HTTP_200_OK)
-        except:
+
+        except Exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, *args, **kwargs):
@@ -54,5 +55,5 @@ class ParticipantsView(GenericAPIView):
             event.participants.remove(volunteer)
             event.save()
             return Response(status=status.HTTP_200_OK)
-        except:
+        except Exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
