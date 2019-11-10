@@ -107,4 +107,3 @@ class SearchView(GenericAPIView):
             ))
         serializer = EventSerializer(queryset, many=True)
         return serializer.data
-
