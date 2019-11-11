@@ -51,6 +51,9 @@ class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
 
 
 class ConfirmCallVolunteer(GenericAPIView):
+
+    serializer_class = VolunteerSerializer
+
     def patch(self, request, *args, **kwargs):
         call_option_id = self.kwargs.get('call_id')
         try:
