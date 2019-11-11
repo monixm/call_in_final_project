@@ -4,14 +4,14 @@ from project.api.organisation.models import Organisation
 
 
 class Focus(models.Model):
-    organisation = models.ForeignKey(
+    organisation = models.OneToOneField(
       verbose_name='organisation',
       to=Organisation,
       related_name='focus',
       on_delete=models.CASCADE
     )
 
-    volunteer = models.ForeignKey(
+    volunteer = models.OneToOneField(
         verbose_name='volunteer',
         to=Volunteer,
         related_name='interests',

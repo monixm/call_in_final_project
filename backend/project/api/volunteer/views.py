@@ -63,11 +63,11 @@ class ConfirmCallVolunteer(GenericAPIView):
     serializer_class = VolunteerSerializer
 
     def patch(self, request, *args, **kwargs):
-        call_option_id = self.kwargs.get('call_id')
+        call_option_id = self.kwargs.get('call_option_id')
         try:
             selected_call = CallOption.objects.get(id=call_option_id)
         except CallOption.DoesNotExist:
             raise Http404
-        volunteer = Volunteer.objects.get(id=request.user.id)
+        volunteer = Volunteer.objects.get(id=request.user.volunteer.id)
         selected_call.volunteers.add(volunteer)
         return Response('Your participation in the Call is confirmed', status.HTTP_200_OK)

@@ -38,10 +38,10 @@ class ParticipantsView(GenericAPIView):
 
             event.participants.add(volunteer)
             event.save()
-            return Response(status=status.HTTP_200_OK)
+            return Response('Your signed up to this event', status=status.HTTP_200_OK)
 
         except Exception:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response('Something went wrong', status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, *args, **kwargs):
         event = get_object_or_404(Event, id=kwargs['event_id'])
@@ -52,6 +52,6 @@ class ParticipantsView(GenericAPIView):
 
             event.participants.remove(volunteer)
             event.save()
-            return Response(status=status.HTTP_200_OK)
+            return Response('You signed off this event', status=status.HTTP_200_OK)
         except Exception:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response('Something went wrong', status=status.HTTP_400_BAD_REQUEST)

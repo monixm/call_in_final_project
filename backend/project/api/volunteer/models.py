@@ -50,7 +50,7 @@ class Volunteer(models.Model):
     )
 
     # Relations:
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         verbose_name='user',
         to=User,
         related_name='volunteer',

@@ -12,5 +12,7 @@ urlpatterns = [
     path('backend/api/registration/', include('project.api.registration.urls', namespace='registration')),
     path('backend/api/participations/', include('project.api.participations.urls', namespace='participations_event')),
     path('backend/api/search/', include('project.api.search.urls', namespace='search')),
+    path('backend/api/feed/', include('project.api.feed.urls', namespace='feed')),
+    path('backend/api/calloptions/', include('project.api.call_option.urls', namespace='call_option')),
     path('backend/api/volunteers/', include('project.api.volunteer.urls'))
 ]

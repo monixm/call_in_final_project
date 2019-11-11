@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'project.api.event',
     'project.api.registration',
     'project.api.search',
+    'project.api.feed'
 ]
 
 MIDDLEWARE = [
@@ -136,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Zurich'
 
 USE_I18N = True
 
