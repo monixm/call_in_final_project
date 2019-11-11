@@ -7,8 +7,6 @@ from project.api.event.serializers import EventSerializer
 from project.api.volunteer.models import Volunteer
 from project.api.volunteer.serializer import VolunteerSerializer
 
-from project.api.participations.serializer import EventParticipationSerializer
-
 
 class ParticipationsListView(generics.ListAPIView):
     serializer_class = EventSerializer
@@ -19,7 +17,7 @@ class ParticipationsListView(generics.ListAPIView):
 
 
 class ParticipantsView(GenericAPIView):
-    serializer_class = EventParticipationSerializer
+    serializer_class = VolunteerSerializer
 
     def get_queryset(self):
         event_id = self.kwargs['event_id']
