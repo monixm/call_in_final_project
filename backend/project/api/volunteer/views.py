@@ -1,14 +1,18 @@
 from django.http import Http404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from project.api.call_option.models import CallOption
+from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
 from .models import Volunteer
 from .serializer import VolunteerSerializer
 
 
-# /api/volunteers/ GET: Get the list of all the volunteers
 class GetVolunteers(GenericAPIView):
+    """
+    GET: Get the list of all the volunteers
+    """
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer
 
@@ -16,12 +20,12 @@ class GetVolunteers(GenericAPIView):
         serializer = VolunteerSerializer(self.queryset.all(), many=True)
         return Response(serializer.data)
 
-# /api/volunteers/new/ POST: Create a new volunteer
-
 
 class VolunteerCreateView(GenericAPIView):
+    """
+    POST: Create a new volunteer
+    """
     serializer_class = VolunteerSerializer
-    # permission_classes = IsAuthenticated
 
     def post(self, request):
         serializer = self.get_serializer(
@@ -32,26 +36,30 @@ class VolunteerCreateView(GenericAPIView):
         volunteer = serializer.create(serializer.validated_data)
         return Response(VolunteerSerializer(volunteer).data)
 
-# GET: Get the details of a volunteer by providing the id of the volunteer
-# PATCH: Update a volunteer by id (only by volunteer owner or admin)
-# DELETE: Delete a volunteer by id (only by volunteer owner or admin)
-
 
 class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
+    """
+    GET: Get the details of a volunteer by providing the id of the volunteer
+    PATCH: Update a volunteer by id (only by volunteer owner or admin)
+    """
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer
     lookup_url_kwarg = 'id'
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyOrgAndVol]
 
+    """
+    DELETE: Delete a volunteer by id (only by volunteer owner or admin)
+    """
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
         return Response(data='User was deleted', status=status.HTTP_204_NO_CONTENT)
 
-# /api/volunteers/request/call/<int:call_id>/ POST: Confirm a volunteer's participation in a Call (only by volunteer)
-
 
 class ConfirmCallVolunteer(GenericAPIView):
-
+    """
+    POST: Confirm a volunteer's participation in a Call (only by volunteer)
+    """
     serializer_class = VolunteerSerializer
 
     def patch(self, request, *args, **kwargs):

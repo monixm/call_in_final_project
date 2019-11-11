@@ -5,7 +5,7 @@ from rest_framework.generics import ListAPIView, GenericAPIView
 
 from project.api.call.models import Call
 from project.api.call.serializer import CallSerializer
-from project.api.permissions import IsOwnerOrReadOnly
+from project.api.permissions import IsOwnerOrReadOnlyCallAndEvent
 
 
 class GetAllCalls(ListAPIView):
@@ -21,10 +21,10 @@ class GetAllCalls(ListAPIView):
 
 
 class CreateCall(GenericAPIView):
+    """
+    POST: Create a new call.
+    """
     serializer_class = CallSerializer
-    """
-    POST": Create a new call.
-    """
 
     def post(self, request):
         serializer = self.get_serializer(
@@ -38,7 +38,7 @@ class CreateCall(GenericAPIView):
 class GetUpdateDeleteCall(GenericAPIView):
     queryset = Call.objects.all()
     serializer_class = CallSerializer
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyCallAndEvent]
 
     """
     GET: Get the details of a call by providing the id of the call.
@@ -68,7 +68,6 @@ class GetUpdateDeleteCall(GenericAPIView):
         serializer.save()
         return Response(serializer.data)
 
-
     """
     DELETE: Delete a call by id (only by call owner (organisation owner) or admin).
     """
@@ -86,12 +85,12 @@ class GetUpdateDeleteCall(GenericAPIView):
 
 
 class GetListCallOfVol(GenericAPIView):
-    queryset = Call.objects.all()
-    serializer_class = CallSerializer
-
     """
     GET: Get the list of all the calls a volunteer is participating.
     """
+    queryset = Call.objects.all()
+    serializer_class = CallSerializer
+
     def get(self, request, **kwargs):
         vol_id = self.kwargs.get('vol_id')
         calls = Call.objects.filter(call_options__volunteers=vol_id)
