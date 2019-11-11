@@ -57,8 +57,10 @@ INSTALLED_APPS = [
     'project.api.call_option',
     'project.api.focus',
     'project.api.organisation',
+    'project.api.participations',
     'project.api.event',
     'project.api.registration',
+    'project.api.search',
 ]
 
 MIDDLEWARE = [
