@@ -12,4 +12,5 @@ urlpatterns = [
     path('backend/api/registration/', include('project.api.registration.urls', namespace='registration')),
     path('backend/api/participations/', include('project.api.participations.urls', namespace='participations_event')),
     path('backend/api/search/', include('project.api.search.urls', namespace='search')),
+    path('backend/api/volunteers/', include('project.api.volunteer.urls'))
 ]
