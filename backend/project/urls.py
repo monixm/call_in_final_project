@@ -8,9 +8,9 @@ urlpatterns = [
     path('backend/docs/', include_docs_urls(title='call-in', public=False)),
     path('backend/api/volunteers/', include('project.api.volunteer.urls')),
     path('backend/api/auth/', include('project.api.auth.urls', namespace='authentication')),
-    path('backend/api/volunteers/', include('project.api.volunteer.urls', namespace='volunteers')),
     path('backend/api/organisations/', include('project.api.organisation.urls', namespace='organisations')),
     path('backend/api/events/', include('project.api.event.urls', namespace='event')),
+    path('backend/api/registration/', include('project.api.registration.urls', namespace='registration')),
     path('backend/api/participations/', include('project.api.participations.urls', namespace='event')),
     path('backend/api/search/', include('project.api.search.urls', namespace='search')),
 ]
