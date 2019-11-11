@@ -1,3 +1,5 @@
+from abc import ABC
+
 from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage
 from rest_framework import serializers
