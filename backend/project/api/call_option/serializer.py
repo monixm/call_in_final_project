@@ -18,4 +18,3 @@ class CallOptionSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Must set the call_id kwarg to use this serializer.")
         validated_data['call'] = Call.objects.get(pk=call_id)
         return super(CallOptionSerializer, self).create(validated_data)
-

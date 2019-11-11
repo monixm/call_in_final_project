@@ -14,8 +14,6 @@ class ListCallOptionsOfACall(ListCreateAPIView):
 
     def get_queryset(self):
         call_id = self.kwargs['call_id']
-        call = CallOption.objects.filter(call__id=call_id)
-        self.check_object_permissions(request, call)
         return CallOption.objects.filter(call__id=call_id)
 
 
