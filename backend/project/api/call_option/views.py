@@ -1,5 +1,4 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, get_object_or_404
-from rest_framework.permissions import IsAuthenticated
 from project.api.call_option.models import CallOption
 from project.api.call_option.serializer import CallOptionSerializer
 from project.api.permissions import IsOwnerOrReadOnlyCallOption
