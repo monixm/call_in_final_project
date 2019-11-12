@@ -25,6 +25,7 @@ class CreateCall(GenericAPIView):
     POST: Create a new call.
     """
     serializer_class = CallSerializer
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = self.get_serializer(
@@ -38,7 +39,7 @@ class CreateCall(GenericAPIView):
 class GetUpdateDeleteCall(GenericAPIView):
     queryset = Call.objects.all()
     serializer_class = CallSerializer
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyCallAndEvent]
+    permission_classes = [IsOwnerOrReadOnlyCallAndEvent]
 
     """
     GET: Get the details of a call by providing the id of the call.

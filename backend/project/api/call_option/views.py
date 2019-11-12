@@ -25,7 +25,7 @@ class GetUpdateDeleteCallOption(RetrieveUpdateDestroyAPIView):
     """
     serializer_class = CallOptionSerializer
     queryset = CallOption.objects.all()
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyCallOption]
+    permission_classes = [IsOwnerOrReadOnlyCallOption]
 
     def get_object(self):
         obj = get_object_or_404(self.get_queryset(), pk=self.kwargs["id"])

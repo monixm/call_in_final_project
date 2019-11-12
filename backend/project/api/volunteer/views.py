@@ -26,6 +26,7 @@ class VolunteerCreateView(GenericAPIView):
     POST: Create a new volunteer
     """
     serializer_class = VolunteerSerializer
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = self.get_serializer(
@@ -45,7 +46,7 @@ class VolunteerGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     queryset = Volunteer.objects.all()
     serializer_class = VolunteerSerializer
     lookup_url_kwarg = 'id'
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyOrgAndVol]
+    permission_classes = [IsOwnerOrReadOnlyOrgAndVol]
 
     """
     DELETE: Delete a volunteer by id (only by volunteer owner or admin)
@@ -61,6 +62,7 @@ class ConfirmCallVolunteer(GenericAPIView):
     POST: Confirm a volunteer's participation in a Call (only by volunteer)
     """
     serializer_class = VolunteerSerializer
+    permission_classes = [IsAuthenticated]
 
     def patch(self, request, *args, **kwargs):
         call_option_id = self.kwargs.get('call_option_id')

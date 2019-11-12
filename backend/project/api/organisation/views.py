@@ -25,6 +25,7 @@ class OrganisationCreateView(GenericAPIView):
     POST: Create a new organisation
     """
     serializer_class = OrganisationSerializer
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = self.get_serializer(
@@ -44,7 +45,7 @@ class OrganisationGetUpdateDeleteView(RetrieveUpdateDestroyAPIView):
     queryset = Organisation.objects.all()
     serializer_class = OrganisationSerializer
     lookup_url_kwarg = 'id'
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnlyOrgAndVol]
+    permission_classes = [IsOwnerOrReadOnlyOrgAndVol]
 
     """
     DELETE: Delete an organisation by id (only by organisation owner or admin).
