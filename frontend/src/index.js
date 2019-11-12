@@ -6,6 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
 
+const token = localStorage.getItem('token');
+if (token) {
+  store.dispatch({ type: 'LOG_IN', payload: token })
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
