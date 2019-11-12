@@ -3,23 +3,23 @@ import { userLoginAction } from '../../store/actions/loginAction';
 import { connect } from 'react-redux';
 
 const Login = props => {
-  const [email, setEmail] = useState('email@email.com');
-  const [password, setPassword] = useState('password');
+  const [username, setUsername] = useState('monixm');
+  const [password, setPassword] = useState('monixm1989');
 
   const userLoginHandler = e => {
     e.preventDefault();
-    const data = props.dispatch(userLoginAction(email, password));
+    const data = props.dispatch(userLoginAction(username, password));
     if (data) props.history.push('/volunteer');
   };
 
   return (
     <div>
-      <h1>This is login</h1>
+      <h1>Login page</h1>
       <form>
         <input
-          type='email'
-          value={email}
-          onChange={e => setEmail(e.currentTarget.value)}
+          type='username'
+          value={username}
+          onChange={e => setUsername(e.currentTarget.value)}
         ></input>
         <input
           type='password'
