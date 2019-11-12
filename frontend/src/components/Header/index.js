@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Chat from '../../assets/chat.svg';
 import Search from '../../assets/search.svg';
-import { faUserCircle as farUserCircle } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt as farCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import Calendar from '../../assets/calendar.svg';
+import Profile from '../../assets/profile.svg';
 import './style.css';
 
 class Header extends Component {
@@ -15,7 +14,7 @@ class Header extends Component {
         <div className='right-nav'>
           <li className='Header-li'>
             <Link to='/volunteer'>
-              <FontAwesomeIcon icon={farUserCircle} />
+              <img src={Profile} alt='profile-icon' />
             </Link>
           </li>
           <li className='Header-li'>
@@ -30,7 +29,7 @@ class Header extends Component {
         <div className='left-nav'>
           <li className='Header-li'>
             <Link to='/calendar'>
-              <FontAwesomeIcon icon={farCalendarAlt} />
+              <img src={Calendar} alt='calendar-icon' />
             </Link>
           </li>
           <li className='Header-li'>
