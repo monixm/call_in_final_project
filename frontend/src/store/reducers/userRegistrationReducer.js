@@ -1,6 +1,8 @@
 import { USER_REGISTRATION_SUCCESS } from '../types';
 
 const initialState = {
+  token: null,
+  authenticated: null,
   registered: false,
   validated: false
 };

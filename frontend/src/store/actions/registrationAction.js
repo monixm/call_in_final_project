@@ -1,21 +1,20 @@
 import { baseUrl } from '../constants';
-import { SET_TOKEN } from '../types';
-import { setTokenAction } from '../actions/setTokenAction';
+import { USER_REGISTRATION_SUCCESS } from '../types';
 import { getVolunteerProfileAction } from './getVolunteerProfileAction';
 
-export const Registration = token => ({
-  type: SET_TOKEN,
+export const registration = token => ({
+  type: USER_REGISTRATION_SUCCESS,
   payload: token
 });
 
-export const registrationAction = data => async (dispatch, getState) => {
+export const registrationAction = email => async (dispatch, getState) => {
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
 
-  const body = JSON.stringify(data);
+  const body = JSON.stringify(email);
 
-  console.log(data);
+  console.log(body);
 
   const config = {
     headers,
@@ -24,13 +23,11 @@ export const registrationAction = data => async (dispatch, getState) => {
   };
 
   const response = await fetch(`${baseUrl}backend/api/registration`, config);
-  const tokenfetch = await fetch(`${baseUrl}backend/api/auth/token`, config);
-  const token = await tokenfetch.json();
+  const token = await response.json();
   console.log(token);
-  if (response.ok) {
+  if (response) {
     localStorage.setItem('token', token);
   }
-  dispatch(setTokenAction(token));
-  //   dispatch(getVolunteerProfileAction());
+  dispatch(registration(token));
   return token;
 };
