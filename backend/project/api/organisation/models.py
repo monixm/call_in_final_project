@@ -58,6 +58,7 @@ class Organisation(models.Model):
     user = models.ForeignKey(
         verbose_name='user',
         to=User,
+        related_name='organisation',
         on_delete=models.SET_NULL,
         null=True
     )
@@ -70,4 +71,4 @@ class Organisation(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return self.name + ' ' + ' - ' + self.type
+        return f'{self.name} - {self.user}'

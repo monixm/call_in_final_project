@@ -2,7 +2,7 @@ from django.urls import path
 from .views import GetEvents, EventCreateView, \
     GetEventsByOrg, EventGetUpdateDeleteView
 
-app_name = 'auth'
+app_name = 'event'
 
 urlpatterns = [
     path('new/', EventCreateView.as_view(), name='create_event'),
