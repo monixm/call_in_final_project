@@ -1,23 +1,23 @@
-import { connect } from 'react-redux';
-import React, { useState } from 'react';
-import './style.css';
-import { registrationAction } from '../../store/actions/registrationAction';
+import { connect } from "react-redux";
+import React, { useState } from "react";
+import "./style.css";
+import { registrationAction } from "../../store/actions/registrationAction";
 
 const Registration = props => {
-  const [email, setEmail] = useState('monika.malecka19@gmail.com');
+  const [email, setEmail] = useState("monika.malecka19@gmail.com");
 
   const userLoginHandler = e => {
     e.preventDefault();
     const data = props.dispatch(registrationAction(email));
-    if (data) props.history.push('/validate');
+    if (data) props.history.push("/validate");
   };
 
   return (
     <div>
       <h1>Registration</h1>
-      <form>
+      <form onSubmit={userLoginHandler}>
         <input
-          type='email'
+          type="email"
           value={email}
           onChange={e => setEmail(e.currentTarget.value)}
         ></input>
