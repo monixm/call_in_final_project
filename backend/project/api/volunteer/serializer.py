@@ -10,8 +10,9 @@ class VolunteerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Volunteer
-        fields = ['id', 'first_name', 'last_name', 'location', 'social_media',
-                  'profile_picture', 'privacy_setting', 'user', 'interests']
+        fields = ['id', 'first_name', 'last_name', 'location', 'facebook',
+                  'instagram', 'linkedin', 'profile_picture', 'privacy_setting',
+                  'user', 'interests']
         extra_kwargs = {
             'user': {'required': False}
         }
@@ -26,7 +27,7 @@ class VolunteerSerializer(serializers.ModelSerializer):
         focus_serializer.create(interests_data)
         return instance
 
-    def update(self, instance, validated_data):
+    def partial_update(self, instance, validated_data):
         interests_update = validated_data.pop('interests')
         interests = instance.interests
         focus_serializer = self.fields['interests']

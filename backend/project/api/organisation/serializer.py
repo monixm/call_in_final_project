@@ -10,8 +10,9 @@ class OrganisationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Organisation
-        fields = ['id', 'name', 'type', 'privacy_setting', 'profile_pic', 'location',
-                  'description', 'website', 'phone', 'user', 'focus']
+        fields = ['id', 'type', 'name', 'location', 'privacy_setting', 'profile_pic',
+                  'description', 'website', 'phone', 'user', 'facebook', 'instagram',
+                  'linkedin', 'focus']
         extra_kwargs = {
             'user': {'required': False}
         }
@@ -26,7 +27,7 @@ class OrganisationSerializer(serializers.ModelSerializer):
         focus_serializer.create(focus_data)
         return instance
 
-    def update(self, instance, validated_data):
+    def partial_update(self, instance, validated_data):
         focus_update = validated_data.pop('focus')
         focus = instance.focus
         focus_serializer = self.fields['focus']
