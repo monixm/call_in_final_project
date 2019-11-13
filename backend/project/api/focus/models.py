@@ -5,17 +5,21 @@ from project.api.organisation.models import Organisation
 
 class Focus(models.Model):
     organisation = models.OneToOneField(
-      verbose_name='organisation',
-      to=Organisation,
-      related_name='focus',
-      on_delete=models.CASCADE
+        verbose_name='organisation',
+        to=Organisation,
+        related_name='focus',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 
     volunteer = models.OneToOneField(
         verbose_name='volunteer',
         to=Volunteer,
         related_name='interests',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 
     social = models.CharField(
@@ -39,13 +43,12 @@ class Focus(models.Model):
     arts_culture = models.CharField(
         verbose_name='arts & culture',
         max_length=150,
-        null=True,
         blank=True
     )
+
     coaching = models.CharField(
         verbose_name='coaching',
         max_length=150,
-        null=True,
         blank=True
     )
 
@@ -66,3 +69,9 @@ class Focus(models.Model):
         max_length=150,
         blank=True
     )
+
+    def __str__(self):
+        if self.organisation:
+            return f'Focus of: {self.organisation}'
+        elif self.volunteer:
+            return f'Interests of: {self.volunteer}'
