@@ -44,6 +44,27 @@ class Organisation(models.Model):
         blank=True,
     )
 
+    facebook = models.URLField(
+        verbose_name='facebook',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    instagram = models.URLField(
+        verbose_name='instagram',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    linkedin = models.URLField(
+        verbose_name='LinkedIn',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
     document = models.FileField(
         upload_to='media-files/organisation/file',
         verbose_name='document',
@@ -78,16 +99,15 @@ class Organisation(models.Model):
 
     terms_of_services = models.BooleanField(
         choices=BOOL_CHOICES,
-        default=True
+        default=False
     )
 
     # Relations:
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         verbose_name='user',
         to=User,
         related_name='organisation',
-        on_delete=models.SET_NULL,
-        null=True
+        on_delete=models.CASCADE
     )
 
     class Meta:

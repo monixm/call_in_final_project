@@ -20,8 +20,22 @@ class Volunteer(models.Model):
         max_length=50
     )
 
-    social_media = models.CharField(
-        verbose_name='social media',
+    facebook = models.URLField(
+        verbose_name='facebook',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    instagram = models.URLField(
+        verbose_name='instagram',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    linkedin = models.URLField(
+        verbose_name='LinkedIn',
         max_length=100,
         blank=True,
         null=True
