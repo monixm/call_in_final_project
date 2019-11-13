@@ -18,10 +18,10 @@ return (
                 onChange={this.props.onChange_Sports} placeholder='Do you do sports activities?'/>
             <p className='org-focus-arts'>Arts &amp; culture</p>
             <textarea className="org-focus-arts-textarea" value={this.props.value_ArtsCulture} 
-                onChange={this.props.onChange_artsCulture} placeholder='Do you have cultural events or workshops?'/>
+                onChange={this.props.onChange_ArtsCulture} placeholder='Do you have cultural events or workshops?'/>
             <p className='org-focus-coaching'>Coaching</p>
             <textarea className="org-focus-coaching-textarea" value={this.props.value_Coaching} 
-                onChange={this.props.onChange_ArtsCulture} placeholder='What kind of coachings are you offering?'/>
+                onChange={this.props.onChange_Coaching} placeholder='What kind of coachings are you offering?'/>
             <p className='org-focus-food'>Food</p>
             <textarea className="org-focus-food-textarea" value={this.props.value_Food} 
                 onChange={this.props.onChange_Food} placeholder='Do you need Volunteers to cook for your events?'/>
