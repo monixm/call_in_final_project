@@ -8,6 +8,8 @@ import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
+import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
+import Login from "../containers/Login";
 
 class Routes extends Component {
   render() {
@@ -21,6 +23,12 @@ class Routes extends Component {
         <Route exact path='/volunteer' component={VolunteerProfile} />
         <Route exact path='/calendar' component={Calendar} />
         <Route exact path='/chat' component={Chat} />
+        <Route exact path="/" component={Login} />
+        <Route
+          exact
+          path="/create_volunteer"
+          component={CreateVolunteerProfile}
+        />
       </>
     );
   }

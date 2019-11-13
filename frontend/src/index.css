@@ -1,5 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f5f2ee;
+  color: #574947;
+}
+
+button {
+  color: #f2e2b0;
+  font-size: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
