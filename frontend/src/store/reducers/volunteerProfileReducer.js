@@ -1,7 +1,8 @@
-import { GET_VOLUNTEER_PROFILE } from '../types';
+import { GET_VOLUNTEER_PROFILE } from "../types";
 
 const initialState = {
-  user: []
+  user: [],
+  interests: {}
 };
 
 export const volunteerProfileReducer = (state = initialState, action) => {

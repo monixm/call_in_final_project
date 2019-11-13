@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+import AuthComponent from "../HOC/authComponent";
 import Search from "../components/Search";
 import VolunteerProfile from "../components/VolunteerProfile";
 import Calendar from "../components/Calendar";
@@ -16,14 +17,18 @@ class Routes extends Component {
         <Route exact path="/" component={Login} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/validate" component={ValidateRegistration} />
-        <Route exact path="/search" component={Search} />
-        <Route exact path="/volunteer" component={VolunteerProfile} />
-        <Route exact path="/calendar" component={Calendar} />
-        <Route exact path="/chat" component={Chat} />
+        <Route exact path="/search" component={AuthComponent(Search)} />
+        <Route
+          exact
+          path="/volunteer/:id"
+          component={AuthComponent(VolunteerProfile)}
+        />
+        <Route exact path="/calendar" component={AuthComponent(Calendar)} />
+        <Route exact path="/chat" component={AuthComponent(Chat)} />
         <Route
           exact
           path="/create_volunteer"
-          component={CreateVolunteerProfile}
+          component={AuthComponent(CreateVolunteerProfile)}
         />
       </>
     );

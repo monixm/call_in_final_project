@@ -6,7 +6,7 @@
 
 .volunteer-profile h4 {
   font-size: 15px;
-  color: #4497bd;
+  color: #dd6956;
   text-align: center;
 }
 
@@ -63,9 +63,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom: 20px;
-  border-bottom: 10px solid #f2e2b0;
   margin-top: -30px;
+  margin-bottom: 19px;
 }
 
 .volunteer-interests h4,

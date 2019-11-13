@@ -13,8 +13,6 @@ class VolunteerProfile extends Component {
     this.props.dispatch(getVolunteerProfileAction(volunteerId));
   }
 
-
-
   render() {
     const { user } = this.props;
     return (
@@ -45,8 +43,6 @@ class VolunteerProfile extends Component {
           <div className="volunteer-interests">
             <VolunteerInterests />
           </div>
-
-
           <div className="color-break"></div>
         </div>
       </>
