@@ -1,5 +1,6 @@
+import {baseUrl} from "../constants";
 
-export const createProfileAction = (content) => async (dispatch) => {
+export const createNGOProjectProfileAction = (content) => async (dispatch) => {
 
     // const token = localStorage.getItem('token');
 
@@ -10,10 +11,12 @@ export const createProfileAction = (content) => async (dispatch) => {
     
     const data = {
         name: content.organisationName,
-        type:'',
+        type: content.organisationType,
+        privacy_setting: 'public',
         location: content.organisationLocation,
         description: content.organisationDescription,
-        phone: content.organisationContact.phone,
+        phone: '076455366477',
+        terms_of_services: content.organisationTerms,
 
     }
 
@@ -22,9 +25,9 @@ export const createProfileAction = (content) => async (dispatch) => {
         headers,
         body: JSON.stringify(data)
         };
+    console.log(config)
 
-    await fetch("http://localhost:8003/backend/api/organisations/new/", config);
+    await fetch(`${baseUrl}backend/api/organisations/new/`, config);
 
     // dispatch({ type: 'post', payload: token });
 }
-

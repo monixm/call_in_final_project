@@ -7,7 +7,7 @@ import FocusPopup from './focusPopup';
 import ContactPopup from './contactPopup';
 import location_logo from '../../assets/location_logo.svg';
 import upload_image from '../../assets/upload-image.svg';
-import { createProfileAction } from '../../store/actions/createProfileAction';
+import { createNGOProjectProfileAction } from '../../store/actions/CreateNGOProjectProfileAction';
 
 class Feed extends Component {
     constructor(props){
@@ -135,7 +135,7 @@ class Feed extends Component {
     }
 
     handleCreateProfile = () => {
-        this.props.dispatch(createProfileAction(this.state.information))
+        this.props.dispatch(createNGOProjectProfileAction(this.state.information))
     }
 
     profilePictureHandler = e => {
@@ -144,11 +144,23 @@ class Feed extends Component {
         })
     }
 
-    fileUploadHandler = () => {
-        const fd = new FormData();
-        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        fetch('', fd)
+    nameValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationName = e.currentTarget.value
+        this.setState(newState)
     }
+
+    locationValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationLocation = e.currentTarget.value
+        this.setState(newState)
+    }
+
+//    fileUploadHandler = () => {
+//        const fd = new FormData();
+//        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+//        fetch('', fd)
+//    }
 
     render() {
 
@@ -156,16 +168,16 @@ class Feed extends Component {
             <div>
                 <p className='ngo-choose'>Please choose what fits you best:</p>
             <div>
-            <input className='ngo-radio' value='Non-profit organisation' type="radio" id="non-profit" name="radioA" onClick={this.handleTypeInput} /> <label className='ngo-radio-label' for="non-profit">Non-profit <br />organisation</label>
-            <input className='project-radio' value='Project' type="radio" id="project" name="radioA" onClick={this.handleTypeInput} /> <label className='project-radio-label' for="project">Project</label>
+            <input className='ngo-radio' value='Non-profit organisation' type="radio" id="non-profit" name="radioA" onClick={this.handleTypeInput} /> <label className='ngo-radio-label' htmlFor="non-profit">Non-profit <br />organisation</label>
+            <input className='project-radio' value='Project' type="radio" id="project" name="radioA" onClick={this.handleTypeInput} /> <label className='project-radio-label' htmlFor="project">Project</label>
             </div>
                 <form className='name-org-form'>
                     <p className="name-org">Name</p>
-                    <input className='name-org-input' id='name-org' value={this.state.organisationName} onChange={e => this.setState({organisationName: e.currentTarget.value})} type='text' name='name' required/>
+                    <input className='name-org-input' id='name-org' value={this.state.information.organisationName} onChange={this.nameValue} type='text' name='name' required/>
                 </form>
                 <form className='location-org-form'>
                     <p className="location-org">Where are you located?</p><img className='location-logo' src={location_logo} alt=''/>
-                    <input className='location-org-input' id='location-org' value={this.state.organisationLocation} onChange={e => this.setState({organisationLocation: e.currentTarget.value})} type='text' name='location' required/>
+                    <input className='location-org-input' id='location-org' value={this.state.information.organisationLocation} onChange={this.locationValue} type='text' name='location' required/>
                 </form>
                 <div>
                     <p className="ngo-pro-desc">Description</p>

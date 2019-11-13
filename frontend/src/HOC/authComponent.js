@@ -17,7 +17,7 @@ export default WrapperComponent => {
       this.redirect();
     }
 
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
       this.redirect();
     }
 
