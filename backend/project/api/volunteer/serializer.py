@@ -32,5 +32,3 @@ class VolunteerSerializer(serializers.ModelSerializer):
         focus_serializer = self.fields['interests']
         focus_serializer.update(interests, interests_update)
         return super().update(instance, validated_data)
-
-
