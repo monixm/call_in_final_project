@@ -3,6 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, GenericAPIView
 
+from project.api.auth.serializers import User
 from project.api.call.models import Call
 from project.api.call.serializer import CallSerializer
 from project.api.permissions import IsOwnerOrReadOnlyCallAndEvent
@@ -28,9 +29,8 @@ class CreateCall(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        serializer = self.get_serializer(
-            data=request.data
-        )
+        user = User.objects.get(id=request.user.id)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         call = serializer.create(serializer.validated_data)
         return Response(CallSerializer(call).data)
