@@ -1,4 +1,4 @@
-import {baseUrl} from "../constants";
+//import {baseUrl} from "../constants";
 
 export const createNGOProjectProfileAction = (content) => async (dispatch) => {
 
@@ -12,7 +12,7 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
     const data = {
         name: content.organisationName,
         type: content.organisationType,
-        privacy_setting: 'public',
+        privacy_setting: content.privacy_setting,
         location: content.organisationLocation,
         description: content.organisationDescription,
         phone: '076455366477',
@@ -26,7 +26,7 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
             food: content.organisationFocus.food,
             politics: content.organisationFocus.politics,
             items: content.organisationFocus.items,
-        }
+        },
     }
 
     const config = {

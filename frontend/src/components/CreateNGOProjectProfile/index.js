@@ -5,6 +5,7 @@ import './index.css';
 import DescriptionPopup from './descriptionPopup';
 import FocusPopup from './focusPopup';
 import ContactPopup from './contactPopup';
+import PrivacyPopup from "./privacyPopup";
 import location_logo from '../../assets/location_logo.svg';
 import upload_image from '../../assets/upload-image.svg';
 import { createNGOProjectProfileAction } from '../../store/actions/CreateNGOProjectProfileAction';
@@ -29,15 +30,16 @@ class Feed extends Component {
                   items:''
               },
                 organisationContact: {
-                    email:'',
                     website:'',
                     phone:''
                 },
               organisationTerms:'',
+                privacy_setting:''
             },
           showDescriptionPopup: false,
           showFocusPopup: false,
           showContactPopup: false,
+            showPrivacyPopup: false,
             profilePicture: null
         }
     }
@@ -60,13 +62,19 @@ class Feed extends Component {
         this.setState({
             showFocusPopup: !this.state.showFocusPopup
         });
-        }
+    }
 
     toggleContactPopup() {
         this.setState({
             showContactPopup: !this.state.showContactPopup
         });
-        }
+    }
+
+     togglePrivacyPopup() {
+        this.setState({
+            showPrivacyPopup: !this.state.showPrivacyPopup
+        });
+    }
 
     changeSocialValue = e => {
         let newState = {...this.state}
@@ -122,6 +130,18 @@ class Feed extends Component {
         this.setState(newState)
     }
 
+    changeWebsiteValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationContact.website = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    changePhoneValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationContact.phone = e.currentTarget.value
+        this.setState(newState)
+    }
+
     handleTypeInput = e => {
         let newState = {...this.state}
         newState.information.organisationType = e.currentTarget.value
@@ -131,6 +151,12 @@ class Feed extends Component {
     handleTermsInput = e => {
         let newState = {...this.state}
         newState.information.organisationTerms = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    handlePrivacyInput = e => {
+        let newState = {...this.state}
+        newState.information.privacy_setting = e.currentTarget.value
         this.setState(newState)
     }
 
@@ -190,8 +216,8 @@ class Feed extends Component {
                     <button className='btn-org-contact-info' onClick={this.toggleContactPopup.bind(this)}>Fill out</button>
                     <p className='ngo-pro-connect'>Would you like to connect to Facebook page, Instagram, Linkedin?</p>
                     <button className='btn-org-profile-1'>Add profile</button>
-                    <button className='btn-org-profile-2'>Add profile</button>
-                    <button className='btn-org-profile-3'>Add profile</button>
+                    <p className='ngo-pro-privacy' >Privacy settings</p>
+                    <button className='btn-org-privacy' onClick={this.togglePrivacyPopup.bind(this)}>Manage</button>
                     <p className='ngo-pro-picture'>Please add a profile picture:</p>
                     <img onClick={() => this.fileInput.click()} className='image_upload' src={upload_image} alt=''/>
                     <input style={{display: 'none'}}
@@ -237,7 +263,19 @@ class Feed extends Component {
                 <div className='contact-popup-screen'>
                     {this.state.showContactPopup ?
                     <ContactPopup
-                            closePopup={this.toggleContactPopup.bind(this)} />  : null  }
+                            closePopup={this.toggleContactPopup.bind(this)}
+                            value_Website={this.state.information.organisationContact.website}
+                            onChange_Website={this.changeWebsiteValue}
+                            value_Phone={this.state.information.organisationContact.phone}
+                            onChange_Phone={this.changePhoneValue}
+                    />  : null  }
+                </div>
+                <div className='contact-privacy-screen'>
+                    {this.state.showPrivacyPopup ?
+                    <PrivacyPopup
+                            closePopup={this.togglePrivacyPopup.bind(this)}
+                            handlePrivacyInput={this.handlePrivacyInput}
+                    />  : null  }
                 </div>
             </div>
         )
