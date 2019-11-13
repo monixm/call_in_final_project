@@ -23,7 +23,8 @@ class Volunteer(models.Model):
     social_media = models.CharField(
         verbose_name='social media',
         max_length=100,
-        blank=True
+        blank=True,
+        null=True
     )
 
     profile_picture = models.ImageField(
