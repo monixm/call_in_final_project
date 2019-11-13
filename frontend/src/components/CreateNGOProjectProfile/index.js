@@ -38,6 +38,7 @@ class Feed extends Component {
           showDescriptionPopup: false,
           showFocusPopup: false,
           showContactPopup: false,
+            profilePicture: null
         }
     }
 
@@ -115,7 +116,7 @@ class Feed extends Component {
         this.setState(newState)
     }
 
-    changeItems = e => {
+    changeItemsValue = e => {
         let newState = {...this.state}
         newState.information.organisationFocus.items = e.currentTarget.value
         this.setState(newState)
@@ -135,6 +136,18 @@ class Feed extends Component {
 
     handleCreateProfile = () => {
         this.props.dispatch(createProfileAction(this.state.information))
+    }
+
+    profilePictureHandler = e => {
+        this.setState({
+            profilePicture: e.target.files[0]
+        })
+    }
+
+    fileUploadHandler = () => {
+        const fd = new FormData();
+        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        fetch('', fd)
     }
 
     render() {
@@ -168,7 +181,12 @@ class Feed extends Component {
                     <button className='btn-org-profile-2'>Add profile</button>
                     <button className='btn-org-profile-3'>Add profile</button>
                     <p className='ngo-pro-picture'>Please add a profile picture:</p>
-                    <img className='image_upload' src={upload_image} alt=''/>
+                    <img onClick={() => this.fileInput.click()} className='image_upload' src={upload_image} alt=''/>
+                    <input style={{display: 'none'}}
+                           type='file'
+                           onChange={this.profilePictureHandler}
+                           ref={fileInput => this.fileInput = fileInput}/>
+                    <button onClick={this.fileUploadHandler}>Upload</button>
                     <p className='ngo-pro-accept'>Do you accept the terms and conditions of our platform?</p>
                     <div>
                     <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit" name="radioA" onClick={this.handleTermsInput} /> <label className='ngo-terms-radio-label' for="non-profit">yes</label>
