@@ -3,7 +3,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, GenericAPIView
 
-from project.api.auth.serializers import User
 from project.api.call.models import Call
 from project.api.call.serializer import CallSerializer
 from project.api.permissions import IsOwnerOrReadOnlyCallAndEvent
