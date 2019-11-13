@@ -3,8 +3,13 @@ from django.db import models
 
 
 class Organisation(models.Model):
+
     # Attributes:
-    name = models.CharField(verbose_name='name', max_length=200)
+    name = models.CharField(
+        verbose_name='name',
+        max_length=200
+    )
+
     NGO = 'Non-profit organisation'
     PROJECT = 'Project'
     type = models.CharField(
@@ -16,6 +21,7 @@ class Organisation(models.Model):
         ),
         default=NGO
     )
+
     PUBLIC = 'public'
     PRIVATE = 'private'
     CONTROLLED = 'controlled'
@@ -31,28 +37,49 @@ class Organisation(models.Model):
         ),
         default=PRIVATE
     )
+
     profile_pic = models.ImageField(
         upload_to='media-files/organisation/images',
         verbose_name='image',
         blank=True,
     )
+
     document = models.FileField(
         upload_to='media-files/organisation/file',
         verbose_name='document',
         null=True,
         blank=True
     )
+
     created = models.DateTimeField(
         verbose_name='created',
         auto_now_add=True,
         null=True
     )
-    location = models.CharField(max_length=200)
-    description = models.TextField(verbose_name='description')
-    website = models.CharField(max_length=200, blank=True)
-    phone = models.CharField(max_length=200)
+
+    location = models.CharField(
+        max_length=200
+    )
+
+    description = models.TextField(
+        verbose_name='description'
+    )
+
+    website = models.CharField(
+        max_length=200,
+        blank=True
+    )
+
+    phone = models.CharField(
+        max_length=200
+    )
+
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
-    terms_of_services = models.BooleanField(choices=BOOL_CHOICES, default=True)
+
+    terms_of_services = models.BooleanField(
+        choices=BOOL_CHOICES,
+        default=True
+    )
 
     # Relations:
     user = models.ForeignKey(
@@ -62,10 +89,6 @@ class Organisation(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-
-# focus
-# calls
-# events
 
     class Meta:
         ordering = ['created']

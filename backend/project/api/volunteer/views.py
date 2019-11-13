@@ -31,7 +31,7 @@ class VolunteerCreateView(GenericAPIView):
     def post(self, request):
         serializer = self.get_serializer(
             data=request.data,
-            context={'request': request},
+            # context={'request': request},
         )
         serializer.is_valid(raise_exception=True)
         volunteer = serializer.create(serializer.validated_data)
