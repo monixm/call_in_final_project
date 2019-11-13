@@ -9,7 +9,7 @@ return (
             <p className='org-focus-title'>What kind of focus does your organisation or project have?</p>
             <p className='org-focus-social'>Social</p>
             <textarea className="org-focus-social-textarea" value={this.props.value_Social}
-                onChange={this.props.onChange_Social} placeholder='What social activities does your organisation do?'/>
+                onChange={this.props.onChange_Social} placeholder='What social activities does your organisation do?' />
             <p className='org-focus-languages'>Languages</p>
             <textarea className="org-focus-languages-textarea" value={this.props.value_Languages} 
                 onChange={this.props.onChange_Languages} placeholder='Which languages are required?'/>

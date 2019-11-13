@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom'
 import './index.css';
 import DescriptionPopup from './descriptionPopup';
 import FocusPopup from './focusPopup';
@@ -40,17 +39,9 @@ class Feed extends Component {
           showFocusPopup: false,
           showContactPopup: false,
             showPrivacyPopup: false,
-            profilePicture: null
+            profilePicture: null,
         }
     }
-
-    // getRedirect = () => {
-    // if (this.state.filloutDescription) {
-    //     return <Redirect to='/fillout-description' />
-    // } else if (this.state.individualProfile) {
-    //     return <Redirect to='/upload-document' />
-    // }
-    // }
 
     toggleDescriptionPopup() {
     this.setState({
@@ -78,7 +69,7 @@ class Feed extends Component {
 
     changeSocialValue = e => {
         let newState = {...this.state}
-        newState.information.organisationFocus.social = e.currentTarget.value
+        newState.information.organisationFocus.languages = e.currentTarget.value
         this.setState(newState)
     }
 
@@ -182,11 +173,6 @@ class Feed extends Component {
         this.setState(newState)
     }
 
-//    fileUploadHandler = () => {
-//        const fd = new FormData();
-//        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-//        fetch('', fd)
-//    }
 
     render() {
 
@@ -194,23 +180,31 @@ class Feed extends Component {
             <div>
                 <p className='ngo-choose'>Please choose what fits you best:</p>
             <div>
-            <input className='ngo-radio' value='Non-profit organisation' type="radio" id="non-profit" name="radioA" onClick={this.handleTypeInput} /> <label className='ngo-radio-label' htmlFor="non-profit">Non-profit <br />organisation</label>
-            <input className='project-radio' value='Project' type="radio" id="project" name="radioA" onClick={this.handleTypeInput} /> <label className='project-radio-label' htmlFor="project">Project</label>
+                <input className='ngo-radio' value='Non-profit organisation' type="radio" id="non-profit" name="radioA"
+                   onClick={this.handleTypeInput} />
+                   <label className='ngo-radio-label' htmlFor="non-profit">Non-profit <br />organisation</label>
+                <input className='project-radio' value='Project' type="radio" id="project" name="radioA"
+                   onClick={this.handleTypeInput} />
+                   <label className='project-radio-label' htmlFor="project">Project</label>
             </div>
                 <form className='name-org-form'>
                     <p className="name-org">Name</p>
-                    <input className='name-org-input' id='name-org' value={this.state.information.organisationName} onChange={this.nameValue} type='text' name='name' required/>
+                    <input className='name-org-input' id='name-org' value={this.state.information.organisationName}
+                           onChange={this.nameValue} type='text' name='name' required/>
                 </form>
                 <form className='location-org-form'>
                     <p className="location-org">Where are you located?</p><img className='location-logo' src={location_logo} alt=''/>
-                    <input className='location-org-input' id='location-org' value={this.state.information.organisationLocation} onChange={this.locationValue} type='text' name='location' required/>
+                    <input className='location-org-input' id='location-org' value={this.state.information.organisationLocation}
+                           onChange={this.locationValue} type='text' name='location' required/>
                 </form>
                 <div>
                     <p className="ngo-pro-desc">Description</p>
-                    <p className="ngo-pro-upload"><b>Please upload a verification document:</b><div className='doc-small-font'>(this is to secure the safety of individuals who will collaborate with you)</div></p>
+                    <p className="ngo-pro-upload"><b>Please upload a verification document:</b>
+                        <div className='doc-small-font'>(this is to secure the safety of individuals who will collaborate with you)</div></p>
                     <button className='btn-ngo-pro-upload'>Upload document</button>
                     <button className='btn-fill-out' onClick={this.toggleDescriptionPopup.bind(this)}>Fill out</button>
-                    <p className="ngo-pro-focus"><b>What kind of focus does your organisation or project have? </b><br /><div className='doc-small-font'>(please add keywords)</div></p>
+                    <p className="ngo-pro-focus"><b>What kind of focus does your organisation or project have? </b><br />
+                        <div className='doc-small-font'>(please add keywords)</div></p>
                     <button className='btn-fill-out-focus' onClick={this.toggleFocusPopup.bind(this)}>Fill out</button>
                     <p className="org-contact-info">Contact information</p>
                     <button className='btn-org-contact-info' onClick={this.toggleContactPopup.bind(this)}>Fill out</button>
@@ -227,10 +221,12 @@ class Feed extends Component {
                     <button onClick={this.fileUploadHandler}>Upload</button>
                     <p className='ngo-pro-accept'>Do you accept the terms and conditions of our platform?</p>
                     <div>
-                    <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit" name="radioA" onClick={this.handleTermsInput} /> <label className='ngo-terms-radio-label' for="non-profit">yes</label>
-                    <input className='project-terms-radio' value='No' type="radio" id="project" name="radioA" onClick={this.handleTermsInput} /> <label className='project-terms-radio-label' for="project">no</label>
+                    <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit" name="radioA" onClick={this.handleTermsInput} />
+                        <label className='ngo-terms-radio-label' for="non-profit">yes</label>
+                    <input className='project-terms-radio' value='No' type="radio" id="project" name="radioA" onClick={this.handleTermsInput} />
+                        <label className='project-terms-radio-label' for="project">no</label>
                     </div>
-                    <button className='btn-org-create-profile' onClick={this.handleCreateProfile}>Create profile</button>
+                        <button className='btn-org-create-profile' onClick={this.handleCreateProfile}>Create profile</button>
                 </div>
                 <div className='desc-popup-screen'>
                     {this.state.showDescriptionPopup ?

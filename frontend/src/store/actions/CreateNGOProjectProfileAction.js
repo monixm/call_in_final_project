@@ -15,7 +15,8 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
         privacy_setting: content.privacy_setting,
         location: content.organisationLocation,
         description: content.organisationDescription,
-        phone: '076455366477',
+        website: content.organisationContact.website,
+        phone: content.organisationContact.phone,
         terms_of_services: content.organisationTerms,
         focus: {
             social: content.organisationFocus.social,
@@ -36,9 +37,5 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
         };
     console.log(config)
 
-//    await fetch(`${baseUrl}backend/api/organisations/new/`, config);
     await fetch(`http://localhost:8003/backend/api/organisations/new/`, config);
-
-
-    // dispatch({ type: 'post', payload: token });
 }
