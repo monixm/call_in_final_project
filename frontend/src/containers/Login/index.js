@@ -3,13 +3,13 @@ import { userLoginAction } from '../../store/actions/loginAction';
 import { connect } from 'react-redux';
 
 const Login = props => {
-  const [username, setUsername] = useState('monixm');
-  const [password, setPassword] = useState('monixm1989');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
 
   const userLoginHandler = e => {
     e.preventDefault();
-    const data = props.dispatch(userLoginAction(username, password));
-    if (data) props.history.push('/volunteer');
+    props.dispatch(userLoginAction(username, password));
   };
 
   return (

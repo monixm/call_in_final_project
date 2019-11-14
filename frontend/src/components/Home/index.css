@@ -1,0 +1,174 @@
+body {
+    background: #F5F2EE;
+}
+
+.login-container {
+    width: 100vw;
+}
+
+.start-header {
+    position: absolute;
+    width: 360px;
+    height: 54px;
+    left: 0px;
+    top: 115px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+
+    color: #574947;
+}
+
+.header-start-c {
+    position: absolute;
+    left: 31.78%;
+    right: 61.56%;
+    top: 11.09%;
+    bottom: 83.59%;
+}
+
+.header-start-a {
+    position: absolute;
+    left: 39.66%;
+    right: 54.98%;
+    top: 12.6%;
+    bottom: 83.59%;
+}
+
+.header-start-l-1 {
+    position: absolute;
+    left: 47.03%;
+    right: 50.33%;
+    top: 11.14%;
+    bottom: 83.64%;
+}
+
+.header-start-l-2 {
+    position: absolute;
+    left: 51.09%;
+    right: 46.27%;
+    top: 11.14%;
+    bottom: 83.64%;
+}
+
+.header-start-i {
+    position: absolute;
+    left: 58.2%;
+    right: 39.52%;
+    top: 11.14%;
+    bottom: 83.64%;
+}
+
+.header-start-n {
+    position: absolute;
+    left: 62.23%;
+    right: 31.77%;
+    top: 12.37%;
+    bottom: 83.64%;
+}
+
+.btn-start-organisation {
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: 44px;
+    top: 195px;
+    background: #4497BD;
+    mix-blend-mode: normal;
+    border-radius: 20px;
+    color: #F5F2EE;
+}
+
+.btn-start-org-desc {
+    position: absolute;
+    width: 360px;
+    height: 27px;
+    left: 0px;
+    top: 219px;
+}
+
+.btn-start-individual {
+    position: absolute;
+    width: 192px;
+    height: 20px;
+    left: 84px;
+    top: 261px;
+    background: #4497BD;
+    mix-blend-mode: normal;
+    border-radius: 20px;
+    color: #F5F2EE;
+}
+
+.start-ind-desc {
+    position: absolute;
+    width: 3600px;
+    height: 12px;
+    left: -1620px;
+    top: 285px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 7px;
+    line-height: 8px;
+    text-align: center;
+    color: #574947;
+}
+
+.start-create {
+    position: absolute;
+    width: 360px;
+    height: 54px;
+    left: 0px;
+    top: 322px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #574947;
+}
+
+.start-org-desc {
+    position: absolute;
+    width: 360px;
+    height: 27px;
+    left: 0px;
+    top: 219px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 7px;
+    line-height: 8px;
+    text-align: center;
+
+    color: #574947;
+}
+
+.start-why-part {
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 10px;
+    line-height: 12px;
+
+    color: #574947;
+
+    padding: 0px 10px;
+}
+
+.cont-why-part {
+    position: absolute;
+    width: 306px;
+    height: 217.5px;
+    left: 27px;
+    top: 370px;
+
+    border: 1px solid #574947;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
