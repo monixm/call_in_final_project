@@ -1,16 +1,19 @@
 from datetime import datetime
 
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.response import Response
 
+from django.contrib.auth.models import User
+
 from project.api.call.models import Call
-from project.api.call.serializer import CallSerializer
+from project.api.call.serializer import CallGetSerializer
 from project.api.event.models import Event
 from project.api.event.serializers import EventSerializer
+from project.api.feed.serializers import ReadMeSerializer
 
 
 class CombineListViewFeed(ListAPIView):
-    serializer_class_Calls = CallSerializer
+    serializer_class_Calls = CallGetSerializer
     serializer_class_Event = EventSerializer
 
     def get_queryset_call(self):
@@ -26,3 +29,13 @@ class CombineListViewFeed(ListAPIView):
             "**CALL**": call.data,
             "**EVENT**": event.data
         })
+
+
+class ReadMe(GenericAPIView):
+    serializer_class = ReadMeSerializer
+
+    def get(self, request):
+        user_id = request.user.id
+        user = User.objects.get(id=user_id)
+        serializer = ReadMeSerializer(user)
+        return Response(serializer.data)

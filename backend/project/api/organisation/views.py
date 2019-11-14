@@ -28,10 +28,7 @@ class OrganisationCreateView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        serializer = self.get_serializer(
-            data=request.data,
-            context={'request': request},
-        )
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         organisation = serializer.create(serializer.validated_data)
         return Response(OrganisationSerializer(organisation).data)
