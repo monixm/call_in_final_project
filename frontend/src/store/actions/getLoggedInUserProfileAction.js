@@ -31,5 +31,5 @@ export const getLoggedInUserProfileAction = userId => async (dispatch, getState)
   );
 
   const user = await response.json();
-  dispatch(getVolunteerProfile(user));
+  dispatch(getLoggedInUserProfile(user));
 };

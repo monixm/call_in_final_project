@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import Header from "../Header";
 import VolunteerInterests from "../VolunteerInterests";
-import { getVolunteerProfileAction } from "../../store/actions/getVolunteerProfileAction";
+// import { getVolunteerProfileAction } from "../../store/actions/getVolunteerProfileAction";
+import { getLoggedInUserProfileAction } from "../../store/actions/getLoggedInUserProfileAction";
+import OutsideProfileButtons from "./ButtonsComponent/OutsideProfileButtons";
 
 class VolunteerProfile extends Component {
   async componentDidMount() {
-    const volunteerId = this.props.match.params.id;
+    const userId = this.props.match.params.id;
     console.log(this.props);
-    this.props.dispatch(getVolunteerProfileAction(volunteerId));
+    this.props.dispatch(getLoggedInUserProfileAction(userId));
   }
 
   render() {
@@ -42,7 +44,7 @@ class VolunteerProfile extends Component {
             <div className="color-break"></div>
             <h4>{user.first_name}'s interests in projects and events</h4>
             {/* <div className="volunteer-interests"> */}
-              <VolunteerInterests />
+            <VolunteerInterests />
             {/* </div> */}
             <div className="color-break"></div>
           </div>

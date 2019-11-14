@@ -17,12 +17,13 @@ class Routes extends Component {
         <Route exact path="/" component={Login} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/validate" component={ValidateRegistration} />
+        <Route exact path="/feed/me" component={VolunteerProfile} />
         <Route exact path="/search" component={AuthComponent(Search)} />
-        <Route
+        {/* <Route
           exact
           path="/volunteer/:id"
           component={AuthComponent(VolunteerProfile)}
-        />
+        /> */}
         <Route exact path="/calendar" component={AuthComponent(Calendar)} />
         <Route exact path="/chat" component={AuthComponent(Chat)} />
         <Route
