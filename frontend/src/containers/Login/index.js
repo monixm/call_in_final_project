@@ -5,8 +5,8 @@ import Logo from "../../assets/logo.svg";
 import "./style.css";
 
 const Login = props => {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("monixm");
+  const [password, setPassword] = useState("monixm1989");
 
   const userLoginHandler = e => {
     e.preventDefault();
@@ -22,8 +22,8 @@ const Login = props => {
       <img className="logo" src={Logo} alt="profile-icon" />
       <div className="login-short-intro">
         <h5>
-          Welcome to <span className="login-call-span">Call</span>{" "}
-          <span className="login-in-span">In</span> where we connect non-profit
+          Welcome to <span className="login-call-span">Call</span>
+          <span className="login-in-span"> In</span> where we connect non-profit
           organisations, non-governmental organisations and projects with locals
           and migrants
         </h5>

@@ -1,15 +1,15 @@
 import { baseUrl } from "../constants";
-import { GET_VOLUNTEER_PROFILE } from "../types";
+import { GET_VOLUNTEER_BY_ID } from "../types";
 
 const getVolunteerProfile = user => {
   return {
-    type: GET_VOLUNTEER_PROFILE,
+    type: GET_VOLUNTEER_BY_ID,
     payload: user
   };
 };
 
-export const getVolunteerProfileAction = userId => async (dispatch, getState) => {
-  console.log("id", userId);
+export const getVolunteerProfileAction = volunteerId => async (dispatch, getState) => {
+  console.log("VolunteerId", volunteerId);
   let { token } = getState().userLoginReducer;
   if (!token) {
     token = localStorage.getItem("token");
@@ -26,7 +26,7 @@ export const getVolunteerProfileAction = userId => async (dispatch, getState) =>
   };
 
   const response = await fetch(
-    `${baseUrl}backend/api/volunteers/${userId}`,
+    `${baseUrl}backend/api/volunteers/${volunteerId}`,
     config
   );
 

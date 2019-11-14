@@ -13,7 +13,7 @@ class Header extends Component {
       <div className="navbar">
         <div className="right-nav">
           <li className="Header-li">
-            <NavLink to="/volunteer/:id" activeClassName="chosen">
+            <NavLink to="/feed/me" activeClassName="chosen">
               <img src={Profile} alt="profile-icon" />
             </NavLink>
           </li>

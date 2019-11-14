@@ -8,8 +8,10 @@ const getLoggedInUserProfile = user => {
   };
 };
 
-export const getLoggedInUserProfileAction = userId => async (dispatch, getState) => {
-  console.log("id", userId);
+export const getLoggedInUserProfileAction = () => async (
+  dispatch,
+  getState
+) => {
   let { token } = getState().userLoginReducer;
   if (!token) {
     token = localStorage.getItem("token");
@@ -25,11 +27,9 @@ export const getLoggedInUserProfileAction = userId => async (dispatch, getState)
     method: "GET"
   };
 
-  const response = await fetch(
-    `${baseUrl}backend/api/feed/me`,
-    config
-  );
+  const response = await fetch(`${baseUrl}backend/api/feed/me`, config);
 
   const user = await response.json();
+  console.log(user);
   dispatch(getLoggedInUserProfile(user));
 };

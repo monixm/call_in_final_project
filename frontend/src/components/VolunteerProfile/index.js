@@ -4,15 +4,13 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import Header from "../Header";
 import VolunteerInterests from "../VolunteerInterests";
-// import { getVolunteerProfileAction } from "../../store/actions/getVolunteerProfileAction";
-import { getLoggedInUserProfileAction } from "../../store/actions/getLoggedInUserProfileAction";
-import OutsideProfileButtons from "./ButtonsComponent/OutsideProfileButtons";
+import { getVolunteerProfileAction } from "../../store/actions/getVolunteerByIdAction";
 
 class VolunteerProfile extends Component {
   async componentDidMount() {
     const userId = this.props.match.params.id;
     console.log(this.props);
-    this.props.dispatch(getLoggedInUserProfileAction(userId));
+    this.props.dispatch(getVolunteerProfileAction(userId));
   }
 
   render() {
