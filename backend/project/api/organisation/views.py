@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
-from .serializer import OrganisationSerializer
+from .serializers import OrganisationSerializer
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from .models import Organisation

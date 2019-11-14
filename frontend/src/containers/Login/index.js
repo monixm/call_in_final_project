@@ -5,8 +5,9 @@ import Logo from "../../assets/logo.svg";
 import "./style.css";
 
 const Login = props => {
-  const [username, setUsername] = useState("monixm");
-  const [password, setPassword] = useState("monixm1989");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
 
   const userLoginHandler = e => {
     e.preventDefault();
@@ -31,8 +32,7 @@ const Login = props => {
 
       <form className="login-form">
         <input
-          type="username"
-          placeholder="username"
+          type='username'
           value={username}
           onChange={e => setUsername(e.currentTarget.value)}
         ></input>

@@ -1,11 +1,12 @@
 from rest_framework import generics, status
 from rest_framework.generics import GenericAPIView, get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from project.api.event.models import Event
 from project.api.event.serializers import EventSerializer
 from project.api.volunteer.models import Volunteer
-from project.api.volunteer.serializer import VolunteerSerializer
+from project.api.volunteer.serializers import VolunteerSerializer
 
 
 class ParticipationsListView(generics.ListAPIView):
@@ -18,6 +19,7 @@ class ParticipationsListView(generics.ListAPIView):
 
 class ParticipantsView(GenericAPIView):
     serializer_class = VolunteerSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         event_id = self.kwargs['event_id']
@@ -32,26 +34,18 @@ class ParticipantsView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         event = get_object_or_404(Event, id=kwargs['event_id'])
         try:
-            volunteer = request.user.volunteer.get()
-            if volunteer is None:
-                raise Exception('Volunteer is not defined')
-
+            volunteer = request.user.volunteer
             event.participants.add(volunteer)
-            event.save()
-            return Response('Your signed up to this event', status=status.HTTP_200_OK)
-
+            return Response(
+                'Your participation to this event is confirmed')
         except Exception:
-            return Response('Something went wrong', status=status.HTTP_400_BAD_REQUEST)
+            return Response('You are not a volunteer', status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, *args, **kwargs):
         event = get_object_or_404(Event, id=kwargs['event_id'])
         try:
-            volunteer = request.user.volunteer.get()
-            if volunteer is None:
-                raise Exception('Volunteer is not defined')
-
+            volunteer = request.user.volunteer
             event.participants.remove(volunteer)
-            event.save()
-            return Response('You signed off this event', status=status.HTTP_200_OK)
+            return Response('You signed off the event', status=status.HTTP_200_OK)
         except Exception:
-            return Response('Something went wrong', status=status.HTTP_400_BAD_REQUEST)
+            return Response('You are not a volunteer', status=status.HTTP_400_BAD_REQUEST)
