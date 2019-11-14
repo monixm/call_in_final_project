@@ -7,10 +7,9 @@ const Login = props => {
   const [password, setPassword] = useState('');
 
 
-  const userLoginHandler = e => {
-    e.preventDefault();
-    props.dispatch(userLoginAction(username, password));
-
+  const userLoginHandler = async() => {
+    const data = await props.dispatch(userLoginAction(username, password));
+    if (data) props.history.push('/home');
   };
 
   return (

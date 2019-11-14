@@ -1,4 +1,4 @@
-//import {baseUrl} from "../constants";
+import {baseUrl} from "../constants";
 
 export const createNGOProjectProfileAction = (content) => async (dispatch) => {
 
@@ -37,5 +37,5 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
         };
     console.log(config)
 
-    await fetch(`http://localhost:8003/backend/api/organisations/new/`, config);
+    await fetch(`${baseUrl}backend/api/organisations/new/`, config);
 }

@@ -59,15 +59,10 @@ class Home extends React.Component {
                 <p className='start-create'>Please choose to create a profile...</p>
                 <div className='cont-why-part'>
                 <p className='start-why-part'><b>Why should I participate? </b>
-                <br />
                 <br />1. Be part of the multicultural Call In community of <br />non-profit organisations, non-governmental organisations, <br />and individuals.
-                <br />
                 <br />2. Participate in monthly meet ups in different cities <br />across Switzerland.
-                <br />
                 <br />3. Socialise.
-                <br />
                 <br />4. Get informed of projects happening around you.
-                <br />
                 <br />5. Participate in talks and presentations by migrants, volunteers, <br />and organisations.</p>
                 </div>
            </div>
