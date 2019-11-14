@@ -3,8 +3,13 @@ from django.db import models
 
 
 class Organisation(models.Model):
+
     # Attributes:
-    name = models.CharField(verbose_name='name', max_length=200)
+    name = models.CharField(
+        verbose_name='name',
+        max_length=200
+    )
+
     NGO = 'Non-profit organisation'
     PROJECT = 'Project'
     type = models.CharField(
@@ -16,6 +21,7 @@ class Organisation(models.Model):
         ),
         default=NGO
     )
+
     PUBLIC = 'public'
     PRIVATE = 'private'
     CONTROLLED = 'controlled'
@@ -31,41 +37,78 @@ class Organisation(models.Model):
         ),
         default=PRIVATE
     )
+
     profile_pic = models.ImageField(
         upload_to='media-files/organisation/images',
         verbose_name='image',
         blank=True,
     )
+
+    facebook = models.URLField(
+        verbose_name='facebook',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    instagram = models.URLField(
+        verbose_name='instagram',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
+    linkedin = models.URLField(
+        verbose_name='LinkedIn',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+
     document = models.FileField(
         upload_to='media-files/organisation/file',
         verbose_name='document',
         null=True,
         blank=True
     )
+
     created = models.DateTimeField(
         verbose_name='created',
         auto_now_add=True,
         null=True
     )
-    location = models.CharField(max_length=200)
-    description = models.TextField(verbose_name='description')
-    website = models.CharField(max_length=200, blank=True)
-    phone = models.CharField(max_length=200)
+
+    location = models.CharField(
+        max_length=200
+    )
+
+    description = models.TextField(
+        verbose_name='description'
+    )
+
+    website = models.CharField(
+        max_length=200,
+        blank=True
+    )
+
+    phone = models.CharField(
+        max_length=200
+    )
+
     BOOL_CHOICES = ((True, 'Yes'), (False, 'No'))
-    terms_of_services = models.BooleanField(choices=BOOL_CHOICES, default=True)
+
+    terms_of_services = models.BooleanField(
+        choices=BOOL_CHOICES,
+        default=False
+    )
 
     # Relations:
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         verbose_name='user',
         to=User,
         related_name='organisation',
-        on_delete=models.SET_NULL,
-        null=True
+        on_delete=models.CASCADE
     )
-
-# focus
-# calls
-# events
 
     class Meta:
         ordering = ['created']

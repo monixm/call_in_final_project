@@ -28,9 +28,7 @@ class CreateCall(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        serializer = self.get_serializer(
-            data=request.data
-        )
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         call = serializer.create(serializer.validated_data)
         return Response(CallSerializer(call).data)
