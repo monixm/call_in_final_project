@@ -6,14 +6,14 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 
 from project.api.call.models import Call
-from project.api.feed.serializers import CallFeedSerializer
+from project.api.call.serializers import CallGetSerializer
 from project.api.event.models import Event
 from project.api.event.serializers import EventSerializer
 from project.api.feed.serializers import ReadMeSerializer
 
 
 class CombineListViewFeed(ListAPIView):
-    serializer_class_Calls = CallFeedSerializer
+    serializer_class_Calls = CallGetSerializer
     serializer_class_Event = EventSerializer
 
     def get_queryset_call(self):

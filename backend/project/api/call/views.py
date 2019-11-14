@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.generics import ListAPIView, GenericAPIView
 
 from project.api.call.models import Call
-from project.api.call.serializer import CallSerializer
+from project.api.call.serializers import CallGetSerializer, CallPostSerializer
 from project.api.permissions import IsOwnerOrReadOnlyCallAndEvent
 
 
@@ -12,7 +12,7 @@ class GetAllCalls(ListAPIView):
     """
     GET: Get the list of all the calls.
     """
-    serializer_class = CallSerializer
+    serializer_class = CallGetSerializer
     queryset = Call.objects.all().order_by('-created')
 
     def get_queryset(self):
@@ -24,19 +24,19 @@ class CreateCall(GenericAPIView):
     """
     POST: Create a new call.
     """
-    serializer_class = CallSerializer
+    serializer_class = CallPostSerializer
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         call = serializer.create(serializer.validated_data)
-        return Response(CallSerializer(call).data)
+        return Response(CallGetSerializer(call).data)
 
 
 class GetUpdateDeleteCall(GenericAPIView):
     queryset = Call.objects.all()
-    serializer_class = CallSerializer
+    serializer_class = CallGetSerializer, CallPostSerializer
     permission_classes = [IsOwnerOrReadOnlyCallAndEvent]
 
     """
@@ -49,7 +49,7 @@ class GetUpdateDeleteCall(GenericAPIView):
             self.check_object_permissions(request, call)
         except Call.DoesNotExist:
             return Response(f'This call does not exist', status=status.HTTP_404_NOT_FOUND)
-        serializer = CallSerializer(call)
+        serializer = CallGetSerializer(call)
         return Response(serializer.data)
 
     """
@@ -62,7 +62,7 @@ class GetUpdateDeleteCall(GenericAPIView):
             self.check_object_permissions(request, call)
         except Call.DoesNotExist:
             return Response(f'This call does not exist', status=status.HTTP_404_NOT_FOUND)
-        serializer = CallSerializer(instance=call, data=request.data, partial=True)
+        serializer = CallGetSerializer(instance=call, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
@@ -88,10 +88,10 @@ class GetListCallOfVol(GenericAPIView):
     GET: Get the list of all the calls a volunteer is participating.
     """
     queryset = Call.objects.all()
-    serializer_class = CallSerializer
+    serializer_class = CallPostSerializer
 
     def get(self, request, **kwargs):
         vol_id = self.kwargs.get('vol_id')
         calls = Call.objects.filter(call_options__volunteers=vol_id)
-        serializer = CallSerializer(calls, many=True)
+        serializer = CallGetSerializer(calls, many=True)
         return Response(serializer.data)

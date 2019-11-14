@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from project.api.event.models import Event
 from project.api.event.serializers import EventSerializer
 from project.api.volunteer.models import Volunteer
-from project.api.volunteer.serializer import VolunteerSerializer
+from project.api.volunteer.serializers import VolunteerSerializer
 
 
 class ParticipationsListView(generics.ListAPIView):

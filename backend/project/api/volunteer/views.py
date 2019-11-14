@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from project.api.call_option.models import CallOption
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
 from .models import Volunteer
-from .serializer import VolunteerSerializer
+from .serializers import VolunteerSerializer
 
 
 class GetVolunteers(GenericAPIView):
