@@ -3,8 +3,8 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthComponent from '../HOC/authComponent'
 import Search from '../components/Search';
 import Home from '../components/Home';
-import Registration from '../components/Registration';
-import ValidateRegistration from '../components/ValidateRegistration'
+import Registration from '../containers/Registration';
+import ValidateRegistration from '../containers/ValidateRegistration'
 import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
@@ -28,7 +28,6 @@ class Routes extends Component {
         <Route exact path='/volunteer' component={ AuthComponent(VolunteerProfile) } />
         <Route exact path='/calendar' component={ AuthComponent(Calendar) } />
         <Route exact path='/chat' component={ AuthComponent(Chat) } />
-        {/*<Route exact path="/" component={Login} />*/}
         <Route
           exact
           path="/create_volunteer"
