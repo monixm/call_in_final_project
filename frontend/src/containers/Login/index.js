@@ -11,7 +11,7 @@ const Login = props => {
   const userLoginHandler = e => {
     e.preventDefault();
     const data = props.dispatch(userLoginAction(username, password));
-    if (data) props.history.push("/search");
+    if (data) props.history.push("/volunteer/userId");
   };
 
   return (

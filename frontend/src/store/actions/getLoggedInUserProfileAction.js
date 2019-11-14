@@ -1,14 +1,14 @@
 import { baseUrl } from "../constants";
-import { GET_VOLUNTEER_PROFILE } from "../types";
+import { LOGGED_IN_USER } from "../types";
 
-const getVolunteerProfile = user => {
+const getLoggedInUserProfile = user => {
   return {
-    type: GET_VOLUNTEER_PROFILE,
+    type: LOGGED_IN_USER,
     payload: user
   };
 };
 
-export const getVolunteerProfileAction = userId => async (dispatch, getState) => {
+export const getLoggedInUserProfileAction = userId => async (dispatch, getState) => {
   console.log("id", userId);
   let { token } = getState().userLoginReducer;
   if (!token) {
@@ -26,7 +26,7 @@ export const getVolunteerProfileAction = userId => async (dispatch, getState) =>
   };
 
   const response = await fetch(
-    `${baseUrl}backend/api/volunteers/${userId}`,
+    `${baseUrl}backend/api/feed/me`,
     config
   );
 

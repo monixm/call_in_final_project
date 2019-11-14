@@ -1,8 +1,7 @@
 import { GET_VOLUNTEER_PROFILE } from "../types";
 
 const initialState = {
-  user: [],
-  interests: {}
+  user: null
 };
 
 export const volunteerProfileReducer = (state = initialState, action) => {

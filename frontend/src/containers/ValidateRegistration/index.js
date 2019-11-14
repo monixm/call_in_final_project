@@ -12,7 +12,7 @@ const ValidateRegistration = props => {
   const validationHandler = e => {
     e.preventDefault();
     const data = props.dispatch(registrationAction(email, password));
-    if (data) props.history.push("/login");
+    if (data) props.history.push("/");
   };
 
   return (
