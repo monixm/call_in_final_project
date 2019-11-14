@@ -7,11 +7,11 @@ from rest_framework.response import Response
 from rest_framework.schemas import AutoSchema
 
 from project.api.call.models import Call
-from project.api.call.serializer import CallSerializer
+from project.api.call.serializers import CallGetSerializer
 from project.api.event.models import Event
 from project.api.event.serializers import EventSerializer
 from project.api.volunteer.models import Volunteer
-from project.api.volunteer.serializer import VolunteerSerializer
+from project.api.volunteer.serializers import VolunteerSerializer
 
 
 class SearchView(GenericAPIView):
@@ -94,7 +94,7 @@ class SearchView(GenericAPIView):
                 Q(location__icontains=search_string) |
                 Q(description__icontains=search_string)
             ))
-        serializer = CallSerializer(queryset, many=True)
+        serializer = CallGetSerializer(queryset, many=True)
         return serializer.data
 
     def searchEvents(self, search_string):
