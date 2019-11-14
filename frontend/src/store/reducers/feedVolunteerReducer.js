@@ -1,13 +1,13 @@
-import { GET_VOLUNTEER_FEED } from "../types";
+import { GET_FEED_VOLUNTEER } from "../types";
 
 const initialState = {
-  call: [],
-  event: [] 
+  call: null,
+  event: null
 };
 
 export const feedVolunteerReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_VOLUNTEER_FEED: {
+    case GET_FEED_VOLUNTEER: {
       return { ...state, call: action.payload, event: action.payload };
     }
     default:

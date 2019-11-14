@@ -1,15 +1,14 @@
 import { baseUrl } from "../constants";
-import { GET_VOLUNTEER_FEED } from "./types";
+import { GET_FEED_VOLUNTEER } from "../types";
 
 const getFeedVolunteer = feed => {
   return {
-    type: GET_VOLUNTEER_FEED,
+    type: GET_FEED_VOLUNTEER,
     payload: feed
   };
 };
 
 export const getFeedVolunteerAction = () => async (dispatch, getState) => {
-  console.log("getFeedAction");
   let { token } = getState().userLoginReducer;
   if (!token) {
     token = localStorage.getItem("token");
@@ -25,7 +24,8 @@ export const getFeedVolunteerAction = () => async (dispatch, getState) => {
     method: "GET"
   };
 
-  const response = await fetch(`${baseUrl}api/feed`, config);
+  const response = await fetch(`${baseUrl}backend/api/feed`, config);
+  console.log(response)
   const feed = await response.json();
   console.log(feed);
   dispatch(getFeedVolunteer(feed));

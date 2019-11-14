@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./style.css";
 import Header from "../Header";
+import NoPhoto from '../../assets/no-photo.png'
 import VolunteerInterests from "../VolunteerInterests";
 import { getVolunteerProfileAction } from "../../store/actions/getVolunteerByIdAction";
 
@@ -22,11 +23,14 @@ class VolunteerProfile extends Component {
           <div className="volunteer-profile">
             <div className="volunteer-intro">
               <div className="imgs">
-                <img
+                {user.profile_picture !== null ? (
+                  <img
                   src={user.profile_picture}
                   className="volunteer-profile-pic"
                   alt=""
-                />
+                />) : <img src={NoPhoto}></img>
+                }
+                
               </div>
               <h4 className="volunteer-name">
                 {user.first_name} {user.last_name}
