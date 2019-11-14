@@ -23,13 +23,13 @@ class VolunteerSerializer(serializers.ModelSerializer):
         interests_data = validated_data.pop('interests')
         instance = super(VolunteerSerializer, self).create(validated_data)
         interests_data['volunteer'] = instance
-        focus_serializer = self.fields['interests']
-        focus_serializer.create(interests_data)
+        interests_serializer = self.fields['interests']
+        interests_serializer.create(interests_data)
         return instance
 
     def partial_update(self, instance, validated_data):
         interests_update = validated_data.pop('interests')
         interests = instance.interests
-        focus_serializer = self.fields['interests']
-        focus_serializer.update(interests, interests_update)
+        interests_serializer = self.fields['interests']
+        interests_serializer.update(interests, interests_update)
         return super().update(instance, validated_data)

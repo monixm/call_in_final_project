@@ -28,10 +28,7 @@ class EventCreateView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        serializer = self.get_serializer(
-            data=request.data,
-            context={'request': request},
-        )
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         event = serializer.create(serializer.validated_data)
         return Response(EventSerializer(event).data)
