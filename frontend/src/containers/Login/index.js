@@ -5,13 +5,13 @@ import Logo from "../../assets/logo.svg";
 import "./style.css";
 
 const Login = props => {
-  const [username, setUsername] = useState("monixm");
-  const [password, setPassword] = useState("monixm1989");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
 
   const userLoginHandler = e => {
     e.preventDefault();
-    const data = props.dispatch(userLoginAction(username, password));
-    if (data) props.history.push("/feed/me");
+    props.dispatch(userLoginAction(username, password));
   };
 
   return (

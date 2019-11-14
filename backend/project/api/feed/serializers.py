@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-from project.api.organisation.serializer import OrganisationSerializer
-from project.api.volunteer.serializer import VolunteerSerializer
+from project.api.organisation.serializers import OrganisationSerializer
+from project.api.volunteer.serializers import VolunteerSerializer
 
 
 class ReadMeSerializer(serializers.ModelSerializer):

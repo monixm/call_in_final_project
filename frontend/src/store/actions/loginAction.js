@@ -28,8 +28,7 @@ export const userLoginAction = (username, password) => async (
   console.log(response);
 
   if (token) {
-    localStorage.setItem("token", token.access);
+    localStorage.setItem("token", token);
+    dispatch(userLogin(token));
   }
-  dispatch(userLogin(token.access));
-  return token;
 };
