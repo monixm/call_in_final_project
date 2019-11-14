@@ -12,4 +12,3 @@ class ReadMeSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'organisation', 'volunteer']
-
