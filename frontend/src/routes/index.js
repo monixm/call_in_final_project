@@ -19,7 +19,6 @@ class Routes extends Component {
   render() {
     return (
       <>
-<<<<<<< HEAD
         <Route exact path="/" component={AuthComponent(Login)} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/validate" component={ValidateRegistration} />
@@ -37,19 +36,6 @@ class Routes extends Component {
         />
         <Route exact path="/calendar" component={AuthComponent(Calendar)} />
         <Route exact path="/chat" component={AuthComponent(Chat)} />
-=======
-        <Route exact path="/">
-            {this.props.authenticated ? <Redirect to="/home"/> : <Login/> }
-        </Route>
-        <Route exact path='/home' component={ AuthComponent(Home) } />
-        <Route exact path='/create-ngo-project-profile' component={ AuthComponent(CreateNGOProjectProfile) }/>
-        <Route exact path='/registration' component={ Registration } />
-        <Route exact path='/validate' component={ AuthComponent(ValidateRegistration) } />
-        <Route exact path='/search' component={ AuthComponent(Search) } />
-        <Route exact path='/volunteer' component={ AuthComponent(VolunteerProfile) } />
-        <Route exact path='/calendar' component={ AuthComponent(Calendar) } />
-        <Route exact path='/chat' component={ AuthComponent(Chat) } />
->>>>>>> 7942a80be9a81b54a8ba9eb08933f5706cc1ff3b
         <Route
           exact
           path="/create_volunteer"
