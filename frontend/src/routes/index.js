@@ -19,7 +19,7 @@ class Routes extends Component {
   render() {
     return (
       <>
-        <Route exact path="/" component={AuthComponent(Login)} />
+        <Route exact path="/" component={Login} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/validate" component={ValidateRegistration} />
         <Route exact path="/feed" component={FeedVolunteer} />
