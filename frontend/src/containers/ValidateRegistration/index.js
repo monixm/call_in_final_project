@@ -56,7 +56,7 @@ const ValidateRegistration = props => {
           <button onClick={e => validationHandler(e)}>Register</button>
         ) : (
           <div>
-            <button disabled>Register</button> <p>Password must match!</p>
+            <button disabled>Register</button> <p>Passwords must match!</p>
           </div>
         )}
       </form>
