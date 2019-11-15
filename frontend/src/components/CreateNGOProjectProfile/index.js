@@ -226,7 +226,7 @@ class Feed extends Component {
                     <input className='project-terms-radio' value='No' type="radio" id="project" name="radioA" onClick={this.handleTermsInput} />
                         <label className='project-terms-radio-label' for="project">no</label>
                     </div>
-                        <button className='btn-org-create-profile' onClick={this.handleCreateProfile}>Create profile</button>
+                        <button className='btn-org-create-profile' onClick={()=>this.handleCreateProfile()}>Create profile</button>
                 </div>
                 <div className='desc-popup-screen'>
                     {this.state.showDescriptionPopup ?

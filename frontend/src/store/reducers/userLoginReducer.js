@@ -14,7 +14,6 @@ export const userLoginReducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
-        currentUser: action.payload,
         authenticated: true
       };
     }

@@ -1,2 +1,1 @@
-export const baseUrl = 'https://call-in.propulsion-learn.ch/';
-// export const baseUrl = 'https://localhost:3000/';
+export const baseUrl = "http://localhost:8003/";

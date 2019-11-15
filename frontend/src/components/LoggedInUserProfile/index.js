@@ -13,10 +13,11 @@ class LoggedInUser extends Component {
 
   render() {
     const { user } = this.props;
+    console.log("this.props x", this.props)
     return (
       <>
         <Header />
-        {user && (
+        {user && user.volunteer && (
           <div className="volunteer-profile">
             <div className="volunteer-intro">
               <div className="imgs">
@@ -86,6 +87,7 @@ class LoggedInUser extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("state", state)
   return {
     user: state.loggedInUserReducer.user
   };
