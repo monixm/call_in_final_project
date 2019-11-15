@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from project.api.auth.serializers import User
-from project.api.focus.serializer import FocusSerializer
+from project.api.focus.serializers import FocusSerializer
 from .models import Organisation
 
 
