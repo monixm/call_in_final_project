@@ -14,6 +14,8 @@ import CreateNGOProjectProfile from "../components/CreateNGOProjectProfile";
 import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
 import Login from "../containers/Login";
 import LoggedInUserProfile from "../components/LoggedInUserProfile";
+import GuestList from "../components/GuesList";
+import Event from "../components/Event"
 
 class Routes extends Component {
   render() {
@@ -47,6 +49,7 @@ class Routes extends Component {
           path="/create-ngo-project-profile"
           component={AuthComponent(CreateNGOProjectProfile)}
         />
+        <Route exact path="/guestlist" component={GuestList}/>
       </>
     );
   }
