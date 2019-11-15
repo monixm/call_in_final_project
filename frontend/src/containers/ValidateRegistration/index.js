@@ -6,13 +6,14 @@ const ValidateRegistration = props => {
   const [validation_code, setValidationCode] = useState();
   const [email, setEmail] = useState("monika.malecka19@gmail.com");
   const [password, setPassword] = useState("password");
+  const [passwordConfirm, setPasswordConfirm] = useState("password");
   const [first_name, setFirstName] = useState("monika");
   const [last_name, setLastName] = useState("malecka");
 
   const validationHandler = e => {
     e.preventDefault();
     const data = props.dispatch(registrationAction(email, password));
-    if (data) props.history.push("/login");
+    if (data) props.history.push("/");
   };
 
   return (
@@ -46,7 +47,18 @@ const ValidateRegistration = props => {
           value={password}
           onChange={e => setPassword(e.currentTarget.value)}
         ></input>
-        <button onClick={e => validationHandler(e)}>Register</button>
+        <input
+          type="password"
+          value={passwordConfirm}
+          onChange={e => setPasswordConfirm(e.currentTarget.value)}
+        ></input>
+        {password === passwordConfirm ? (
+          <button onClick={e => validationHandler(e)}>Register</button>
+        ) : (
+          <div>
+            <button disabled>Register</button> <p>Passwords must match!</p>
+          </div>
+        )}
       </form>
     </div>
   );

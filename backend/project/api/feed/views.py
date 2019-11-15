@@ -4,7 +4,6 @@ from rest_framework.generics import ListAPIView, GenericAPIView
 from rest_framework.response import Response
 
 from django.contrib.auth.models import User
-
 from project.api.call.models import Call
 from project.api.call.serializers import CallGetSerializer
 from project.api.event.models import Event

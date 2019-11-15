@@ -4,7 +4,7 @@ import "./style.css";
 import { registrationAction } from "../../store/actions/registrationAction";
 
 const Registration = props => {
-  const [email, setEmail] = useState("monika.malecka19@gmail.com");
+  const [email, setEmail] = useState("");
 
   const userLoginHandler = e => {
     e.preventDefault();
