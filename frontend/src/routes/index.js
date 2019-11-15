@@ -8,6 +8,8 @@ import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
 import Login from "../containers/Login";
 import Registration from "../containers/Registration";
 import ValidateRegistration from "../containers/ValidateRegistration";
+import GuesList from "../components/GuesList";
+import Event from "../components/Event"
 
 class Routes extends Component {
   render() {
@@ -25,6 +27,8 @@ class Routes extends Component {
           path="/create_volunteer"
           component={CreateVolunteerProfile}
         />
+        <Route exact path="/guestlist" component={GuesList}/>
+        <Route exact path="/event" component={Event}/>
       </>
     );
   }
