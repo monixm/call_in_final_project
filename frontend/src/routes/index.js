@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 import AuthComponent from "../HOC/authComponent";
 import Search from "../components/Search";
 import VolunteerProfile from "../components/VolunteerProfile";
 import Calendar from "../components/Calendar";
+import Chat from "../components/Chat";
 import FeedVolunteer from "../components/FeedVolunteer";
-import Home from '../components/Home';
-import Registration from '../containers/Registration';
-import ValidateRegistration from '../containers/ValidateRegistration'
-import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
+import Home from "../components/Home";
+import Registration from "../containers/Registration";
+import ValidateRegistration from "../containers/ValidateRegistration";
+import CreateNGOProjectProfile from "../components/CreateNGOProjectProfile";
 import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
 import Login from "../containers/Login";
 import LoggedInUserProfile from "../components/LoggedInUserProfile";
@@ -40,17 +41,21 @@ class Routes extends Component {
           path="/create_volunteer"
           component={AuthComponent(CreateVolunteerProfile)}
         />
-            <Route exact path='/home' component={ AuthComponent(Home) } />
-        <Route exact path='/create-ngo-project-profile' component={ AuthComponent(CreateNGOProjectProfile) }/>
+        <Route exact path="/home" component={AuthComponent(Home)} />
+        <Route
+          exact
+          path="/create-ngo-project-profile"
+          component={AuthComponent(CreateNGOProjectProfile)}
+        />
       </>
     );
   }
 }
 
 const mapStateToProps = state => {
-    return {
-        authenticated: state.userLoginReducer.authenticated,
-    }
-  }
+  return {
+    authenticated: state.userLoginReducer.authenticated
+  };
+};
 
-export default connect(mapStateToProps)(Routes)
+export default connect(mapStateToProps)(Routes);
