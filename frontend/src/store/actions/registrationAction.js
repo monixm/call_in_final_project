@@ -1,7 +1,6 @@
 import { baseUrl } from "../constants";
 import { USER_REGISTRATION_SUCCESS } from "../types";
 
-
 export const registration = token => ({
   type: USER_REGISTRATION_SUCCESS,
   payload: token
