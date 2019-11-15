@@ -15,52 +15,31 @@ class Call extends Component {
   }
 
   render() {
+    // console.log("PROPS", this.props);
     return (
-      <div className="feedVolunteer-call">
-        <div className="feedVolunteer-organisation">
-          <div className="feedVolunteer-organisation-name">
-            <img src={ProfilePhoto} className="org-photo" alt="" />
-            <p className='feedVolunteer-orgname'>{}</p>
-          </div>
-          <div className="feedVolunteer-organisation-location">
-            <img src={Location} alt="" />
-            <p className='feedVolunteer-location'> Geneva</p>
-          </div>
-        </div>
-        <div className="feedVolunteer-call-box">
-          <p className="feedVolunteer-title">Call for Volunteers</p>
-          <div className="feedVolunteer-image"></div>
-          <div className="feedVolunteer-call-main">
-            <div className="feedVolunteer-description"></div>
-            <div className="feedVolunteer-side-buttons">
-              <img
-                src={NotStarred}
-                className="feedVolunteer-not-starred-button" alt=''
-              ></img>
-              <img src={Share} className="feedVolunteer-share-button" alt=''></img>
-            </div>
-            <div className="feedVolunteer-option box"></div>
-            <div className="feedVolunteer-bottom-buttons">
-              <img
-                src={Directmsg}
-                className="feedVolunteer-volunteer-button" alt=''
-             />
-              <img
-                src={PublicQuestion}
-                className="feedVolunteer-question-button" alt=''
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <>
+        {this.props.call.map(call => {
+          return (
+            <>
+              <p>{call.title.call_options}</p>
+            </>
+          );
+        })}
+      </>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    call: state.feedVolunteerReducer.call
+    call:
+      state.feedVolunteerReducer.feed.hasOwnProperty("**CALL**") &&
+      state.feedVolunteerReducer.feed.hasOwnProperty("**EVENT**")
+        ? [
+            ...state.feedVolunteerReducer.feed["**CALL**"],
+            ...state.feedVolunteerReducer.feed["**EVENT**"]
+          ]
+        : []
   };
 };
 
