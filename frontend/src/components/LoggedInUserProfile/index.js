@@ -16,6 +16,7 @@ class LoggedInUser extends Component {
     return (
       <>
         <Header />
+        
         {user && (
           <div className="volunteer-profile">
             <div className="volunteer-intro">

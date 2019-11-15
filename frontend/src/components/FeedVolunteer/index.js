@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerAction";
 import Call from "../Call";
+import Chat from "../Chat";
 import Header from "../Header";
 
 class FeedVolunteer extends Component {
@@ -11,20 +12,22 @@ class FeedVolunteer extends Component {
 
   render() {
     const { feed } = this.props;
-    console.log(this.props);
+    console.log("PROPS", this.props);
     return (
       <>
         <Header />
         {/* {feed && <p>{feed.CALL.title}</p>} */}
-
-        {/* {this.props.feed.map(call => {
+        {/* call hasOwnProperty call opt - if yes, return call  */}
+        {/* {this.props.call.map(call => { 
           return (
             <>
-              <p>{call.call.data.title}</p>
+              <p>{call.title.call_options}</p>
             </>
           );
         })} */}
-        <Call />
+        {this.props.call.map(call =>
+          call.hasOwnProperty('call_options') ? <Call /> : <Chat />
+        )}
       </>
     );
   }
@@ -32,8 +35,14 @@ class FeedVolunteer extends Component {
 
 const mapStateToProps = state => {
   return {
-    call: state.feedVolunteerReducer.call,
-    event: state.feedVolunteerReducer.event
+    call:
+      state.feedVolunteerReducer.feed.hasOwnProperty("**CALL**") &&
+      state.feedVolunteerReducer.feed.hasOwnProperty("**EVENT**")
+        ? [
+            ...state.feedVolunteerReducer.feed["**CALL**"],
+            ...state.feedVolunteerReducer.feed["**EVENT**"]
+          ]
+        : []
   };
 };
 

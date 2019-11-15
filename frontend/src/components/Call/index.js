@@ -20,7 +20,7 @@ class Call extends Component {
         <div className="feedVolunteer-organisation">
           <div className="feedVolunteer-organisation-name">
             <img src={ProfilePhoto} className="org-photo" alt="" />
-            <p className='feedVolunteer-orgname'>Caritas</p>
+            <p className='feedVolunteer-orgname'>{}</p>
           </div>
           <div className="feedVolunteer-organisation-location">
             <img src={Location} alt="" />
