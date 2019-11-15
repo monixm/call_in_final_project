@@ -1,0 +1,51 @@
+.feedVolunteer-orgname {
+  font-size: 12px;
+  color: #4497bd;
+}
+
+.feedVolunteer-location {
+  font-size: 12px;
+  color: #574947;
+}
+
+.feedVolunteer-call {
+  margin: 20px;
+}
+
+.org-photo {
+  min-width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.feedVolunteer-organisation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.feedVolunteer-organisation-name {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+}
+
+.feedVolunteer-organisation-location {
+  width: 30%;
+  display: flex;
+}
+
+.feedVolunteer-organisation-location img {
+  padding-right: 5px;
+}
+
+.feedVolunteer-call-box {
+  border: 1px solid #574947;
+  border-radius: 10px;
+  min-width: 250px;
+  height: 100%;
+}
+
+.feedVolunteer-organisation-name {
+  
+}

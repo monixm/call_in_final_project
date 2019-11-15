@@ -30,7 +30,7 @@ class VolunteerProfile extends Component {
                     alt=""
                   />
                 ) : (
-                  <img src={NoPhoto}></img>
+                  <img alt='' src={NoPhoto}/>
                 )}
               </div>
               <h4 className="volunteer-name">

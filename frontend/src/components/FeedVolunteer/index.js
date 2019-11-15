@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerAction";
+import Call from "../Call";
+import Header from "../Header";
 
 class FeedVolunteer extends Component {
   async componentDidMount() {
@@ -9,22 +11,20 @@ class FeedVolunteer extends Component {
 
   render() {
     const { feed } = this.props;
-    console.log(feed);
+    console.log(this.props);
     return (
       <>
-        {/* {feed && {this.props.feed.map(call) => {
-          return (
-            <p>{feed.title}</p>
-          )
-        }}} */}
+        <Header />
+        {/* {feed && <p>{feed.CALL.title}</p>} */}
 
         {/* {this.props.feed.map(call => {
-            return (
-              <>
-                <p>{call.title}</p>
-              </>
-            );
-          })} */}
+          return (
+            <>
+              <p>{call.call.data.title}</p>
+            </>
+          );
+        })} */}
+        <Call />
       </>
     );
   }
