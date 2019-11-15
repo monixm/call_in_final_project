@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { feedVolunteerReducer } from "../../store/reducers/feedVolunteerReducer";
 import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerAction";
 
 class FeedVolunteer extends Component {
