@@ -25,9 +25,7 @@ export const userLoginAction = (username, password) => async (
   const fetchToken = await fetch(`${baseUrl}backend/api/auth/token/`, config);
   const response = await fetchToken.json();
   const token = response.access
-  console.log(token);
- 
-  console.log(response);
+
   if (token) {
     localStorage.setItem("token", token);
     dispatch(userLogin(token));

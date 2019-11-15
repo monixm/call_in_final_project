@@ -4,6 +4,7 @@ import './index.css';
 import DescriptionPopup from './descriptionPopup';
 import FocusPopup from './focusPopup';
 import ContactPopup from './contactPopup';
+import ProfilePopup from "./profilePopup";
 import PrivacyPopup from "./privacyPopup";
 import location_logo from '../../assets/location_logo.svg';
 import upload_image from '../../assets/upload-image.svg';
@@ -18,6 +19,7 @@ class Feed extends Component {
               organisationType:'',
               organisationLocation: '',
               organisationDescription: '',
+                organisationDocument:'',
               organisationFocus: {
                   social:'',
                   languages:'',
@@ -32,12 +34,18 @@ class Feed extends Component {
                     website:'',
                     phone:''
                 },
+                organisationProfile: {
+                  facebook:'',
+                    instagram:'',
+                    linkedIn:''
+                },
               organisationTerms:'',
                 privacy_setting:''
             },
           showDescriptionPopup: false,
           showFocusPopup: false,
           showContactPopup: false,
+            showProfilePopup: false,
             showPrivacyPopup: false,
             profilePicture: null,
         }
@@ -58,6 +66,12 @@ class Feed extends Component {
     toggleContactPopup() {
         this.setState({
             showContactPopup: !this.state.showContactPopup
+        });
+    }
+
+    toggleProfilePopup() {
+        this.setState({
+            showProfilePopup: !this.state.showProfilePopup
         });
     }
 
@@ -133,6 +147,24 @@ class Feed extends Component {
         this.setState(newState)
     }
 
+    changeFacebookValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationProfile.facebook = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    changeInstagramValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationProfile.instagram = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    changeLinkedInValue = e => {
+        let newState = {...this.state}
+        newState.information.organisationProfile.linkedIn = e.currentTarget.value
+        this.setState(newState)
+    }
+
     handleTypeInput = e => {
         let newState = {...this.state}
         newState.information.organisationType = e.currentTarget.value
@@ -153,6 +185,12 @@ class Feed extends Component {
 
     handleCreateProfile = () => {
         this.props.dispatch(createNGOProjectProfileAction(this.state.information))
+    }
+
+    documentHandler = e => {
+        this.setState({
+            organisationDocument: e.target.files[0]
+        })
     }
 
     profilePictureHandler = e => {
@@ -201,7 +239,11 @@ class Feed extends Component {
                     <p className="ngo-pro-desc">Description</p>
                     <p className="ngo-pro-upload"><b>Please upload a verification document:</b>
                         <div className='doc-small-font'>(this is to secure the safety of individuals who will collaborate with you)</div></p>
-                    <button className='btn-ngo-pro-upload'>Upload document</button>
+                    <button onClick={() => this.fileInput.click()} className='btn-ngo-pro-upload'>Upload document</button>
+                    <input style={{display: 'none'}}
+                           type='file'
+                           onChange={this.documentHandler}
+                           ref={fileInput => this.fileInput = fileInput}/>
                     <button className='btn-fill-out' onClick={this.toggleDescriptionPopup.bind(this)}>Fill out</button>
                     <p className="ngo-pro-focus"><b>What kind of focus does your organisation or project have? </b><br />
                         <div className='doc-small-font'>(please add keywords)</div></p>
@@ -209,7 +251,7 @@ class Feed extends Component {
                     <p className="org-contact-info">Contact information</p>
                     <button className='btn-org-contact-info' onClick={this.toggleContactPopup.bind(this)}>Fill out</button>
                     <p className='ngo-pro-connect'>Would you like to connect to Facebook page, Instagram, Linkedin?</p>
-                    <button className='btn-org-profile-1'>Add profile</button>
+                    <button className='btn-org-profile-1' onClick={this.toggleProfilePopup.bind(this)}>Add profile</button>
                     <p className='ngo-pro-privacy' >Privacy settings</p>
                     <button className='btn-org-privacy' onClick={this.togglePrivacyPopup.bind(this)}>Manage</button>
                     <p className='ngo-pro-picture'>Please add a profile picture:</p>
@@ -218,7 +260,6 @@ class Feed extends Component {
                            type='file'
                            onChange={this.profilePictureHandler}
                            ref={fileInput => this.fileInput = fileInput}/>
-                    <button onClick={this.fileUploadHandler}>Upload</button>
                     <p className='ngo-pro-accept'>Do you accept the terms and conditions of our platform?</p>
                     <div>
                     <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit" name="radioA" onClick={this.handleTermsInput} />
@@ -264,6 +305,18 @@ class Feed extends Component {
                             onChange_Website={this.changeWebsiteValue}
                             value_Phone={this.state.information.organisationContact.phone}
                             onChange_Phone={this.changePhoneValue}
+                    />  : null  }
+                </div>
+                <div className='contact-popup-screen'>
+                    {this.state.showProfilePopup ?
+                    <ProfilePopup
+                            closePopup={this.toggleProfilePopup.bind(this)}
+                            value_Facebook={this.state.information.organisationProfile.facebook}
+                            onChange_Facebook={this.changeFacebookValue}
+                            value_Instagram={this.state.information.organisationProfile.instagram}
+                            onChange_Instagram={this.changeInstagramValue}
+                            value_LinkedIn={this.state.information.organisationProfile.linkedIn}
+                            onChange_LinkedIn={this.changeLinkedInValue}
                     />  : null  }
                 </div>
                 <div className='contact-privacy-screen'>
