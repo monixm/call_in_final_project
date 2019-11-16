@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./style.css";
-import Directmsg from "../../assets/direct_message.svg";
-import PublicQuestion from "../../assets/public_question.svg";
-import NotStarred from "../../assets/not_starred.svg";
-import Share from "../../assets/share.svg";
-import ProfilePhoto from "../../assets/profilephoto.png";
-import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerAction";
-import Location from "../../assets/location_logo.svg";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './style.css';
+import Directmsg from '../../assets/direct_message.svg';
+import PublicQuestion from '../../assets/public_question.svg';
+import NotStarred from '../../assets/not_starred.svg';
+import Share from '../../assets/share.svg';
+import ProfilePhoto from '../../assets/profilephoto.png';
+import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
+import Location from '../../assets/location_logo.svg';
+import Volunteer from '../../assets/volunteer.svg';
 
 class Call extends Component {
   render() {
@@ -16,64 +17,67 @@ class Call extends Component {
     return (
       <>
         <div>
-          <div className="feedVolunteer-call">
-            <div className="feedVolunteer-organisation">
-              <div className="feedVolunteer-organisation-name">
+          <div className='feedVolunteer-call'>
+            <div className='feedVolunteer-organisation'>
+              <div className='feedVolunteer-organisation-name'>
                 <img
                   src={call.organisation.profile_pic}
-                  className="org-photo"
-                  alt=""
+                  className='org-photo'
+                  alt=''
                 />
-                <p className="feedVolunteer-orgname">
-                  {call.organisation.name}
-                </p>
+                <div>
+                  <p className='feedVolunteer-orgname'>
+                    {call.organisation.name}
+                  </p>
+                  <p className='feedVolunteer-p'>{call.start_datetime}</p>
+                </div>
               </div>
-              <div className="feedVolunteer-organisation-location">
-                <img src={Location} alt="" />
-                <p className="feedVolunteer-location">{call.location}</p>
+              <div className='feedVolunteer-organisation-location'>
+                <img src={Location} alt='' />
+                <p className='feedVolunteer-location'>{call.location}</p>
               </div>
             </div>
-            <div className="feedVolunteer-call-box">
-              <p className="feedVolunteer-title">
+            <div className='feedVolunteer-call-box'>
+              <p className='feedVolunteer-title'>
                 <strong>Call For Volunteers: {call.title}</strong>
               </p>
-              <div className="feedVolunteer-image">
-                <img className="feedVolunteer-call-img" />
+              <div className='feedVolunteer-image'>
+                <img className='feedVolunteer-call-img' />
               </div>
-              <div className="feedVolunteer-call-main">
-                <div className="feedVolunteer-right-side">
-                  <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Fugit voluptatum cupiditate accusantium consectetur
-                    repudiandae tempora:
-                  </p>
-                  <p>{call.call_options.call}</p>
-                  <div className="feedVolunteer-call-options">
-                    <input
-                      type="radio"
-                      class="hidden"
-                      id="input1"
-                      name="inputs"
-                    />
-                    <div class="entry" for="input1">
-                      <div class="circle"></div>
-                      <div class="entry-label">Kingdom</div>
-                    </div>
+              <div className='feedVolunteer-call-main'>
+                <div className='feedVolunteer-right-side'>
+                  <p className='feedVolunteer-call-desc'>{call.description}</p>
+                  <div className='feedVolunteer-call-options'>
+                    {this.props.call.call_options.map(calls => {
+                      return (
+                        <>
+                          <div className='feedVolunteer-radio-button'>
+                            <input
+                              type='radio'
+                              class='hidden'
+                              id='input1'
+                              name='inputs'
+                            />
+                            <p>{calls.title}</p>
+                          </div>
+                        </>
+                      );
+                    })}
                   </div>
                 </div>
-                <div className="feedVolunteer-side-buttons">
+                <div className='feedVolunteer-side-buttons'>
                   <img
                     src={NotStarred}
-                    className="feedVolunteer-not-starred-button"
-                    alt=""
+                    className='feedVolunteer-not-starred-button'
+                    alt=''
                   ></img>
                   <img
                     src={Share}
-                    className="feedVolunteer-share-button"
-                    alt=""
+                    className='feedVolunteer-share-button'
+                    alt=''
                   ></img>
                 </div>
-                <div className="feedVolunteer-option box"></div>
+
                 {/* <div className="feedVolunteer-bottom-buttons">
                   <img
                     src={Directmsg}
@@ -87,9 +91,12 @@ class Call extends Component {
                   />
                 </div> */}
               </div>
+              <div className='feedVolunteer-confirm-button'>
+                <button>Volunteer</button>
+              </div>
             </div>
           </div>
-          <div className="color-break"></div>
+          <div className='color-break'></div>
         </div>
       </>
     );

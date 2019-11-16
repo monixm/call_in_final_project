@@ -1,10 +1,12 @@
 .feedVolunteer-orgname {
   color: #4497bd;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .feedVolunteer-title,
-.feedVolunteer-orgname,
-.feedVolunteer-right-side {
+.feedVolunteer-right-side,
+.feedVolunteer-p {
   font-size: 10px;
   color: #574947;
 }
@@ -16,6 +18,7 @@
 .feedVolunteer-location {
   font-size: 12px;
   color: #574947;
+  margin-bottom: 0;
 }
 
 .feedVolunteer-call {
@@ -88,4 +91,35 @@
   flex-direction: column;
   width: 200px;
   margin-right: 5px;
+}
+
+.feedVolunteer-call-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.feedVolunteer-radio-button {
+  display: flex;
+  align-items: center;
+}
+
+.feedVolunteer-call button {
+  width: 70px;
+  height: 20px;
+  background: #dd6956;
+  border-radius: 20px;
+}
+
+.feedVolunteer-confirm-button {
+  padding: 10px;
+}
+
+.feedVolunteer-call-desc {
+  margin: 0;
+}
+
+.feedVolunteer-radio-button p {
+  padding: 5px;
+  margin: 0;
 }
