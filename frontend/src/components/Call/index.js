@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './style.css';
-import Directmsg from '../../assets/direct_message.svg';
-import PublicQuestion from '../../assets/public_question.svg';
 import NotStarred from '../../assets/not_starred.svg';
 import Share from '../../assets/share.svg';
-import ProfilePhoto from '../../assets/profilephoto.png';
-import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
 import Location from '../../assets/location_logo.svg';
-import Volunteer from '../../assets/volunteer.svg';
 import Moment from 'react-moment';
 
 class Call extends Component {
@@ -70,7 +64,7 @@ class Call extends Component {
                 <strong>Call For Volunteers: {call.title}</strong>
               </p>
               <div className='feedVolunteer-image'>
-                <img className='feedVolunteer-call-img' />
+                <img className='feedVolunteer-call-img' alt='' />
               </div>
               <div className='feedVolunteer-call-main'>
                 <div className='feedVolunteer-right-side'>

@@ -16,7 +16,7 @@ class Event extends Component {
           <div className='event'>
             <div className='event-header'>
               <div className='event-header-left'>
-                <img id='ellipse' src={call.picture} />
+                <img id='ellipse' src={call.picture} alt='' />
                 <div className='middleText'>
                   <p id='organiser'>{call.organisation.name}</p>
                   <p>
@@ -25,7 +25,7 @@ class Event extends Component {
                 </div>
               </div>
               <div className='event-header-right'>
-                <img src={LocationLogo} />
+                <img src={LocationLogo} alt='' />
                 <p>{call.location}</p>
               </div>
             </div>
@@ -42,17 +42,17 @@ class Event extends Component {
                   <p id='description'>{call.description}</p>
                 </div>
                 <div className='event-body-right'>
-                  <img src={NotStarred} />
-                  <img src={NotGoing} />
+                  <img src={NotStarred} alt='' />
+                  <img src={NotGoing} alt='' />
                 </div>
               </div>
               <div className='event-body-bottom'>
                 <div className='icons'></div>
                 <div className='peopleGoing'>
                   <div className='people'>
-                    <img id='pic1' src={UserCircle} />
-                    <img id='pic2' src={Ellipse} />
-                    <img id='pic3' src={Ellipse} />
+                    <img id='pic1' src={UserCircle} alt='' />
+                    <img id='pic2' src={Ellipse} alt='' />
+                    <img id='pic3' src={Ellipse} alt='' />
                   </div>
                   <p>{call.participants.length} people are going</p>
                 </div>
