@@ -4,7 +4,7 @@
 
 .feedVolunteer-title,
 .feedVolunteer-orgname,
-.feedVolunteer-call-options {
+.feedVolunteer-right-side {
   font-size: 10px;
   color: #574947;
 }
@@ -83,8 +83,9 @@
   margin-bottom: 5px;
 }
 
-.feedVolunteer-call-options {
+.feedVolunteer-right-side {
   display: flex;
+  flex-direction: column;
   width: 200px;
   margin-right: 5px;
 }

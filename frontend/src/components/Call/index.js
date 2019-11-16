@@ -41,14 +41,25 @@ class Call extends Component {
                 <img className="feedVolunteer-call-img" />
               </div>
               <div className="feedVolunteer-call-main">
-                <div className="feedVolunteer-call-options">
+                <div className="feedVolunteer-right-side">
                   <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Fugit voluptatum cupiditate accusantium consectetur
                     repudiandae tempora:
                   </p>
                   <p>{call.call_options.call}</p>
-                  
+                  <div className="feedVolunteer-call-options">
+                    <input
+                      type="radio"
+                      class="hidden"
+                      id="input1"
+                      name="inputs"
+                    />
+                    <div class="entry" for="input1">
+                      <div class="circle"></div>
+                      <div class="entry-label">Kingdom</div>
+                    </div>
+                  </div>
                 </div>
                 <div className="feedVolunteer-side-buttons">
                   <img
