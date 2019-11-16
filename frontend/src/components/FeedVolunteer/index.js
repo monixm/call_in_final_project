@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerAction";
 import Call from "../Call";
-import Chat from "../Chat";
+import Event from "../Event";
 import Header from "../Header";
 
 class FeedVolunteer extends Component {
@@ -15,17 +15,8 @@ class FeedVolunteer extends Component {
     return (
       <>
         <Header />
-        {/* {feed && <p>{feed.CALL.title}</p>} */}
-        {/* call hasOwnProperty call opt - if yes, return call  */}
-        {/* {this.props.call.map(call => { 
-          return (
-            <>
-              <p>{call.title.call_options}</p>
-            </>
-          );
-        })} */}
         {this.props.call.map(call =>
-          call.hasOwnProperty('call_options') ? <Call /> : <Chat />
+          call.hasOwnProperty("call_options") ? <Call call={call}/> : <Event call={call}/>
         )}
       </>
     );

@@ -4,8 +4,7 @@ import { USER_LOGIN_ERROR } from "../types";
 const initialState = {
   token: null,
   authenticated: null,
-  loginError: null,
-  currentUser: {}
+  loginError: null
 };
 
 export const userLoginReducer = (state = initialState, action) => {
@@ -14,7 +13,6 @@ export const userLoginReducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
-        currentUser: action.payload,
         authenticated: true
       };
     }

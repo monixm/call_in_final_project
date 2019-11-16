@@ -1,6 +1,16 @@
 .feedVolunteer-orgname {
-  font-size: 12px;
   color: #4497bd;
+}
+
+.feedVolunteer-title,
+.feedVolunteer-orgname,
+.feedVolunteer-call-options {
+  font-size: 10px;
+  color: #574947;
+}
+
+.feedVolunteer-title {
+  margin: 10px;
 }
 
 .feedVolunteer-location {
@@ -9,7 +19,7 @@
 }
 
 .feedVolunteer-call {
-  margin: 20px;
+  margin: 20px 25px;
 }
 
 .org-photo {
@@ -48,4 +58,33 @@
 
 .feedVolunteer-organisation-name {
   align-items: center;
+}
+
+.feedVolunteer-call-img {
+  width: 268px;
+  min-height: 230px;
+  background-color: rgb(204, 199, 199);
+  margin: 0;
+  padding: 0;
+}
+
+.feedVolunteer-call-main {
+  display: flex;
+  padding: 10px;
+}
+
+.feedVolunteer-side-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.feedVolunteer-side-buttons img {
+  margin-bottom: 5px;
+}
+
+.feedVolunteer-call-options {
+  display: flex;
+  width: 200px;
+  margin-right: 5px;
 }

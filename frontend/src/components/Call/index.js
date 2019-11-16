@@ -10,37 +10,79 @@ import { getFeedVolunteerAction } from "../../store/actions/getFeedVolunteerActi
 import Location from "../../assets/location_logo.svg";
 
 class Call extends Component {
-  async componentDidMount() {
-    this.props.dispatch(getFeedVolunteerAction());
-  }
-
   render() {
     // console.log("PROPS", this.props);
+    const call = this.props.call;
     return (
       <>
-        {this.props.call.map(call => {
-          return (
-            <>
-              <p>{call.title.call_options}</p>
-            </>
-          );
-        })}
+        <div>
+          <div className="feedVolunteer-call">
+            <div className="feedVolunteer-organisation">
+              <div className="feedVolunteer-organisation-name">
+                <img
+                  src={call.organisation.profile_pic}
+                  className="org-photo"
+                  alt=""
+                />
+                <p className="feedVolunteer-orgname">
+                  {call.organisation.name}
+                </p>
+              </div>
+              <div className="feedVolunteer-organisation-location">
+                <img src={Location} alt="" />
+                <p className="feedVolunteer-location">{call.location}</p>
+              </div>
+            </div>
+            <div className="feedVolunteer-call-box">
+              <p className="feedVolunteer-title">
+                <strong>Call For Volunteers: {call.title}</strong>
+              </p>
+              <div className="feedVolunteer-image">
+                <img className="feedVolunteer-call-img" />
+              </div>
+              <div className="feedVolunteer-call-main">
+                <div className="feedVolunteer-call-options">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Fugit voluptatum cupiditate accusantium consectetur
+                    repudiandae tempora:
+                  </p>
+                  <p>{call.call_options.call}</p>
+                  
+                </div>
+                <div className="feedVolunteer-side-buttons">
+                  <img
+                    src={NotStarred}
+                    className="feedVolunteer-not-starred-button"
+                    alt=""
+                  ></img>
+                  <img
+                    src={Share}
+                    className="feedVolunteer-share-button"
+                    alt=""
+                  ></img>
+                </div>
+                <div className="feedVolunteer-option box"></div>
+                {/* <div className="feedVolunteer-bottom-buttons">
+                  <img
+                    src={Directmsg}
+                    className="feedVolunteer-volunteer-button"
+                    alt=""
+                  />
+                  <img
+                    src={PublicQuestion}
+                    className="feedVolunteer-question-button"
+                    alt=""
+                  />
+                </div> */}
+              </div>
+            </div>
+          </div>
+          <div className="color-break"></div>
+        </div>
       </>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    call:
-      state.feedVolunteerReducer.feed.hasOwnProperty("**CALL**") &&
-      state.feedVolunteerReducer.feed.hasOwnProperty("**EVENT**")
-        ? [
-            ...state.feedVolunteerReducer.feed["**CALL**"],
-            ...state.feedVolunteerReducer.feed["**EVENT**"]
-          ]
-        : []
-  };
-};
-
-export default connect(mapStateToProps)(Call);
+export default Call;
