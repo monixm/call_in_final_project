@@ -9,11 +9,37 @@ import ProfilePhoto from '../../assets/profilephoto.png';
 import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
 import Location from '../../assets/location_logo.svg';
 import Volunteer from '../../assets/volunteer.svg';
+import Moment from 'react-moment';
 
 class Call extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      volunetered: false,
+      disabled: false
+    };
+    this.handleButtonColorChange = this.handleButtonColorChange.bind(this);
+  }
+
+  // handleButtonColorChange = e => {
+  //   e.preventDefault();
+  //   e.target.style.background = '#4497BD';
+  //   e.target.value = '#4497BD';
+
+  // };
+
+  handleButtonColorChange(e) {
+    e.target.style.background = '#4497BD';
+    this.setState(prevState => ({
+      volunetered: !prevState.volunetered,
+      disabled: true
+    }));
+  }
+
   render() {
     // console.log("PROPS", this.props);
     const call = this.props.call;
+
     return (
       <>
         <div>
@@ -29,7 +55,9 @@ class Call extends Component {
                   <p className='feedVolunteer-orgname'>
                     {call.organisation.name}
                   </p>
-                  <p className='feedVolunteer-p'>{call.start_datetime}</p>
+                  <p className='feedVolunteer-p'>
+                    <Moment fromNow>{call.start_datetime}</Moment>
+                  </p>
                 </div>
               </div>
               <div className='feedVolunteer-organisation-location'>
@@ -54,7 +82,7 @@ class Call extends Component {
                           <div className='feedVolunteer-radio-button'>
                             <input
                               type='radio'
-                              class='hidden'
+                              className='hidden'
                               id='input1'
                               name='inputs'
                             />
@@ -92,7 +120,12 @@ class Call extends Component {
                 </div> */}
               </div>
               <div className='feedVolunteer-confirm-button'>
-                <button>Volunteer</button>
+                <button
+                  onClick={this.handleButtonColorChange}
+                  disabled={this.state.disabled}
+                >
+                  {this.state.volunetered ? ' Confirmed!' : 'Volunteer'}
+                </button>
               </div>
             </div>
           </div>
