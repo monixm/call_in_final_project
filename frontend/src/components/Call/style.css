@@ -64,7 +64,7 @@
 }
 
 .feedVolunteer-call-img {
-  width: 268px;
+  width: 100%;
   min-height: 230px;
   background-color: rgb(204, 199, 199);
   margin: 0;
@@ -126,4 +126,10 @@
 
 .confirmed button {
   background: #4497bd;
+}
+
+.feedVolunteer-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

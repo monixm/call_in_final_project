@@ -1,12 +1,16 @@
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f5f2ee;
   color: #574947;
 }
 
+html {
+  background-color: #f5f2ee;
+}
+
 button {
-  color: #f2e2b0;
+  color: #f5f2ee;
   font-size: 10px;
   font-weight: bold;
   border: none;
