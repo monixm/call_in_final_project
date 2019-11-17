@@ -1,13 +1,17 @@
 from rest_framework import serializers
+
+from project.api.organisation.serializers import OrganisationSerializer
 from .models import Event
 
 
 class EventSerializer(serializers.ModelSerializer):
+    organisation = OrganisationSerializer()
     type = serializers.SerializerMethodField()
 
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['id', 'title', 'picture', 'created', 'start_datetime', 'end_datetime', 'location',
+                  'description', 'must_be_approved', 'organisation', 'participants', 'type']
         read_only_fields = ['organisation', 'type']
         ordering = ['start_datetime']
 
