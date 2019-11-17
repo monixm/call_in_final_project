@@ -46,7 +46,7 @@ class SearchView(GenericAPIView):
         results += self.searchVolunteers(search_string, volunteer_interest, search_location)
         results += self.searchCalls(search_string, search_location)
         results += self.searchEvents(search_string, search_location)
-        results += self.searchOrganisations(search_string, search_location, organisation_focus)
+        results += self.searchOrganisations(search_string, search_location, volunteer_interest)
         return Response(results, status=status.HTTP_200_OK)
 
     def searchVolunteers(self, search_string, volunteer_interest, search_location):

@@ -163,9 +163,6 @@
     padding-left: 40px;
     padding-top: 5px;
 }
-
-
-
 /*fifth block*/
 .fifth_data{
     border:solid 1px darkred;
@@ -265,6 +262,8 @@
     height:10%;
     display:flex;
     flex-direction: row;
+    padding-left:93px;
+    padding-right:93px;
 }
 .ninth_middle{
     color: #F2E2B0;
