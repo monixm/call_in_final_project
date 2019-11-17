@@ -9,7 +9,6 @@ const getVolunteerProfile = user => {
 };
 
 export const getVolunteerProfileAction = volunteerId => async (dispatch, getState) => {
-  console.log("VolunteerId", volunteerId);
   let { token } = getState().userLoginReducer;
   if (!token) {
     token = localStorage.getItem("token");

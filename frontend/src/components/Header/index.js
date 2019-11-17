@@ -17,9 +17,9 @@ class Header extends Component {
               <img src={Profile} alt="profile-icon" />
             </NavLink>
           </li>
-          <li className="Header-li">
-            <NavLink to="/search" activeClassName="chosen">
-              <img src={Search} alt="search-icon" />
+          <li className='Header-li'>
+            <NavLink to='/search'>
+              <img src={Search} alt='search-icon' />
             </NavLink>
           </li>
         </div>

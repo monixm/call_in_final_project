@@ -30,6 +30,5 @@ export const getLoggedInUserProfileAction = () => async (
   const response = await fetch(`${baseUrl}backend/api/feed/me`, config);
 
   const user = await response.json();
-  console.log(user);
   dispatch(getLoggedInUserProfile(user));
 };

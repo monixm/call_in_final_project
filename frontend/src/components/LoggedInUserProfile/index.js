@@ -8,7 +8,6 @@ import { getLoggedInUserProfileAction } from "../../store/actions/getLoggedInUse
 class LoggedInUser extends Component {
   async componentDidMount() {
     this.props.dispatch(getLoggedInUserProfileAction());
-    // console.log(this.props);
   }
 
   render() {
@@ -16,7 +15,7 @@ class LoggedInUser extends Component {
     return (
       <>
         <Header />
-        {user && (
+        {user && user.volunteer && (
           <div className="volunteer-profile">
             <div className="volunteer-intro">
               <div className="imgs">
@@ -40,6 +39,9 @@ class LoggedInUser extends Component {
               <button>Approve requests</button>
             </div>
             <div className="color-break"></div>
+
+            {user.volunteer.interests && (
+                <>
             <h4>
               {user.volunteer.first_name}'s interests in projects and events
             </h4>
@@ -78,6 +80,7 @@ class LoggedInUser extends Component {
             </div>
              </div>
             <div className="color-break"></div>
+                </> )}
           </div>
         )}
       </>
