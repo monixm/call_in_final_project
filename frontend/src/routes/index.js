@@ -7,6 +7,9 @@ import Registration from '../containers/Registration';
 import ValidateRegistration from '../containers/ValidateRegistration'
 import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
+import OrganisationProfile from '../components/OrganisationProfile';
+import CreateCall from '../components/CreateCall';
+import CreateEvent from '../components/CreateEvent';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
 import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
@@ -25,7 +28,10 @@ class Routes extends Component {
         <Route exact path='/registration' component={ Registration } />
         <Route exact path='/validate' component={ AuthComponent(ValidateRegistration) } />
         <Route exact path='/search' component={ AuthComponent(Search) } />
+        <Route exact path='/create-call' component={ AuthComponent(CreateCall) } />
+        <Route exact path='/create-event' component={ AuthComponent(CreateEvent) } />
         <Route exact path='/volunteer' component={ AuthComponent(VolunteerProfile) } />
+        <Route exact path='/organisation' component={ AuthComponent(OrganisationProfile) } />
         <Route exact path='/calendar' component={ AuthComponent(Calendar) } />
         <Route exact path='/chat' component={ AuthComponent(Chat) } />
         <Route

@@ -83,7 +83,7 @@ class Feed extends Component {
 
     changeSocialValue = e => {
         let newState = {...this.state}
-        newState.information.organisationFocus.languages = e.currentTarget.value
+        newState.information.organisationFocus.social = e.currentTarget.value
         this.setState(newState)
     }
 
@@ -262,10 +262,10 @@ class Feed extends Component {
                            ref={fileInput => this.fileInput = fileInput}/>
                     <p className='ngo-pro-accept'>Do you accept the terms and conditions of our platform?</p>
                     <div>
-                    <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit" name="radioA" onClick={this.handleTermsInput} />
-                        <label className='ngo-terms-radio-label' for="non-profit">yes</label>
-                    <input className='project-terms-radio' value='No' type="radio" id="project" name="radioA" onClick={this.handleTermsInput} />
-                        <label className='project-terms-radio-label' for="project">no</label>
+                    <input className='ngo-terms-radio' value='Yes' type="radio" id="non-profit-terms" name="radioB" onClick={this.handleTermsInput} />
+                        <label className='ngo-terms-radio-label' htmlFor="non-profit-terms">yes</label>
+                    <input className='project-terms-radio' value='No' type="radio" id="project-terms" name="radioB" onClick={this.handleTermsInput} />
+                        <label className='project-terms-radio-label' htmlFor="project-terms">no</label>
                     </div>
                         <button className='btn-org-create-profile' onClick={this.handleCreateProfile}>Create profile</button>
                 </div>
