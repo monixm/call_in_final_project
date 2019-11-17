@@ -1,25 +1,30 @@
 import { baseUrl } from '../constants';
 import { userLoginAction } from './loginAction';
 
-export const registrationValidationAction = data => async (
-  dispatch,
-  getState
-) => {
+// many args - should i name it as 'data'
+
+export const registrationValidationAction = (
+  code,
+  first_name,
+  last_name,
+  password,
+  password_repeat
+) => async (dispatch, getState) => {
   const headers = new Headers({
     'Content-Type': 'application/json'
   });
 
-  const body = JSON.stringify(data);
+  const body = { code, first_name, last_name, password, password_repeat };
 
-  console.log(data);
+  console.log(body);
   const config = {
     headers,
-    body,
+    body: JSON.stringify(body),
     method: 'POST'
   };
 
   const response = await fetch(
-    `${baseUrl}/backend/api/registration/validation`,
+    `${baseUrl}/backend/api/registration/validation/`,
     config
   );
   if (response.ok) {

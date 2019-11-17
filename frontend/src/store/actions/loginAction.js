@@ -1,9 +1,14 @@
 import { baseUrl } from '../constants';
-import { USER_LOGIN_SUCCESS } from '../types';
+import { USER_LOGIN_SUCCESS, USER_LOGIN_ERROR } from '../types';
 
 export const userLogin = token => ({
   type: USER_LOGIN_SUCCESS,
   payload: token
+});
+
+export const userLoginError = error => ({
+  type: USER_LOGIN_ERROR,
+  payload: error
 });
 
 export const userLoginAction = (username, password) => async (

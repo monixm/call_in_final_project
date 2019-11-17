@@ -13,7 +13,12 @@ export const userRegistrationReducer = (state = initialState, action) => {
       return { ...state, email: action.payload, registered: true };
     }
     case REGISTRATION_VALIDATION: {
-      return { ...state, validated: true, code: action.payload };
+      return {
+        ...state,
+        validated: true,
+        code: action.payload,
+        registered: true
+      };
     }
     default:
       return state;

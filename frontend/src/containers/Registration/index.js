@@ -14,21 +14,20 @@ class Registration extends Component {
     });
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault();
     const response = this.props.dispatch(registrationAction(this.state));
-    console.log('resppnse', response);
+    console.log('handleSubmit', response);
     if (response) {
       this.props.history.push('/validate');
     }
   };
 
-
   render() {
     return (
       <div>
         <h1>Registration</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type='email'
             value={this.state.email}
@@ -36,7 +35,9 @@ class Registration extends Component {
             autoComplete='on'
             onChange={this.onChange}
           ></input>
-          <button type='submit'>Submit</button>
+          <button onClick={this.handleSubmit} type='submit'>
+            Submit
+          </button>
         </form>
       </div>
     );
