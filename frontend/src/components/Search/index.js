@@ -58,8 +58,8 @@ class Search extends Component {
         return (
             <div>
                 {
-                    this.props.searchResults.map((search, index) => {
-                        return <SearchItem key={index} result={search}/>;
+                    this.props.searchResults.map((result) => {
+                        return <SearchItem key={result.id} result={result} interests={this.state.volunteerInterest}/>;
                     })
                 }
             </div>
@@ -105,11 +105,12 @@ class Search extends Component {
                 <div className='enter_button'>
                         <button type ='submit' onClick={this.handleSearchClick}  className='buttonSearch'>Search</button>
                 </div>
+                <div className='results-display'>
 
                 {
-                    this.props.searchResults ? this.showSearchResults() : <div></div>
+                    this.props.searchResults && this.props.searchResults.length !== 0 ? this.showSearchResults() : <div></div>
                 }
-
+                </div>
             </div>
         );
     }
@@ -117,6 +118,7 @@ class Search extends Component {
 const mapStateToProps = state =>{
     return {
                searchResults: state.searchReducer.searched,
+               isLoaded: state.searchReducer.isLoaded,
     }
 }
 export default connect(mapStateToProps)(Search);

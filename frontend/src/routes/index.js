@@ -37,17 +37,6 @@ class Routes extends Component {
         />
         <Route exact path="/calendar" component={AuthComponent(Calendar)} />
         <Route exact path="/chat" component={AuthComponent(Chat)} />
-        <Route exact path="/">
-
-        </Route>
-        <Route exact path='/home' component={ AuthComponent(Home) } />
-        <Route exact path='/create-ngo-project-profile' component={ AuthComponent(CreateNGOProjectProfile) }/>
-        <Route exact path='/registration' component={ Registration } />
-        <Route exact path='/validate' component={ AuthComponent(ValidateRegistration) } />
-        <Route exact path='/search' component={ AuthComponent(Search) } />
-        <Route exact path='/volunteer' component={ AuthComponent(VolunteerProfile) } />
-        <Route exact path='/calendar' component={ AuthComponent(Calendar) } />
-        <Route exact path='/chat' component={ AuthComponent(Chat) } />
         <Route exact path='/volunteer/new' component={CreateProfile}/>
         <Route
           exact

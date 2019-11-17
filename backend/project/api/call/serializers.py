@@ -6,13 +6,17 @@ from .models import Call
 
 class CallGetSerializer(serializers.ModelSerializer):
     call_options = CallOptionSerializer(many=True, required=False)
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = Call
         fields = ['id', 'title', 'call_picture', 'organisation', 'start_datetime', 'end_datetime',
-                  'location', 'description', 'must_be_approved', 'call_options']
-        read_only_fields = ['organisation', 'call_options']
+                  'location', 'description', 'must_be_approved', 'call_options', 'type']
+        read_only_fields = ['organisation', 'call_options', 'type']
         ordering = ['start_datetime']
+
+    def get_type(self, call):
+        return 'call'
 
 
 class CallPostSerializer(serializers.ModelSerializer):

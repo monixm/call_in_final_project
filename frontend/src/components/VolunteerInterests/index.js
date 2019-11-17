@@ -52,7 +52,7 @@ class VolunteerInterests extends Component {
 const mapStateToProps = state => {
   console.log(state)
   return {
-    user: state.volunteerProfileReducer.user
+    volunteer: state.volunteerProfileReducer.volunteer
   };
 };
 

@@ -59,7 +59,7 @@ class VolunteerProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.volunteerProfileReducer.user
+    user: state.volunteerProfileReducer.volunteer
   };
 };
 

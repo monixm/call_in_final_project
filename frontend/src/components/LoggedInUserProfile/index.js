@@ -41,6 +41,9 @@ class LoggedInUser extends Component {
               <button>Approve requests</button>
             </div>
             <div className="color-break"></div>
+
+            {user.volunteer.interests && (
+                <>
             <h4>
               {user.volunteer.first_name}'s interests in projects and events
             </h4>
@@ -79,6 +82,7 @@ class LoggedInUser extends Component {
             </div>
              </div>
             <div className="color-break"></div>
+                </> )}
           </div>
         )}
       </>
