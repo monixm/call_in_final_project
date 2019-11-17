@@ -6,7 +6,7 @@
 
 .volunteer-profile h4 {
   font-size: 15px;
-  color: #4497bd;
+  color: #dd6956;
   text-align: center;
 }
 
@@ -25,6 +25,7 @@
 
 .volunteer-profile-type {
   margin-top: -10px;
+  margin-bottom: 0;
 }
 
 .volunteer-profile-pic {
@@ -57,36 +58,6 @@
   color: #4497bd;
 }
 
-/* VOLUNTEER INTERESTS */
-
-.volunteer-interests {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 20px;
-  border-bottom: 10px solid #f2e2b0;
-  margin-top: -30px;
+.volunteer-share-button {
+  margin-right: 20px;
 }
-
-.volunteer-interests h4,
-h6 {
-  margin-bottom: 0;
-}
-
-.volunteer-interests h4 {
-  color: #dd6956;
-  text-align: center;
-}
-
-.volunteer-interests h6 {
-  color: #4497bd;
-  font-size: 12px;
-}
-
-.interests-box {
-  width: 40%;
-  margin-bottom: -10px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-

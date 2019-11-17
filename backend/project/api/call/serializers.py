@@ -1,10 +1,12 @@
 from rest_framework import serializers
 
 from project.api.call_option.serializers import CallOptionSerializer
+from project.api.organisation.serializers import OrganisationSerializer
 from .models import Call
 
 
 class CallGetSerializer(serializers.ModelSerializer):
+    organisation = OrganisationSerializer()
     call_options = CallOptionSerializer(many=True, required=False)
 
     class Meta:

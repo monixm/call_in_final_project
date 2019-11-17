@@ -12,42 +12,45 @@ import CreateCall from '../components/CreateCall';
 import CreateEvent from '../components/CreateEvent';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
+import { connect } from "react-redux";
+import FeedVolunteer from "../components/FeedVolunteer";
 import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
 import Login from "../containers/Login";
-import { connect } from 'react-redux';
+import LoggedInUserProfile from "../components/LoggedInUserProfile";
+import GuestList from "../components/GuesList";
+import Event from "../components/Event"
 
 class Routes extends Component {
   render() {
     return (
       <>
-        <Route exact path="/">
-            {this.props.authenticated ? <Redirect to="/home"/> : <Login/> }
-        </Route>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/registration" component={Registration} />
+        <Route exact path="/validate" component={ValidateRegistration} />
+        <Route exact path="/feed" component={FeedVolunteer} />
+        <Route exact path="/feed/me" component={AuthComponent(LoggedInUserProfile)}/>
+        <Route exact path="/search" component={AuthComponent(Search)} />
+        <Route exact path="/volunteer/:id" component={AuthComponent(VolunteerProfile)}/>
+        <Route exact path="/calendar" component={AuthComponent(Calendar)} />
+        <Route exact path="/chat" component={AuthComponent(Chat)} />
+        <Route exact path="/"> {this.props.authenticated ? <Redirect to="/home"/> : <Login/> } </Route>
         <Route exact path='/home' component={ AuthComponent(Home) } />
         <Route exact path='/create-ngo-project-profile' component={ AuthComponent(CreateNGOProjectProfile) }/>
-        <Route exact path='/registration' component={ Registration } />
-        <Route exact path='/validate' component={ AuthComponent(ValidateRegistration) } />
-        <Route exact path='/search' component={ AuthComponent(Search) } />
         <Route exact path='/create-call' component={ AuthComponent(CreateCall) } />
         <Route exact path='/create-event' component={ AuthComponent(CreateEvent) } />
         <Route exact path='/volunteer' component={ AuthComponent(VolunteerProfile) } />
         <Route exact path='/organisation' component={ AuthComponent(OrganisationProfile) } />
-        <Route exact path='/calendar' component={ AuthComponent(Calendar) } />
-        <Route exact path='/chat' component={ AuthComponent(Chat) } />
-        <Route
-          exact
-          path="/create_volunteer"
-          component={CreateVolunteerProfile}
-        />
+        <Route exact path="/create_volunteer" component={AuthComponent(CreateVolunteerProfile)}/>
+        <Route exact path="/guestlist" component={GuestList}/>
       </>
     );
   }
 }
 
 const mapStateToProps = state => {
-    return {
-        authenticated: state.userLoginReducer.authenticated,
-    }
-  }
+  return {
+    authenticated: state.userLoginReducer.authenticated
+  };
+};
 
-export default connect(mapStateToProps)(Routes)
+export default connect(mapStateToProps)(Routes);
