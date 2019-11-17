@@ -18,12 +18,8 @@ export const registrationAction = email => async (dispatch, getState) => {
     body,
     method: "POST"
   };
-  console.log("cccc", config);
   const response = await fetch(`${baseUrl}backend/api/registration`, config);
   const token = await response.json();
-  console.log(response);
-  console.log(token);
-
   if (response) {
     localStorage.setItem("token", token);
   }

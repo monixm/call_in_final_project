@@ -7,7 +7,6 @@ export const search = (searched) =>({
 })
 export const getSearchAction = data => async (dispatch, getState)=> {
     const token = getState().userLoginReducer.token;
-    console.log(getState());
     const headers = new Headers({
         'Content-Type':'application/json',
         'Authorization' :`Bearer ${token}`
@@ -24,10 +23,8 @@ export const getSearchAction = data => async (dispatch, getState)=> {
     };
     const queryString = Object.keys(params).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key])).join('&');
     let url = `backend/api/search?${queryString}`;
-    console.log("url: ", url);
     const response = await fetch(`${baseUrl}${url}`, config);
     const searchedData = await response.json();
-    console.log("searchedData:", searchedData);
     dispatch(search(searchedData));
     return searchedData;
 };

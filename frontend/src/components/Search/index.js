@@ -28,20 +28,17 @@ class Search extends Component {
     }
     handleSearchInput = event => {
         event.preventDefault();
-        console.log(event.target.value);
         this.setState({
             ...this.state,
             searchString:event.target.value
         });
     };
     handleSearchClick = async event => {
-        console.log(event.key);
         const { dispatch } = this.props;
         dispatch(getSearchAction(this.state));
     }
     handleLocationInput = event => {
         event.preventDefault();
-        console.log(event.target.value);
         this.setState({
             ...this.state,
             searchLocation:event.target.value

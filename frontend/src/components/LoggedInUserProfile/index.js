@@ -8,12 +8,10 @@ import { getLoggedInUserProfileAction } from "../../store/actions/getLoggedInUse
 class LoggedInUser extends Component {
   async componentDidMount() {
     this.props.dispatch(getLoggedInUserProfileAction());
-    // console.log(this.props);
   }
 
   render() {
     const { user } = this.props;
-    console.log("this.props x", this.props)
     return (
       <>
         <Header />
@@ -91,7 +89,6 @@ class LoggedInUser extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state)
   return {
     user: state.loggedInUserReducer.user
   };

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 export default WrapperComponent => {
   class AuthComponent extends Component {
     redirect = () => {
-      console.log(this.props.authenticated)
       if (!this.props.authenticated) {
         this.props.history.push('/');
       }
@@ -27,7 +26,6 @@ export default WrapperComponent => {
     }
   }
   const mapStateToProp = state => {
-    // console.log('HOC state', state);
     return {
       authenticated: state.userLoginReducer.authenticated
     };

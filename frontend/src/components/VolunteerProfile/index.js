@@ -10,7 +10,6 @@ import { getVolunteerProfileAction } from "../../store/actions/getVolunteerByIdA
 class VolunteerProfile extends Component {
   async componentDidMount() {
     const userId = this.props.match.params.id;
-    console.log(this.props);
     this.props.dispatch(getVolunteerProfileAction(userId));
   }
 

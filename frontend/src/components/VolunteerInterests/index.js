@@ -5,7 +5,6 @@ import "./style.css";
 class VolunteerInterests extends Component {
 
   render() {
-    console.log("props", this.props)
     return (
       <div className="volunteer-interests">
         {this.props.volunteer ? (
@@ -50,7 +49,6 @@ class VolunteerInterests extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     volunteer: state.volunteerProfileReducer.volunteer
   };
