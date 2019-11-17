@@ -36,7 +36,7 @@ class CreateCall(GenericAPIView):
 
 class GetUpdateDeleteCall(GenericAPIView):
     queryset = Call.objects.all()
-    serializer_class = CallGetSerializer, CallPostSerializer
+    serializer_class = CallGetSerializer
     permission_classes = [IsOwnerOrReadOnlyCallAndEvent]
 
     """

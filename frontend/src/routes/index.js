@@ -15,7 +15,7 @@ import CreateVolunteerProfile from '../components/CreateVolunteerProfile';
 import Login from '../containers/Login';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import GuestList from '../components/GuesList';
-
+import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
 class Routes extends Component {
   render() {
     return (
@@ -37,6 +37,7 @@ class Routes extends Component {
         />
         <Route exact path='/calendar' component={AuthComponent(Calendar)} />
         <Route exact path='/chat' component={AuthComponent(Chat)} />
+           <Route exact path='/volunteer/new' component={CreateProfile}/>
         <Route
           exact
           path='/create_volunteer'

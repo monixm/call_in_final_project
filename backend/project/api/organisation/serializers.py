@@ -7,15 +7,20 @@ from .models import Organisation
 
 class OrganisationSerializer(serializers.ModelSerializer):
     focus = FocusSerializer()
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = Organisation
         fields = ['id', 'type', 'name', 'location', 'privacy_setting', 'profile_pic',
                   'description', 'website', 'phone', 'user', 'facebook', 'instagram',
-                  'linkedin', 'focus']
+                  'linkedin', 'focus', 'type']
+        read_only_fields = ['type']
         extra_kwargs = {
             'user': {'required': False}
         }
+
+    def get_type(self, organisation):
+        return 'organisation'
 
     def create(self, validated_data):
         user_id = self.context.get('request').user.id

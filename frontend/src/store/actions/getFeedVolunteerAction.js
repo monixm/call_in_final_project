@@ -25,8 +25,6 @@ export const getFeedVolunteerAction = () => async (dispatch, getState) => {
   };
 
   const response = await fetch(`${baseUrl}backend/api/feed`, config);
-  console.log(response)
   const feed = await response.json();
-  console.log(feed);
   dispatch(getFeedVolunteer(feed));
 };

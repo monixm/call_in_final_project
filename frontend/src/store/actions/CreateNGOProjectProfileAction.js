@@ -35,7 +35,6 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
         headers,
         body: JSON.stringify(data)
         };
-    console.log(config)
 
     await fetch(`${baseUrl}backend/api/organisations/new/`, config);
 }

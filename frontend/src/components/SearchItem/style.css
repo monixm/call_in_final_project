@@ -1,0 +1,43 @@
+.search-result-item{
+  display:flex;
+  flex-direction: row;
+  margin-left: 15px;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.search-result-picture{
+  width:40px;
+  justify-content: center;
+  align-content: center;
+}
+
+.search-result-picture-size{
+  height:40px;
+  width: 40px;
+  padding-top: 5px;
+}
+
+.search-result-entity{
+  width:40%;
+  color: #2F80ED;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+  padding-left: 10px;
+}
+
+.search-result-entity a{
+  color: #2F80ED;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.search-result-description{
+  width:100%;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  padding-left: 10px;
+}
