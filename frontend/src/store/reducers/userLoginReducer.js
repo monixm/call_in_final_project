@@ -1,10 +1,11 @@
-import { USER_LOGIN_SUCCESS } from "../types";
-import { USER_LOGIN_ERROR } from "../types";
+import { USER_LOGIN_SUCCESS } from '../types';
+import { USER_LOGIN_ERROR } from '../types';
 
 const initialState = {
   token: null,
-  authenticated: null,
-  loginError: null
+  authenticated: false,
+  loginError: null,
+  errors: {}
 };
 
 export const userLoginReducer = (state = initialState, action) => {
@@ -19,7 +20,9 @@ export const userLoginReducer = (state = initialState, action) => {
     case USER_LOGIN_ERROR: {
       return {
         ...state,
-        loginError: action.type
+        loginError: action.payload,
+        token: null,
+        authenticated: false
       };
     }
     default:

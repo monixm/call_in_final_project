@@ -1,67 +1,89 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { registrationAction } from "../../store/actions/registrationAction";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { registrationValidationAction } from '../../store/actions/registrationValidationAction';
 
-const ValidateRegistration = props => {
-  const [validation_code, setValidationCode] = useState();
-  const [email, setEmail] = useState("monika.malecka19@gmail.com");
-  const [password, setPassword] = useState("password");
-  const [passwordConfirm, setPasswordConfirm] = useState("password");
-  const [first_name, setFirstName] = useState("monika");
-  const [last_name, setLastName] = useState("malecka");
-
-  const validationHandler = e => {
-    e.preventDefault();
-    const data = props.dispatch(registrationAction(email, password));
-    if (data) props.history.push("/");
+class ValidateRegistration extends Component {
+  state = {
+    first_name: '',
+    last_name: '',
+    password: '',
+    passwordConfirm: '',
+    email: '',
+    validationCode: ''
   };
 
-  return (
-    <div>
-      <h4>
-        Please enter validation code sent to your email to proceed with login:
-      </h4>
-      <form action="">
-        <input
-          type="text"
-          value={validation_code}
-          onChange={e => setValidationCode(e.currentTarget.value)}
-        ></input>
-        <input
-          type="text"
-          value={first_name}
-          onChange={e => setFirstName(e.currentTarget.value)}
-        ></input>
-        <input
-          type="text"
-          value={last_name}
-          onChange={e => setLastName(e.currentTarget.value)}
-        ></input>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.currentTarget.value)}
-        ></input>
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.currentTarget.value)}
-        ></input>
-        <input
-          type="password"
-          value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.currentTarget.value)}
-        ></input>
-        {password === passwordConfirm ? (
-          <button onClick={e => validationHandler(e)}>Register</button>
-        ) : (
-          <div>
-            <button disabled>Register</button> <p>Passwords must match!</p>
-          </div>
-        )}
-      </form>
-    </div>
-  );
-};
+  onChange = event => {
+    const value = event.currentTarget.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    const response = this.props.dispatch(
+      registrationValidationAction(this.state)
+    );
+    if (response) {
+      this.props.history.push('/');
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <h4>
+          Please enter validation code sent to your email to proceed with login:
+        </h4>
+        <form action=''>
+          <input
+            type='text'
+            value={this.state.validationCode}
+            onChange={this.onChange}
+            placeholder='Code'
+          />
+          <input
+            type='text'
+            value={this.state.first_name}
+            onChange={this.onChange}
+            placeholder='First name'
+          />
+          <input
+            type='text'
+            value={this.state.last_name}
+            onChange={this.onChange}
+            placeholder='Last name'
+          />
+          <input
+            type='email'
+            value={this.state.email}
+            onChange={this.onChange}
+            placeholder='Email'
+          />
+          <input
+            type='password'
+            value={this.state.password}
+            onChange={this.onChange}
+            placeholder='Password'
+          />
+          <input
+            type='password'
+            value={this.state.passwordConfirm}
+            onChange={this.onChange}
+            placeholder='Repeat password'
+          />
+          {this.state.password === this.state.passwordConfirm ? (
+            <button onClick={this.handleSubmit}>Register</button>
+          ) : (
+            <div>
+              <button disabled>Register</button> <p>Passwords must match!</p>
+            </div>
+          )}
+        </form>
+      </div>
+    );
+  }
+}
 
 export default connect()(ValidateRegistration);

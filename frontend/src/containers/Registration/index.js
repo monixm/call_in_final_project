@@ -1,30 +1,46 @@
-import { connect } from "react-redux";
-import React, { useState } from "react";
-import "./style.css";
-import { registrationAction } from "../../store/actions/registrationAction";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { registrationAction } from '../../store/actions/registrationAction';
+import './style.css';
 
-const Registration = props => {
-  const [email, setEmail] = useState("");
-
-  const userLoginHandler = e => {
-    e.preventDefault();
-    const data = props.dispatch(registrationAction(email));
-    if (data) props.history.push("/validate");
+class Registration extends Component {
+  state = {
+    email: ''
   };
 
-  return (
-    <div>
-      <h1>Registration</h1>
-      <form onSubmit={userLoginHandler}>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.currentTarget.value)}
-        ></input>
-        <button onClick={e => userLoginHandler(e)}>Register your email</button>
-      </form>
-    </div>
-  );
-};
+  onChange = event => {
+    this.setState({
+      email: event.currentTarget.value
+    });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    const response = this.props.dispatch(registrationAction(this.state));
+    console.log('resppnse', response);
+    if (response) {
+      this.props.history.push('/validate');
+    }
+  };
+
+
+  render() {
+    return (
+      <div>
+        <h1>Registration</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type='email'
+            value={this.state.email}
+            placeholder='email'
+            autoComplete='on'
+            onChange={this.onChange}
+          ></input>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default connect()(Registration);

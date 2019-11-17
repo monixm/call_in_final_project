@@ -8,8 +8,7 @@ import './style.css';
 const Login = props => {
   const [username, setUsername] = useState('monixm');
   const [password, setPassword] = useState('monixm1989');
-  const [usernameError, setUsernameError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+
 
   const userLoginHandler = e => {
     e.preventDefault();
@@ -50,7 +49,10 @@ const Login = props => {
           Login
         </button>
         <p>
-          Don't have an account? <Link to='/registration'>Register</Link>
+          Don't have an account?
+          <Link to='/registration'>
+            <span style={{ color: '#4497BD' }}>Register</span>
+          </Link>
         </p>
       </form>
     </div>
