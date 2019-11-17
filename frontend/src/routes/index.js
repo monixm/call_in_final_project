@@ -39,7 +39,7 @@ class Routes extends Component {
         />
         <Route exact path="/calendar" component={AuthComponent(Calendar)} />
         <Route exact path="/chat" component={AuthComponent(Chat)} />
-        <Route exact path='/volunteer/new' component={CreateProfile}/>
+        <Route exact path='/volunteer/create/new' component={CreateProfile}/>
         <Route
           exact
           path="/create_volunteer"
