@@ -2,6 +2,7 @@
 
 .login-page {
   border-top: 10px #f2e2b0 solid;
+  height: 95vh;
 }
 
 .login-h1 {
@@ -42,11 +43,15 @@
   color: white;
 }
 
-.logo {
-  position: relative;
-  bottom: 65px;
-  left: 230px;
+
+.login-logo {
+  display: flex;
 }
+
+.logo-place {
+  
+}
+
 
 .login-form {
   display: flex;
@@ -54,6 +59,7 @@
   justify-content: center;
   align-items: center;
 }
+
 
 .login-short-intro {
   margin: 0 20px;
@@ -78,4 +84,8 @@
 
 .registration-link {
   color: #dd6956;
+}
+
+.register {
+  color: Register;
 }

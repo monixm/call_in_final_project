@@ -5,10 +5,17 @@ from project.api.organisation.serializers import OrganisationSerializer
 from project.api.volunteer.serializers import VolunteerSerializer
 
 
-class ReadMeSerializer(serializers.ModelSerializer):
-    organisation = OrganisationSerializer()
+class ReadMeVolunteerSerializer(serializers.ModelSerializer):
     volunteer = VolunteerSerializer()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'organisation', 'volunteer']
+        fields = ['username', 'email', 'volunteer']
+
+
+class ReadMeOrganisationSerializer(serializers.ModelSerializer):
+    organisation = OrganisationSerializer()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'organisation']

@@ -1,8 +1,7 @@
-import { LOGGED_IN_USER } from "../types";
+import { LOGGED_IN_USER } from '../types';
 
 const initialState = {
-  user: null,
-  currentUser: {}
+  user: null
 };
 
 export const loggedInUserReducer = (state = initialState, action) => {
