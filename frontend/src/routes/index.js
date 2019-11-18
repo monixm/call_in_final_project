@@ -33,7 +33,6 @@ class Routes extends Component {
         <Route exact path="/volunteer/:id" component={AuthComponent(VolunteerProfile)}/>
         <Route exact path="/calendar" component={AuthComponent(Calendar)} />
         <Route exact path="/chat" component={AuthComponent(Chat)} />
-        <Route exact path="/"> {this.props.authenticated ? <Redirect to="/home"/> : <Login/> } </Route>
         <Route exact path='/home' component={ AuthComponent(Home) } />
         <Route exact path='/create-ngo-project-profile' component={ AuthComponent(CreateNGOProjectProfile) }/>
         <Route exact path='/create-call' component={ AuthComponent(CreateCall) } />
