@@ -1,15 +1,28 @@
 .feedVolunteer-orgname {
-  font-size: 12px;
   color: #4497bd;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.feedVolunteer-title,
+.feedVolunteer-right-side,
+.feedVolunteer-p {
+  font-size: 10px;
+  color: #574947;
+}
+
+.feedVolunteer-title {
+  margin: 10px;
 }
 
 .feedVolunteer-location {
   font-size: 12px;
   color: #574947;
+  margin-bottom: 0;
 }
 
 .feedVolunteer-call {
-  margin: 20px;
+  margin: 20px 25px;
 }
 
 .org-photo {
@@ -47,5 +60,76 @@
 }
 
 .feedVolunteer-organisation-name {
-  
+  align-items: center;
+}
+
+.feedVolunteer-call-img {
+  width: 100%;
+  min-height: 230px;
+  background-color: rgb(204, 199, 199);
+  margin: 0;
+  padding: 0;
+}
+
+.feedVolunteer-call-main {
+  display: flex;
+  padding: 10px;
+}
+
+.feedVolunteer-side-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.feedVolunteer-side-buttons img {
+  margin-bottom: 5px;
+}
+
+.feedVolunteer-right-side {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-right: 5px;
+}
+
+.feedVolunteer-call-options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.feedVolunteer-radio-button {
+  display: flex;
+  align-items: center;
+}
+
+.feedVolunteer-call button {
+  width: 70px;
+  height: 20px;
+  background: #dd6956;
+  border-radius: 20px;
+}
+
+.feedVolunteer-confirm-button {
+  padding: 10px;
+}
+
+.feedVolunteer-call-desc {
+  margin: 0;
+}
+
+.feedVolunteer-radio-button p {
+  padding: 5px;
+  margin: 0;
+}
+
+.confirmed button {
+  background: #4497bd;
+}
+
+.feedVolunteer-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
