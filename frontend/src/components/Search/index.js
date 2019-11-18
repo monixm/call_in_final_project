@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import Header from '../Header';
 import search_orange_button from '../../assets/search.svg';
 import location_icon from '../../assets/location_icon.svg';
+import confirm_icon from '../../assets/confirm.svg';
+import close_icon from '../../assets/close.svg';
 import { getSearchAction } from "../../store/actions/getSearchActions";
 import SearchItem from "../../components/SearchItem/index.js";
 import './style.css';
@@ -51,6 +53,18 @@ class Search extends Component {
         this.setState(newState)
     };
 
+    handleIconClick = async event => {
+        if(this.props.searchResults.length == 0) {
+            return this.handleSearchClick;
+        } else {
+            return this.setState({
+                ...this.state,
+                searchString:''
+            })
+        }
+
+    }
+
     showSearchResults = () => {
         return (
             <div>
@@ -75,6 +89,7 @@ class Search extends Component {
                     <div className='search_left'>
                         <input type='text' className='search_box' onChange = {this.handleSearchInput} value={this.state.searchString} placeholder='search'/>
                     </div>
+                    <img id='confirm_icon' onClick={this.handleIconClick} src={this.props.searchResults.length == 0 ? confirm_icon : close_icon}/>
                 </div>
                 <div className='location_item'>
                     <div className='location_right'>
