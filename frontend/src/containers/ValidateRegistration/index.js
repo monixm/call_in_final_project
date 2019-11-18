@@ -6,38 +6,30 @@ class ValidateRegistration extends Component {
   constructor(props) {
     super(props);
 
-const ValidateRegistration = props => {
-  const [validation_code, setValidationCode] = useState("code");
-  const [email, setEmail] = useState("email");
-  const [password, setPassword] = useState("password");
-  const [passwordConfirm, setPasswordConfirm] = useState("password");
-  const [first_name, setFirstName] = useState("first_name");
-  const [last_name, setLastName] = useState("last_name");
+    // handleEmailChange = (e, email) => {
+    //   this.setState({ email });
+    // };
 
-  handleEmailChange = (e, email) => {
-    this.setState({ email });
-  };
+    // handleFirstNameChange = (e, first_name) => {
+    //   this.setState({ first_name });
+    // };
 
-  handleFirstNameChange = (e, first_name) => {
-    this.setState({ first_name });
-  };
+    // handleLastName = (e, last_name) => {
+    //   this.setState({ last_name });
+    // };
 
-  handleLastName = (e, last_name) => {
-    this.setState({ last_name });
-  };
+    // handlePasswordChange = (e, password) => {
+    //   this.setState({ password });
+    // };
 
-  handlePasswordChange = (e, password) => {
-    this.setState({ password });
-  };
+    // handlePasswordRepeatChange = (e, password_repeat) => {
+    //   this.setState({ password_repeat });
+    // };
 
-  handlePasswordRepeatChange = (e, password_repeat) => {
-    this.setState({ password_repeat });
-  };
-
-  handleCodeChange = (e, code) => {
-    this.setState({ code });
-  };
-
+    // handleCodeChange = (e, code) => {
+    //   this.setState({ code });
+    // };
+  }
   // onChange = ({ target: { name, value } }) => {
   //   this.setState({ [name]: value });
   // };
