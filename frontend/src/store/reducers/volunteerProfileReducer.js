@@ -1,13 +1,13 @@
-import { GET_VOLUNTEER_PROFILE } from '../types';
+import { GET_VOLUNTEER_BY_ID } from "../types";
 
 const initialState = {
-  user: []
+  volunteer: null
 };
 
 export const volunteerProfileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_VOLUNTEER_PROFILE: {
-      return { ...state, user: action.payload };
+    case GET_VOLUNTEER_BY_ID: {
+      return { ...state, volunteer: action.payload };
     }
     default:
       return state;

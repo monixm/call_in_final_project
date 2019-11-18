@@ -7,15 +7,20 @@ from .models import Volunteer
 
 class VolunteerSerializer(serializers.ModelSerializer):
     interests = FocusSerializer()
+    type = serializers.SerializerMethodField()
 
     class Meta:
         model = Volunteer
         fields = ['id', 'first_name', 'last_name', 'location', 'facebook',
                   'instagram', 'linkedin', 'profile_picture', 'privacy_setting',
-                  'user', 'interests']
+                  'user', 'interests', 'type']
+        read_only_fields = ['type']
         extra_kwargs = {
             'user': {'required': False}
         }
+
+    def get_type(self, volunteer):
+        return 'volunteer'
 
     def create(self, validated_data):
         user_id = self.context.get('request').user.id

@@ -3,10 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  min-height: 40px;
+  height: 40px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 0 10px 0 10px;
   color: #dd6956;
+}
+
+.navbar a.chosen {
+  border-bottom: 5px solid #4497BD;
 }
 
 .companyName {

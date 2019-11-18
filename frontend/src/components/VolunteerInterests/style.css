@@ -1,0 +1,35 @@
+/* VOLUNTEER INTERESTS */
+
+.volunteer-interests {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0;
+  padding-bottom: 10px;
+}
+
+.volunteer-interests h6 {
+  margin-bottom: 0;
+}
+
+.volunteer-profile h6 {
+  margin: 5px 0 0 0;
+}
+
+.volunteer-interests h4 {
+  color: #dd6956;
+  text-align: center;
+}
+
+.volunteer-interests h6 {
+  color: #4497bd;
+  font-size: 12px;
+}
+
+.interests-box {
+  height: 100%;
+  width: 40%;
+  padding: 0;
+  margin: 0 5px 0 5px;
+
+}

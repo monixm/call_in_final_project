@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { registrationAction } from "../../store/actions/registrationAction";
+import { validateRegistrationAction } from "../../store/actions/validateRegistrationAction";
 
 const ValidateRegistration = props => {
-  const [validation_code, setValidationCode] = useState();
-  const [email, setEmail] = useState("monika.malecka19@gmail.com");
+  const [validation_code, setValidationCode] = useState("code");
+  const [email, setEmail] = useState("email");
   const [password, setPassword] = useState("password");
-  const [first_name, setFirstName] = useState("monika");
-  const [last_name, setLastName] = useState("malecka");
+  const [passwordConfirm, setPasswordConfirm] = useState("password");
+  const [first_name, setFirstName] = useState("first_name");
+  const [last_name, setLastName] = useState("last_name");
 
-  const validationHandler = e => {
+  const validationHandler =async e => {
     e.preventDefault();
-    const data = props.dispatch(registrationAction(email, password));
-    if (data) props.history.push("/login");
+    const data = await validateRegistrationAction({email, password, first_name, last_name, password_repeat: password, code: validation_code});
+    if (data) props.history.push("/");
   };
 
   return (
@@ -46,7 +47,18 @@ const ValidateRegistration = props => {
           value={password}
           onChange={e => setPassword(e.currentTarget.value)}
         ></input>
-        <button onClick={e => validationHandler(e)}>Register</button>
+        <input
+          type="password"
+          value={passwordConfirm}
+          onChange={e => setPasswordConfirm(e.currentTarget.value)}
+        ></input>
+        {password === passwordConfirm ? (
+          <button onClick={e => validationHandler(e)}>Register</button>
+        ) : (
+          <div>
+            <button disabled>Register</button> <p>Passwords must match!</p>
+          </div>
+        )}
       </form>
     </div>
   );
