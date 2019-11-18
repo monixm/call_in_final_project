@@ -1,15 +1,60 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from '../Header';
+import confirmed from '../../assets/confirmed.svg';
+import going from '../../assets/going.svg';
+import starred from '../../assets/starred.svg';
+import './style.css'
+import CalendarItem from '../CalendarItem';
+import {getFeedVolunteerAction} from '../../store/actions/getFeedVolunteerAction'
 
 class Calendar extends Component {
+  async componentDidMount() {
+    this.props.dispatch(getFeedVolunteerAction());
+    console.log(this.props)
+  }
   render() {
     return (
-      <div>
+      <>
         <Header />
-        <p>This is a calendar page</p>
-      </div>
+        <div className='calls'>
+          <div className='top'>
+            <p>Projects I'm Volunteering in</p>
+            <img src={confirmed}/>
+          </div>
+          <div className='list'>
+            <CalendarItem/>
+            <CalendarItem/>
+          </div>
+        </div>
+        <div className='events'>
+        <div className='top'>
+            <p>Events I'm going</p>
+            <img src={going}/>
+          </div>
+        </div>
+        <div className='bookmarks'>
+        <div className='top'>
+            <p>Projects and Events marked</p>
+            <img src={starred}/>
+          </div>
+        </div>
+      </>
     );
   }
 }
 
-export default Calendar;
+const mapStateToProps = state => {
+  return {
+    call:
+      state.feedVolunteerReducer.feed.hasOwnProperty('**CALL**') &&
+      state.feedVolunteerReducer.feed.hasOwnProperty('**EVENT**')
+        ? [
+            ...state.feedVolunteerReducer.feed['**CALL**'],
+            ...state.feedVolunteerReducer.feed['**EVENT**']
+          ]
+        : []
+  };
+};
+
+export default connect()(Calendar);
