@@ -26,7 +26,6 @@ export default WrapperComponent => {
     }
   }
   const mapStateToProp = state => {
-    // console.log('HOC state', state);
     return {
       authenticated: state.userLoginReducer.authenticated
     };

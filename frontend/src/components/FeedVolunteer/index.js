@@ -11,7 +11,6 @@ class FeedVolunteer extends Component {
 
   render() {
     const { feed } = this.props;
-    console.log(this.props);
     return (
       <>
         <Header />

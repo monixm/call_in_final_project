@@ -58,7 +58,6 @@ class Call extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     call: state.feedVolunteerReducer.call
   };
