@@ -1,10 +1,11 @@
 from django.urls import path
 
-from project.api.feed.views import CombineListViewFeed, ReadMe
+from project.api.feed.views import ReadMeVolunteer, VolunteerFeedView, OrganisationProfileAndFeedView
 
 app_name = 'feed'
 
 urlpatterns = [
-    path('', CombineListViewFeed.as_view()),
-    path('me/', ReadMe.as_view())
+    path('', VolunteerFeedView.as_view()),
+    path('volunteer/me/', ReadMeVolunteer.as_view()),
+    path('organisation/me/', OrganisationProfileAndFeedView.as_view())
 ]

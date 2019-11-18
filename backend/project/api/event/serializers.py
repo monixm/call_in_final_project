@@ -23,3 +23,14 @@ class EventSerializer(serializers.ModelSerializer):
             **validated_data,
             organisation=self.context.get('request').user.organisation
         )
+
+
+class EventOrgFeedSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Event
+        fields = ['id', 'title', 'picture', 'created', 'start_datetime', 'end_datetime', 'location',
+                  'description', 'must_be_approved', 'organisation', 'participants']
+        ordering = ['start_datetime']
+        read_only_fields = ['id', 'title', 'picture', 'created', 'start_datetime', 'end_datetime', 'location',
+                            'description', 'must_be_approved', 'organisation', 'participants']
