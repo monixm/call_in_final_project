@@ -6,15 +6,13 @@ class ValidateRegistration extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      first_name: '',
-      last_name: '',
-      password: '',
-      password_repeat: '',
-      email: '',
-      code: ''
-    };
-  }
+const ValidateRegistration = props => {
+  const [validation_code, setValidationCode] = useState("code");
+  const [email, setEmail] = useState("email");
+  const [password, setPassword] = useState("password");
+  const [passwordConfirm, setPasswordConfirm] = useState("password");
+  const [first_name, setFirstName] = useState("first_name");
+  const [last_name, setLastName] = useState("last_name");
 
   handleEmailChange = (e, email) => {
     this.setState({ email });

@@ -3,20 +3,21 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthComponent from '../HOC/authComponent';
 import Search from '../components/Search';
+import Home from '../components/Home';
+import Registration from '../containers/Registration';
+import ValidateRegistration from '../containers/ValidateRegistration'
+import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
-import FeedVolunteer from '../components/FeedVolunteer';
-import Home from '../components/Home';
-import Registration from '../containers/Registration';
-import ValidateRegistration from '../containers/ValidateRegistration';
-import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
-import CreateVolunteerProfile from '../components/CreateVolunteerProfile';
-import Login from '../containers/Login';
-import LoggedInUserProfile from '../components/LoggedInUserProfile';
-import GuestList from '../components/GuesList';
-import CreateProfile from '../components/CreateProfile';
-
+import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
+import Login from "../containers/Login";
+import { connect } from 'react-redux';
+import CreateProfile from '../components/CreateProfile'
+import LoggedInUserProfile from "../components/LoggedInUserProfile";
+import FeedVolunteer from "../components/FeedVolunteer/index.js";
+import GuestList from "../components/GuesList";
+import Event from "../components/Event"
 
 class Routes extends Component {
   render() {

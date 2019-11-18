@@ -21,6 +21,18 @@ class CallGetSerializer(serializers.ModelSerializer):
         return 'call'
 
 
+class CallGetOrgFeedSerializer(serializers.ModelSerializer):
+    call_options = CallOptionSerializer(many=True, required=False)
+
+    class Meta:
+        model = Call
+        fields = ['id', 'title', 'call_picture', 'organisation', 'start_datetime', 'end_datetime',
+                  'location', 'description', 'must_be_approved', 'call_options']
+        read_only_fields = ['id', 'title', 'call_picture', 'organisation', 'start_datetime', 'end_datetime',
+                            'location', 'description', 'must_be_approved', 'call_options']
+        ordering = ['start_datetime']
+
+
 class CallPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Call
