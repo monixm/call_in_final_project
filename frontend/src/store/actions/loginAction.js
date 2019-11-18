@@ -27,15 +27,12 @@ export const userLoginAction = (username, password) => async (
     method: 'POST'
   };
 
-  const response = await fetch(`${baseUrl}backend/api/auth/token/`, config);
-  const token = await response.json();
-  console.log('token', token);
-  console.log(response);
+  const fetchToken = await fetch(`${baseUrl}backend/api/auth/token/`, config);
+  const response = await fetchToken.json();
+  const token = response.access;
 
   if (token) {
-    localStorage.setItem('token', token.access);
+    localStorage.setItem('token', token);
+    dispatch(userLogin(token));
   }
-
-  dispatch(userLogin(token.access));
-  return token;
 };
