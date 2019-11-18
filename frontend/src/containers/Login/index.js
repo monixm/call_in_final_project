@@ -50,7 +50,7 @@ const Login = props => {
         <p>
           Don't have an account?
           <Link to='/registration'>
-            <span style={{ color: '#4497BD' }}>Register</span>
+            <span style={{ color: '#4497BD' }}> Register</span>
           </Link>
         </p>
       </form>

@@ -15,7 +15,9 @@ import CreateVolunteerProfile from '../components/CreateVolunteerProfile';
 import Login from '../containers/Login';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import GuestList from '../components/GuesList';
-import CreateVolunteerProfile from "../components/CreateVolunteerProfile";
+import CreateProfile from '../components/CreateProfile';
+
+
 class Routes extends Component {
   render() {
     return (

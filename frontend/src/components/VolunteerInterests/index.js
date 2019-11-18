@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import './style.css';
 
 class VolunteerInterests extends Component {
-
   render() {
     return (
-      <div className="volunteer-interests">
+      <div className='volunteer-interests'>
         {this.props.volunteer ? (
           <>
             <div className='interests-left-side'>
@@ -40,10 +39,10 @@ class VolunteerInterests extends Component {
                 <h6>Politics</h6>
                 <p>{this.props.volunteer.interests.politics}</p>
               </div>
-              <p className='interests-box'>
+              <div className='interests-box'>
                 <h6>Items</h6>
                 <p>{this.props.volunteer.interests.items}</p>
-              </p>
+              </div>
             </div>
           </>
         ) : null}

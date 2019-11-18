@@ -62,3 +62,9 @@
 .volunteer-share-button {
   margin-right: 20px;
 }
+
+.volunteer-public-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 11px 10px 0;
+}
