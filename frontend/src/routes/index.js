@@ -16,7 +16,6 @@ import CreateProfile from '../components/CreateProfile'
 import LoggedInUserProfile from "../components/LoggedInUserProfile";
 import FeedVolunteer from "../components/FeedVolunteer/index.js";
 import GuestList from "../components/GuesList";
-import Event from "../components/Event"
 
 class Routes extends Component {
   render() {
