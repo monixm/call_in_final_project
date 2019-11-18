@@ -9,7 +9,7 @@ class Call extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      voluntered: false,
+      volunteered: false,
       disabled: false
     };
     this.handleButtonColorChange = this.handleButtonColorChange.bind(this);
@@ -25,13 +25,13 @@ class Call extends Component {
   handleButtonColorChange(e) {
     e.target.style.background = '#4497BD';
     this.setState(prevState => ({
-      voluntered: !prevState.voluntered,
+      volunteered: !prevState.volunteered,
       disabled: true
     }));
   }
 
   render() {
-    // console.log("PROPS", this.props);
+    console.log('PROPS', this.props);
     const call = this.props.call;
 
     return (
@@ -118,7 +118,7 @@ class Call extends Component {
                   onClick={this.handleButtonColorChange}
                   disabled={this.state.disabled}
                 >
-                  {this.state.volunetered ? ' Confirmed!' : 'Volunteer'}
+                  {this.state.volunteered ? ' Confirmed!' : 'Volunteer'}
                 </button>
               </div>
             </div>

@@ -5,7 +5,7 @@ import './style.css';
 class VolunteerInterests extends Component {
   render() {
     return (
-      <div className="volunteer-interests">
+      <div className='volunteer-interests'>
         {this.props.volunteer && this.props.volunteer.interests ? (
           <>
             <div className='interests-left-side'>

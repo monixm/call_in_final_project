@@ -84,7 +84,7 @@ class LoggedInUser extends Component {
                     </div>
                   </div>
                 </div>
-                <div className='color-break'></div>
+                {/* <div className='color-break'></div> */}
               </>
             )}
           </div>

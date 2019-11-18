@@ -10,13 +10,19 @@ import Moment from 'react-moment';
 class Event extends Component {
   render() {
     const call = this.props.call;
+
     return (
       <>
         <div>
           <div className='event'>
             <div className='event-header'>
               <div className='event-header-left'>
-                <img id='ellipse' src={call.picture} alt='' />
+                <img
+                  id='ellipse'
+                  className='event-org-logo'
+                  src={call.picture}
+                  alt=''
+                />
                 <div className='middleText'>
                   <p id='organiser'>{call.organisation.name}</p>
                   <p>

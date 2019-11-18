@@ -27,6 +27,7 @@ class FeedVolunteer extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     call:
       state.feedVolunteerReducer.feed.hasOwnProperty('**CALL**') &&
