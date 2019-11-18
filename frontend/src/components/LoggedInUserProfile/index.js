@@ -14,6 +14,7 @@ class LoggedInUser extends Component {
 
   render() {
     const { user } = this.props;
+    console.log(user, 'user from loggedin');
     return (
       <>
         <Header />
@@ -38,10 +39,8 @@ class LoggedInUser extends Component {
                 {user.volunteer.location}
               </p>
             </div>
-
             <EditableButtons />
             <div className='color-break'></div>
-
             {user.volunteer.interests && (
               <>
                 <h4>

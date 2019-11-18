@@ -17,10 +17,17 @@ const Login = props => {
 
   return (
     <div className='login-page'>
+      <div className='login-logo'>
+        <div className='logo-place'>
+          <div>
+            <img className='logo' src={Logo} alt='profile-icon' />
+          </div>
+        </div>
+      </div>
       <h1 className='login-h1'>
         Call <span className='login-in'>In</span>
       </h1>
-      <img className='logo' src={Logo} alt='profile-icon' />
+
       <div className='login-short-intro'>
         <h5>
           Welcome to <span className='login-call-span'>Call</span>
