@@ -28,6 +28,9 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
             politics: content.organisationFocus.politics,
             items: content.organisationFocus.items,
         },
+        facebook: content.organisationProfile.facebook,
+        instagram: content.organisationProfile.instagram,
+        linkedin: content.organisationProfile.linkedIn,
     }
 
     const config = {

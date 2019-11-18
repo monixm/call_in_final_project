@@ -47,7 +47,7 @@ class Feed extends Component {
           showContactPopup: false,
             showProfilePopup: false,
             showPrivacyPopup: false,
-            profilePicture: null,
+            profilePicture:'',
         }
     }
 

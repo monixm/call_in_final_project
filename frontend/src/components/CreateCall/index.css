@@ -1,0 +1,358 @@
+.body {
+    color: #4497BD !important;
+}
+.call-navbar {
+    position: absolute;
+    width: 100%;
+    height: 44px;
+    left: 0px;
+    top: 0px;
+    background: #F5F2EE;
+    border: 1px solid #F5F2EE;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.call-img-close {
+    position: absolute;
+    left: 23.91px;
+    top: 14.91px;
+}
+
+.call-img-confirm {
+    position: absolute;
+    left: 148.91px;
+    top: 14.91px;
+}
+
+.create-call-p {
+    position: absolute;
+    width: 68px;
+    height: 14px;
+    left: 233px;
+    top: 6px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #DD6956;
+}
+
+.call-add-title {
+    position: absolute;
+    width: 163px;
+    height: 22px;
+    left: 43px;
+    top: 59px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #574947;
+    opacity: 0.3;
+}
+
+.call-image_upload {
+    position: absolute;
+    left: 70.28%;
+    right: 10.97%;
+    top: 11.95%;
+    bottom: 86.09%;
+}
+
+.call-org-pic {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    left: 20px;
+    top: 159px;
+}
+
+.call-org-title {
+    position: absolute;
+    width: 33px;
+    height: 12px;
+    left: 65px;
+    top: 155px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #574947;
+}
+
+.call-org-desc {
+    position: absolute;
+    width: 40px;
+    height: 11px;
+    left: 65px;
+    top: 168px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 11px;
+    text-align: center;
+    color: #C4C4C4;
+}
+
+.callEvent-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+.callEvent-popup-inner {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 13%;
+    bottom: 65%;
+    margin: auto;
+    background: #F5F2EE;
+    border-radius: 15px;
+}
+
+.call-radio {
+    position: absolute;
+    width: 13px;
+    height: 13.04px;
+    left: 32px;
+    top: 24px;
+    border: 1px solid #4497BD;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.call-radio-label {
+    position: absolute;
+    width: 78px;
+    height: 16px;
+    left: 60px;
+    top: 26px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #574947;
+}
+
+.event-radio {
+    position: absolute;
+    width: 13px;
+    height: 13.04px;
+    left: 32px;
+    top: 84px;
+    border: 1px solid #4497BD;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.event-radio-label {
+    position: absolute;
+    height: 16px;
+    left: 60px;
+    top: 86px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #574947;
+}
+
+.call-img-back {
+    position: absolute;
+    left: 150px;
+    top: 15.91px;
+}
+
+.call-calendar-img {
+    position: absolute;
+    left: 20px;
+    top: 230px;
+}
+
+.call-date-time {
+    position: absolute;
+    width: 163px;
+    height: 22px;
+    left: 96px;
+    top: 236px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+    opacity: 0.3;
+}
+
+.call-dateTime {
+    position: absolute;
+    left: 80px;
+    top: 222px;
+}
+
+.MuiInputBase-input {
+    font-size: 13px !important;
+    background: #F5F2EE !important;
+}
+
+.call-location-img {
+    position: absolute;
+    left: 25px;
+    top: 295px;
+}
+
+.call-location-p {
+
+}
+
+.call-location-textarea {
+    position: absolute;
+    top: 300px;
+    left: 90px;
+    background-color: #F5F2EE !important;
+    width: 150px;
+}
+
+.call-desc-textarea {
+    position: absolute;
+    top: 350px;
+    left: 20px;
+    background-color: #F5F2EE !important;
+    width: 150px;
+    border: none;
+}
+
+.line {
+    position: absolute;
+    width: 281px;
+    height: 0px;
+    left: 20px;
+    border: 0.5px solid #574947;
+}
+
+.call-approval-text {
+    position: absolute;
+    width: 153px;
+    height: 19px;
+    left: 25px;
+    top: 442px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.call-publish-btn {
+    position: absolute;
+    width: 130px;
+    height: 20px;
+    left: 94px;
+    top: 496px;
+    background: #DD6956;
+    border-radius: 20px;
+}
+
+.switch {
+  display: inline-block;
+  height: 16px;
+  position: relative;
+  width: 30px;
+}
+
+.switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #F2E2B0;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 0;
+  content: "";
+  height: 16px;
+  left: 1px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+}
+
+input:checked + .slider {
+  background-color: #4497BD;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.call-switch-toggle {
+    position: absolute;
+    top: 450px;
+    left: 230px;
+}
+
+.call-field-option {
+    position: absolute;
+    top: 400px;
+    left: 30px;
+    height: 12px;
+}
+
+.call-field-input {
+    position: absolute;
+    top: 400px;
+    left: 100px;
+    background-color: #F5F2EE !important;
+}
+
+.call-add-field {
+    position: absolute;
+    top: 420px;
+    left: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+    opacity: 0.3;
+}
+
+.call-field-container {
+    position: absolute;
+    top: 380px;
+    left: 30px;
+}
