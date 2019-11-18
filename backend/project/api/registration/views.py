@@ -1,12 +1,14 @@
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from .serializer import RegistrationSerializer, RegistrationValidationSerializer
 
 
 class RegistrationView(GenericAPIView):
-    permission_classes = []
+    authentication_classes = []
+    permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
 
     def post(self, request):
@@ -16,11 +18,12 @@ class RegistrationView(GenericAPIView):
             new_user = serializer.save(serializer.validated_data)
             return Response(self.get_serializer(new_user).data)
         except Exception:
-            return Response(status=status.HTTP_401_UNAUTHORIZED)
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class RegistrationValidationView(GenericAPIView):
-    permission_classes = []
+    authentication_classes = []
+    permission_classes = [AllowAny]
     serializer_class = RegistrationValidationSerializer
 
     def post(self, request):
