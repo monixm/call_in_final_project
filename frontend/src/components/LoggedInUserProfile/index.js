@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './style.css';
 import Header from '../Header';
 import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg';
@@ -14,7 +13,7 @@ class LoggedInUser extends Component {
 
   render() {
     const { user } = this.props;
-    console.log(user, 'user from loggedin');
+
     return (
       <>
         <Header />
@@ -84,7 +83,7 @@ class LoggedInUser extends Component {
                     </div>
                   </div>
                 </div>
-                <div className='color-break'></div>
+                {/* <div className='color-break'></div> */}
               </>
             )}
           </div>

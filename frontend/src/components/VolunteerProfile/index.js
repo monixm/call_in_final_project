@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './style.css';
 import Header from '../Header';
 import VolunteerInterests from '../VolunteerInterests';
 import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg';
 import { getVolunteerProfileAction } from '../../store/actions/getVolunteerByIdAction';
 import PublicProfileButtons from './ButtonsComponent/PublicProfileButtons';
+import PrivateProfile from './PrivateProfile';
+import SecretProfile from './SecretProfile';
+import FollowButton from './ButtonsComponent/FollowButton';
 
 class VolunteerProfile extends Component {
   async componentDidMount() {
@@ -20,6 +22,9 @@ class VolunteerProfile extends Component {
       <>
         <Header />
         {user && (
+            //  {user.privacy_setting === 'secret' ? (
+            //   <SecretProfile />
+            // ) : (
           <div className='volunteer-profile'>
             <div className='volunteer-intro'>
               <div className='imgs'>
@@ -38,12 +43,19 @@ class VolunteerProfile extends Component {
               </h4>
               <p className='volunteer-profile-type'>{user.location}</p>
             </div>
-            <PublicProfileButtons />
+            {user.privacy_setting !== 'private' ? (
+              <PublicProfileButtons />
+            ) : (
+              <FollowButton />
+            )}
             <div className='color-break'></div>
-            <h4>{user.first_name}'s interests in projects and events</h4>
-            <VolunteerInterests />
-            {/* <div className='color-break'></div> */}
+            {user.privacy_setting !== 'private' ? (
+              <VolunteerInterests />
+            ) : (
+              <PrivateProfile />
+            )}
           </div>
+           )}
         )}
       </>
     );

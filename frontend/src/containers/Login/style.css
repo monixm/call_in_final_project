@@ -5,6 +5,11 @@
   height: 95vh;
 }
 
+.login-error-message {
+  color: red;
+  font-size: 14px;
+}
+
 .login-h1 {
   color: #dd6956;
   text-align: center;
@@ -43,15 +48,12 @@
   color: white;
 }
 
-
 .login-logo {
   display: flex;
 }
 
 .logo-place {
-  
 }
-
 
 .login-form {
   display: flex;
@@ -59,7 +61,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 .login-short-intro {
   margin: 0 20px;
