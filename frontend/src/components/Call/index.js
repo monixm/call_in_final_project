@@ -31,7 +31,6 @@ class Call extends Component {
   }
 
   render() {
-    console.log('PROPS', this.props);
     const call = this.props.call;
 
     return (

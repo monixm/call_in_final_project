@@ -30,11 +30,12 @@
 }
 
 .interests-box {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 0;
   margin: 0 5px 0 5px;
-  display: flex;
-  flex-direction: column;
+  
 }
 
 .interests-right-side,

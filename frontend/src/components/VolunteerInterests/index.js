@@ -5,9 +5,12 @@ import './style.css';
 class VolunteerInterests extends Component {
   render() {
     return (
+      <div>  <h4>{this.props.volunteer.first_name}'s interests in projects and events</h4>
       <div className='volunteer-interests'>
+        
         {this.props.volunteer && this.props.volunteer.interests ? (
           <>
+         
             <div className='interests-left-side'>
               <div className='interests-box'>
                 <h6>Social</h6>
@@ -44,8 +47,10 @@ class VolunteerInterests extends Component {
                 <p>{this.props.volunteer.interests.items}</p>
               </div>
             </div>
+           
           </>
         ) : null}
+         </div>
       </div>
     );
   }

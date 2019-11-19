@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Chat from '../../assets/chat.svg';
 import Search from '../../assets/search.svg';
 import Calendar from '../../assets/calendar.svg';
@@ -28,6 +27,7 @@ class Header extends Component {
                 <img src={Profile} alt='user-icon' />
               )}
             </NavLink>
+    
           </li>
           <li className='Header-li'>
             <NavLink to='/search'>
