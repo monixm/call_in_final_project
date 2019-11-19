@@ -4,7 +4,7 @@ import './style.css';
 import Header from '../Header';
 import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg';
 import { getLoggedInUserProfileAction } from '../../store/actions/getLoggedInUserProfileAction';
-import EditableButtons from '../VolunteerProfile/ButtonsComponent/EditableButtons';
+import EditableButtons from '../VolunteerProfile/ButtonsComponent/editableButtons';
 
 class LoggedInUser extends Component {
   async componentDidMount() {
