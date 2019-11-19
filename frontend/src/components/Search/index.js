@@ -70,7 +70,7 @@ class Search extends Component {
                 <Header/>
                 <div className='search_item'>
                     <div className='search_right'>
-                        <img src={search_orange_button} className='orange_lens'/>
+                        <img src={search_orange_button} className='orange_lens' alt=''/>
                     </div>
                     <div className='search_left'>
                         <input type='text' className='search_box' onChange = {this.handleSearchInput} value={this.state.searchString} placeholder='search'/>
@@ -78,7 +78,7 @@ class Search extends Component {
                 </div>
                 <div className='location_item'>
                     <div className='location_right'>
-                        <img onClick={this.handleLocationInput} src={location_icon} className='location_icon'/>
+                        <img onClick={this.handleLocationInput} src={location_icon} className='location_icon' alt=''/>
                     </div>
                     <div className='location_left'>
                         <input type='text' className='location_box' placeholder='Enter the city name'/>

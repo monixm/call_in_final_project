@@ -5,19 +5,12 @@ import uuid from "uuid";
 
 
 class Input extends React.Component {
-            constructor(props){
-        super(props);
-        this.state = {
-        }
-    }
-
   render() {
     return (
               <div className='call-field-input-map' key={uuid.v4()}>
-                    <div className='call-field-container'>
-                    <img  src={option} alt=''/>
-                    <input type={this.props.input} value={this.props.valueField}
-                        onChange={this.props.onChangeInput} placeholder='Type field option'/>
+                    <div>
+                    <img  className='call-input-logo' src={option} alt=''/>
+                    <input className="call-field-input" type="text" placeholder='Type field option'/>
                     </div>
               </div>
         );

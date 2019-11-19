@@ -9,7 +9,7 @@ class SearchItemOrganisation extends Component {
         return <>
             <div className="search-result-item">
                 <div className="search-result-picture">
-                    <img className="search-result-picture-size" src={organisation.profile_pic || default_picture}/>
+                    <img className="search-result-picture-size" src={organisation.profile_pic || default_picture} alt=''/>
                 </div>
                 <div className="search-result-entity">
                     {organisation.name}

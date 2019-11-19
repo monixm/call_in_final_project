@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import location_icon from '../../assets/location_icon.svg';
 import './styles.css';
-import search_orange_button from "../../assets/search.svg";
 import upload_image from '../../assets/upload_image.svg';
 
 class CreateProfile extends Component {
@@ -34,7 +33,7 @@ class CreateProfile extends Component {
                         <p className='lower_font'>(Call In notifies you needs depending on your location)</p>
                     </div>
                     <div className='third_center'>
-                        <img src={location_icon} className='location_icon'/>
+                        <img src={location_icon} className='location_icon' alt=''/>
                     </div>
                     <div className='third_right'>
                         <input type='text' className='input_field' placeholder=''/>
@@ -83,7 +82,7 @@ class CreateProfile extends Component {
                         <p className='labels'>Please add a profile picture: </p>
                     </div>
                     <div className='eighth_right'>
-                        <img src={upload_image} className='camera'/>
+                        <img src={upload_image} className='camera' alt=''/>
                     </div>
                 </div>
                 <div className='ninth_data'>

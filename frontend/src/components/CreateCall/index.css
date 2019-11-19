@@ -1,5 +1,5 @@
 .body {
-    color: #4497BD !important;
+    background: #4497BD !important;
 }
 .call-navbar {
     position: absolute;
@@ -52,6 +52,7 @@
     line-height: 21px;
     color: #574947;
     opacity: 0.3;
+    background-color: #F5F2EE !important;
 }
 
 .call-image_upload {
@@ -226,6 +227,7 @@
     left: 90px;
     background-color: #F5F2EE !important;
     width: 150px;
+    border-bottom: 1px solid black !important;
 }
 
 .call-desc-textarea {
@@ -235,6 +237,7 @@
     background-color: #F5F2EE !important;
     width: 150px;
     border: none;
+    border-bottom: 1px solid black;
 }
 
 .line {
@@ -246,7 +249,6 @@
 }
 
 .call-approval-text {
-    position: absolute;
     width: 153px;
     height: 19px;
     left: 25px;
@@ -260,7 +262,6 @@
 }
 
 .call-publish-btn {
-    position: absolute;
     width: 130px;
     height: 20px;
     left: 94px;
@@ -319,7 +320,6 @@ input:checked + .slider:before {
 }
 
 .call-switch-toggle {
-    position: absolute;
     top: 450px;
     left: 230px;
 }
@@ -332,27 +332,50 @@ input:checked + .slider:before {
 }
 
 .call-field-input {
-    position: absolute;
-    top: 400px;
-    left: 100px;
     background-color: #F5F2EE !important;
+    margin: 10px;
+    padding: 4px;
+    border-bottom: 1px solid black !important;
 }
 
 .call-add-field {
-    position: absolute;
-    top: 420px;
-    left: 20px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    color: #574947;
-    opacity: 0.3;
+    color: #1a1a1a;
+    opacity: 0.8;
+    text-align: center;
+    padding: 2px;
 }
 
 .call-field-container {
-    position: absolute;
-    top: 380px;
-    left: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
 }
+
+.call-block {
+    height: 400px;
+}
+
+.call-input-logo {
+    position: relative;
+    left: 5px;
+}
+
+.call-approval-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+}
+
+.call-publish {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+

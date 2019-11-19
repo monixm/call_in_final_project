@@ -4,16 +4,11 @@ import { Link } from 'react-router-dom';
 import './index.css';
 import Header from '../Header';
 import profile from '../../assets/profile.svg';
-import {getOrganisationProfileAction} from "../../store/actions/getOrganisationProfileAction";
 
-class OrganisationProfile extends Component {
+class OrganisationProfilePublic extends Component {
 
-  async componentDidMount() {
-    this.props.dispatch(getOrganisationProfileAction());
-  }
 
   render() {
-    const organisation = "**ORGANISATION PROFILE**";
     return (
       <>
         <Header />
@@ -26,19 +21,19 @@ class OrganisationProfile extends Component {
                 alt=''
               />
             </div>
-            <h4 className='volunteer-name'>{this.props.profile[organisation] && this.props.profile[organisation].organisation.name}</h4>
-            <p className='volunteer-profile-type'>{this.props.profile[organisation] && this.props.profile[organisation].organisation.type}</p>
+            <h4 className='volunteer-name'>Caritas</h4>
+            <p className='volunteer-profile-type'>Non-profit organisation</p>
           </div>
           <div className='volunteer-buttons'>
             <Link to='/create_volunteer'>
-              <button>Edit profile</button>
+              <button>Follow</button>
             </Link>
             <button>Approve requests</button>
           </div>
           <div className='color-break'></div>
-            <Link to='/create-call'>
-                <button className='org-new-call-btn' >Add a new call</button>
-            </Link>
+
+          <p>Information</p>
+
         </div>
       </>
     );
@@ -51,4 +46,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps)(OrganisationProfile)
+export default connect(mapStateToProps)(OrganisationProfilePublic)

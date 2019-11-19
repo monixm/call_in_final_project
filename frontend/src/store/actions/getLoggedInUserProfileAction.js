@@ -27,7 +27,7 @@ export const getLoggedInUserProfileAction = () => async (
     method: "GET"
   };
 
-  const response = await fetch(`${baseUrl}backend/api/feed/me`, config);
+  const response = await fetch(`${baseUrl}backend/api/feed/volunteer/me`, config);
 
   const user = await response.json();
   dispatch(getLoggedInUserProfile(user));

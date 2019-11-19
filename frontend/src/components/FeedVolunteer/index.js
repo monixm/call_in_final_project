@@ -10,7 +10,7 @@ class FeedVolunteer extends Component {
   }
 
   render() {
-    const { feed } = this.props;
+//    const { feed } = this.props;
     return (
       <>
         <Header />

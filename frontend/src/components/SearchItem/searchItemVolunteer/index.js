@@ -11,7 +11,7 @@ class SearchItemVolunteer extends Component {
             <div className="search-result-item">
                 <div className="search-result-picture">
                     <Link to={`volunteer/${volunteer.id}`}>
-                        <img className="search-result-picture-size" src={volunteer.profile_picture || volunteer_default_profile}/>
+                        <img className="search-result-picture-size" src={volunteer.profile_picture || volunteer_default_profile} alt=''/>
                     </Link>
                 </div>
                 <div className="search-result-entity">
