@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import './style.css';
 import NotGoing from '../../assets/not_going.svg';
 import NotStarred from '../../assets/not_starred.svg';
+import UserCircle from '../../assets/user_circle.svg';
 import Ellipse from '../../assets/ellipse.svg';
 import LocationLogo from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
 
-class Event extends Component {
+class Event extends Component {  
   render() {
     const call = this.props.call;
-
+    
     return (
       <>
         <div>
@@ -55,9 +56,13 @@ class Event extends Component {
                 <div className='icons'></div>
                 <div className='peopleGoing'>
                   <div className='people'>
-                    <img id='pic1' src={call.participants.profile_picture} alt='' />
-                    <img id='pic2' src={Ellipse} alt='' />
-                    <img id='pic3' src={Ellipse} alt='' />
+                    {call.participants.slice(0, 3).map(user => {
+                      return user.profile_picture !== null ? (
+                        <img id='pic1' src={user.profile_picture} alt='' />
+                      ) : (
+                          <img alt='' src={UserCircle} />
+                        )
+                    })}
                   </div>
                   <p>{call.participants.length} people are going</p>
                 </div>

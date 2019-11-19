@@ -4,7 +4,6 @@ import './style.css';
 import NotGoing from '../../assets/not_going.svg';
 import NotStarred from '../../assets/not_starred.svg';
 import UserCircle from '../../assets/user_circle.svg';
-import Ellipse from '../../assets/ellipse.svg';
 
 
 class EventOrganisationFeed extends Component {
@@ -32,13 +31,17 @@ class EventOrganisationFeed extends Component {
 
               </div>
               <div className='peopleGoing'>
-                <div className='people'>
-                  <img id='pic1' src={UserCircle} />
-                  <img id='pic2' src={Ellipse} />
-                  <img id='pic3' src={Ellipse} />
+                  <div className='people'>
+                    {call.participants.slice(0, 3).map(user => {
+                      return user.profile_picture !== null ? (
+                        <img id='pic1' src={user.profile_picture} alt='' />
+                      ) : (
+                          <img alt='' src={UserCircle} />
+                        )
+                    })}
+                  </div>
+                  <p>{call.participants.length} people are going</p>
                 </div>
-                <p>8 people are going</p>
-              </div>
             </div>
           </div>
         </div>
