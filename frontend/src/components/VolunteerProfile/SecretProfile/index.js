@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class SecretProfile extends Component {
   render() {
-    return <h4>This person cannot be found.</h4>;
+    return <h4 className='profile-secret'>This person cannot be found.</h4>;
   }
 }
 

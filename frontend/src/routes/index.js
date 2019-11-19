@@ -10,7 +10,6 @@ import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
-import CreateVolunteerProfile from '../components/CreateVolunteerProfile';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
@@ -24,7 +23,7 @@ class Routes extends Component {
         <Route exact path='/'>
           {this.props.authenticated ? <Redirect to='/feed/' /> : <Login />}
         </Route>
-        <Route exact path='/registration' component={Registration} />
+        <Route exact path='/validation' component={Registration} />
         <Route exact path='/validate' component={ValidateRegistration} />
         <Route exact path='/feed' component={FeedVolunteer} />
         <Route
@@ -41,11 +40,6 @@ class Routes extends Component {
         <Route exact path='/calendar' component={AuthComponent(Calendar)} />
         <Route exact path='/chat' component={AuthComponent(Chat)} />
         <Route exact path='/volunteer/new' component={CreateProfile} />
-        <Route
-          exact
-          path='/create_volunteer'
-          component={AuthComponent(CreateVolunteerProfile)}
-        />
         <Route exact path='/home' component={AuthComponent(Home)} />
         <Route
           exact
