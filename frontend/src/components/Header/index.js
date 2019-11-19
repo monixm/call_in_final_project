@@ -13,7 +13,6 @@ import CalendarActive from '../../assets/calendar-active.svg';
 import './style.css';
 import { withRouter } from 'react-router-dom';
 
-
 class Header extends Component {
   render() {
     return (
@@ -27,7 +26,6 @@ class Header extends Component {
                 <img src={Profile} alt='user-icon' />
               )}
             </NavLink>
-    
           </li>
           <li className='Header-li'>
             <NavLink to='/search'>
@@ -36,6 +34,7 @@ class Header extends Component {
               ) : (
                 <img src={Search} alt='search-icon' />
               )}
+              <img src={Search} alt='search-icon' />
             </NavLink>
           </li>
         </div>
@@ -50,10 +49,10 @@ class Header extends Component {
           <li className='Header-li'>
             <NavLink to='/calendar'>
               {this.props.location.pathname === '/calendar' ? (
-            <img src={CalendarActive} alt='calendar-icon' />
-          ) : (
-            <img src={Calendar} alt='calendar-icon' />
-          )}
+                <img src={CalendarActive} alt='calendar-icon' />
+              ) : (
+                <img src={Calendar} alt='calendar-icon' />
+              )}
             </NavLink>
           </li>
           <li className='Header-li'>
