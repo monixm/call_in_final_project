@@ -5,7 +5,8 @@ const initialState = {
   token: null,
   authenticated: false,
   loginError: null,
-  errors: {}
+  error: false,
+  errorMessage: ''
 };
 
 export const userLoginReducer = (state = initialState, action) => {
@@ -20,9 +21,10 @@ export const userLoginReducer = (state = initialState, action) => {
     case USER_LOGIN_ERROR: {
       return {
         ...state,
-        loginError: action.payload,
+        error: action.payload,
         token: null,
-        authenticated: false
+        authenticated: false,
+        errorMessage: 'Incorrect username or password'
       };
     }
     default:

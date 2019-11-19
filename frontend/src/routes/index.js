@@ -26,7 +26,6 @@ class Routes extends Component {
         <Route exact path='/'>
           {this.props.authenticated ? <Redirect to='/feed/' /> : <Login />}
         </Route>
-
         <Route exact path='/registration' component={Registration} />
         <Route exact path='/validate' component={ValidateRegistration} />
         <Route exact path='/feed' component={FeedVolunteer} />

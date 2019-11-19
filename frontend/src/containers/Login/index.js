@@ -15,6 +15,8 @@ const Login = props => {
     // if (data) props.history.push('/feed/me');
   };
 
+  const { errorMessage } = props;
+
   return (
     <div className='login-page'>
       <div className='login-logo'>
@@ -44,13 +46,13 @@ const Login = props => {
           placeholder='username'
           onChange={e => setUsername(e.currentTarget.value)}
         />
-
         <input
           placeholder='password'
           type='password'
           value={password}
           onChange={e => setPassword(e.currentTarget.value)}
         ></input>
+        <p className='login-error-message'>{errorMessage}</p>
         <button className='login-button' onClick={e => userLoginHandler(e)}>
           Login
         </button>
@@ -65,4 +67,10 @@ const Login = props => {
   );
 };
 
-export default connect()(Login);
+const mapStateToProps = state => {
+  return {
+    errorMessage: state.userLoginReducer.errorMessage
+  };
+};
+
+export default connect(mapStateToProps)(Login);

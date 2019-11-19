@@ -34,5 +34,7 @@ export const userLoginAction = (username, password) => async (
   if (token) {
     localStorage.setItem('token', token);
     dispatch(userLogin(token));
+  } else {
+    dispatch(userLoginError());
   }
 };
