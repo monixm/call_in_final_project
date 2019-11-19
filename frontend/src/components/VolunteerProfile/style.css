@@ -39,6 +39,7 @@
   height: 20px;
   background: #4497bd;
   border-radius: 20px;
+  color: #f2e2b0;
 }
 
 .volunteer-buttons {
@@ -60,4 +61,15 @@
 
 .volunteer-share-button {
   margin-right: 20px;
+}
+
+.volunteer-public-buttons,
+.volunteer-follow-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 11px 10px 0;
+}
+
+.private p {
+  text-align: center;
 }

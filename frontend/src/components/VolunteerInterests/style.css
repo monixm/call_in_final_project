@@ -2,10 +2,9 @@
 
 .volunteer-interests {
   display: flex;
-  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 20px;
   justify-content: center;
-  margin-top: 0;
-  padding-bottom: 10px;
 }
 
 .volunteer-interests h6 {
@@ -27,9 +26,19 @@
 }
 
 .interests-box {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 40%;
   padding: 0;
   margin: 0 5px 0 5px;
+}
 
+.interests-right-side,
+.interests-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+  margin: 0 10px 0 10px;
+  /* margin-left: 30px; */
 }
