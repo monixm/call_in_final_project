@@ -63,7 +63,8 @@
   margin-right: 20px;
 }
 
-.volunteer-public-buttons {
+.volunteer-public-buttons,
+.volunteer-follow-button {
   display: flex;
   justify-content: flex-end;
   padding: 0 11px 10px 0;

@@ -8,6 +8,7 @@ import { getVolunteerProfileAction } from '../../store/actions/getVolunteerByIdA
 import PublicProfileButtons from './ButtonsComponent/PublicProfileButtons';
 import PrivateProfile from './PrivateProfile';
 import SecretProfile from './SecretProfile';
+import FollowButton from './ButtonsComponent/FollowButton';
 
 class VolunteerProfile extends Component {
   async componentDidMount() {
@@ -20,11 +21,8 @@ class VolunteerProfile extends Component {
     return (
       <>
         <Header />
-    
         {user && (
-        //  {user.privacy_setting === 'secret' ? <SecretProfile /> : null}
           <div className='volunteer-profile'>
-
             <div className='volunteer-intro'>
               <div className='imgs'>
                 {user.profile_picture !== null ? (
@@ -42,17 +40,20 @@ class VolunteerProfile extends Component {
               </h4>
               <p className='volunteer-profile-type'>{user.location}</p>
             </div>
-            {user.privacy_setting !== 'private' ? <PublicProfileButtons /> : null }
+            {user.privacy_setting !== 'private' ? (
+              <PublicProfileButtons />
+            ) : (
+              <FollowButton />
+            )}
             <div className='color-break'></div>
-           
-            {user.privacy_setting !== 'private' ? <VolunteerInterests /> : <PrivateProfile />}
-           
-            {/* <div className='color-break'></div> */}
+            {user.privacy_setting !== 'private' ? (
+              <VolunteerInterests />
+            ) : (
+              <PrivateProfile />
+            )}
           </div>
-                   )}
-        
+        )}
       </>
-              
     );
   }
 }
