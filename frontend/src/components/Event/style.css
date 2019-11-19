@@ -67,6 +67,7 @@
 
 .event-body-top {
   display: flex;
+  justify-content: space-between;
 }
 
 #date {
@@ -76,13 +77,14 @@
 
 #title {
   color: #4497bd;
+  font-size: 12px;
 }
 
 #description {
   font-weight: normal;
 }
 
-.even-body-right {
+.event-body-right {
   display: flex;
   flex-direction: column;
 }

@@ -20,7 +20,7 @@ class Event extends Component {
                 <div className='middleText'>
                   <p id='organiser'>{call.organisation.name}</p>
                   <p>
-                    <Moment format='DD-MM-YYYY'>{call.created}</Moment>
+                    <Moment fromNow='h'>{call.created}</Moment>
                   </p>
                 </div>
               </div>
@@ -33,9 +33,9 @@ class Event extends Component {
               <div className='event-body-top'>
                 <div className='event-body-left'>
                   <p id='date'>
-                    <Moment format='DD-MM-YYYY'>{call.start_datetime}</Moment>
-                    <span> AT </span>
-                    <Moment format='HH:mm'>{call.start_datetime}</Moment>
+                    <Moment format='DD MMM YYYY [at] k:mm'>{call.start_datetime}</Moment>
+                    <span> - </span>
+                    <Moment format='HH:mm'>{call.end_datetime}</Moment>
                   </p>
                   <p id='title'>{call.title}</p>
                   {/* <p id='place'>{call.location}</p> */}
@@ -50,9 +50,11 @@ class Event extends Component {
                 <div className='icons'></div>
                 <div className='peopleGoing'>
                   <div className='people'>
-                    <img id='pic1' src={UserCircle} alt='' />
-                    <img id='pic2' src={Ellipse} alt='' />
-                    <img id='pic3' src={Ellipse} alt='' />
+                    {call.participants.map(person => {
+                      return (<img id={person.id} src={person.profile_picture} alt='' />)
+                    })}
+                    {/* <img id='pic2' src={Ellipse} alt='' />
+                    <img id='pic3' src={Ellipse} alt='' /> */}
                   </div>
                   <p>{call.participants.length} people are going</p>
                 </div>

@@ -31,7 +31,11 @@ export const getLoggedInUserProfileAction = () => async (
     `${baseUrl}backend/api/feed/volunteer/me`,
     config
   );
-  console.log(response, 'response from fetch');
   const user = await response.json();
+  console.log('response from fetch', user);
+  const username = user.username
+  const volunteer_id = user.volunteer.id
+  localStorage.setItem('username', username)
+  localStorage.setItem('volunteer_id', volunteer_id)
   dispatch(getLoggedInUserProfile(user));
 };

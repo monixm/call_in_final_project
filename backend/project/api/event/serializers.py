@@ -1,12 +1,14 @@
 from rest_framework import serializers
 
 from project.api.organisation.serializers import OrganisationSerializer
+from project.api.volunteer.serializers import VolunteerSerializer
 from .models import Event
 
 
 class EventSerializer(serializers.ModelSerializer):
     organisation = OrganisationSerializer()
     type = serializers.SerializerMethodField()
+    participants = VolunteerSerializer(many=True, required=False)
 
     class Meta:
         model = Event

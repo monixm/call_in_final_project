@@ -33,7 +33,7 @@ class Call extends Component {
   render() {
     // console.log("PROPS", this.props);
     const call = this.props.call;
-
+    var volunteer_id = () => Storage.getItem('volunteer_id')
     return (
       <>
         <div>
@@ -50,7 +50,7 @@ class Call extends Component {
                     {call.organisation.name}
                   </p>
                   <p className='feedVolunteer-p'>
-                    <Moment fromNow>{call.start_datetime}</Moment>
+                    <Moment fromNow='h'>{call.created}</Moment>
                   </p>
                 </div>
               </div>
@@ -68,9 +68,13 @@ class Call extends Component {
               </div>
               <div className='feedVolunteer-call-main'>
                 <div className='feedVolunteer-right-side'>
+                  <p id='date'>
+                    <Moment format='DD MMM YYYY'>{call.start_datetime}</Moment>
+                  </p>
                   <p className='feedVolunteer-call-desc'>{call.description}</p>
                   <div className='feedVolunteer-call-options'>
                     {this.props.call.call_options.map(calls => {
+                      console.log(calls.volunteers.includes(volunteer_id))
                       return (
                         <>
                           <div className='feedVolunteer-radio-button'>
@@ -79,6 +83,8 @@ class Call extends Component {
                               className='hidden'
                               id='input1'
                               name='inputs'
+                              checked={calls.volunteers.includes(volunteer_id)}
+                              // checked={calls.volunteers.includes(user.id)}
                             />
                             <p>{calls.title}</p>
                           </div>

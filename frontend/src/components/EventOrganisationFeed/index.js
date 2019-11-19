@@ -5,7 +5,6 @@ import NotGoing from '../../assets/not_going.svg';
 import NotStarred from '../../assets/not_starred.svg';
 import UserCircle from '../../assets/user_circle.svg';
 import Ellipse from '../../assets/ellipse.svg';
-import LocationLogo from '../../assets/location_logo.svg';
 
 
 class EventOrganisationFeed extends Component {
