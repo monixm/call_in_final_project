@@ -4,6 +4,7 @@ import './style.css';
 import NotStarred from '../../assets/not_starred.svg';
 import Share from '../../assets/share.svg';
 import Location from '../../assets/location_logo.svg';
+import PhotoPlaceholder from '../../assets/photo-placeholder.svg';
 import Moment from 'react-moment';
 import { joinCallOptionAction } from '../../store/actions/joinCallOptionAction';
 import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
@@ -78,7 +79,15 @@ class Call extends Component {
                 <strong>Call For Volunteers: {call.title}</strong>
               </p>
               <div className='feedVolunteer-image'>
-                <img className='feedVolunteer-call-img' alt='' />
+                {call.call_picture !== null ? (
+                  <img
+                    src={call.call_picture}
+                    className='feedVolunteer-call-img'
+                    alt=''
+                  />
+                ) : (
+                  <img alt='' src={PhotoPlaceholder} />
+                )}
               </div>
               <div className='feedVolunteer-call-main'>
                 <div className='feedVolunteer-right-side'>

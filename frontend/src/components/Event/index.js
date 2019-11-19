@@ -7,10 +7,10 @@ import Ellipse from '../../assets/ellipse.svg';
 import LocationLogo from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
 
-class Event extends Component {  
+class Event extends Component {
   render() {
     const call = this.props.call;
-    
+
     return (
       <>
         <div>

@@ -34,7 +34,6 @@ class Header extends Component {
               ) : (
                 <img src={Search} alt='search-icon' />
               )}
-
             </NavLink>
           </li>
         </div>
