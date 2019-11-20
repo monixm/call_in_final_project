@@ -19,3 +19,9 @@ class ReadMeOrganisationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'organisation']
+
+
+class ReadMeUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'volunteer', 'organisation']
