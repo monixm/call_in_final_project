@@ -9,22 +9,6 @@
   color: #dd6956;
 }
 
-.navbar a.chosen {
-  border-bottom: 5px solid #4497BD;
-}
-
-.companyName {
-  margin: 8px;
-}
-
-.call {
-  font-weight: lighter;
-}
-
-.in {
-  font-weight: 900;
-}
-
 .right-nav {
   display: flex;
   align-items: center;
@@ -37,11 +21,9 @@
   margin-left: 14px;
 }
 
-.navbar svg {
-  color: #dd6956;
-}
 
 .Header-li {
   list-style: none;
   padding-right: 10px;
 }
+

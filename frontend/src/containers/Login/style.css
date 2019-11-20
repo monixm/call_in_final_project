@@ -2,6 +2,15 @@
 
 .login-page {
   border-top: 10px #f2e2b0 solid;
+  height: 95vh;
+  padding-top: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-error-message {
+  color: red;
+  font-size: 14px;
 }
 
 .login-h1 {
@@ -38,14 +47,20 @@
   background: #4497bd;
   mix-blend-mode: normal;
   border-radius: 20px;
-  margin-top: 20px;
   color: white;
+  margin-bottom: 20px;
 }
 
-.logo {
-  position: relative;
-  bottom: 65px;
-  left: 230px;
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.logo-megaphone {
+  display: flex;
+  margin-bottom: 20px;
+  margin-left: 5px;
 }
 
 .login-form {
@@ -72,10 +87,50 @@
   border-radius: 20px;
 }
 
-.login-page input:focus {
+/* .login-page input:focus {
   outline: none;
-}
+} */
 
 .registration-link {
   color: #dd6956;
+}
+
+.register {
+  color: Register;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .login-page input {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .login-main {
+    height: 90%;
+    margin: 0 auto;
+  }
+  .login-page input {
+    width: 20%;
+  }
+
+  .login-short-intro {
+    margin: 0 auto;
+    width: 30%;
+  }
+
+  .login-logo {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .login-page input {
+    width: 10%;
+  }
 }

@@ -1,28 +1,31 @@
-import { baseUrl } from "../constants";
-import { USER_REGISTRATION_SUCCESS } from "../types";
+import { baseUrl } from '../constants';
+import { USER_REGISTRATION_SUCCESS } from '../types';
 
-export const registration = token => ({
+export const registration = code => ({
   type: USER_REGISTRATION_SUCCESS,
-  payload: token
+  payload: code
 });
 
-export const registrationAction = email => async (dispatch, getState) => {
-  const headers = new Headers({
-    "Content-Type": "application/json"
-  });
+export const registrationAction = data => async (dispatch, getState) => {
+  try {
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
 
-  const body = JSON.stringify({email});
+    const body = JSON.stringify({email: data.email});
 
-  const config = {
-    headers,
-    body,
-    method: "POST"
-  };
-  const response = await fetch(`${baseUrl}backend/api/registration/`, config);
-  const token = await response.json();
-  if (response) {
-    localStorage.setItem("token", token);
+    const config = {
+      headers,
+      body,
+      method: 'POST'
+    };
+
+    const response = await fetch(`${baseUrl}backend/api/registration/`, config);
+    const code = await response.json();
+    console.log(response, 'response');
+    dispatch(registration(code));
+    return code;
+  } catch (error) {
+    console.log(error);
   }
-  dispatch(registration(token));
-  return token;
 };

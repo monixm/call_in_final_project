@@ -1,8 +1,8 @@
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
 
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
-from .serializers import OrganisationSerializer
+from .serializers import OrganisationSerializer, RegisterOrganisationSerializer
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from .models import Organisation
@@ -24,8 +24,9 @@ class OrganisationCreateView(GenericAPIView):
     """
     POST: Create a new organisation
     """
-    serializer_class = OrganisationSerializer
-    permission_classes = [IsAuthenticated]
+    serializer_class = RegisterOrganisationSerializer
+    authentication_classes = []
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)

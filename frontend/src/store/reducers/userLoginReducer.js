@@ -1,11 +1,12 @@
-import { USER_LOGIN_SUCCESS } from "../types";
-import { USER_LOGIN_ERROR } from "../types";
+import { USER_LOGIN_SUCCESS } from '../types';
+import { USER_LOGIN_ERROR } from '../types';
 
 const initialState = {
   token: null,
-  authenticated: null,
+  authenticated: false,
   loginError: null,
-  currentUser: {}
+  error: false,
+  errorMessage: ''
 };
 
 export const userLoginReducer = (state = initialState, action) => {
@@ -20,7 +21,10 @@ export const userLoginReducer = (state = initialState, action) => {
     case USER_LOGIN_ERROR: {
       return {
         ...state,
-        loginError: action.type
+        error: action.payload,
+        token: null,
+        authenticated: false,
+        errorMessage: 'Incorrect username or password'
       };
     }
     default:
