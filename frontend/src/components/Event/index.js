@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import { Link } from 'react-router-dom'
 import NotGoing from '../../assets/not_going.svg';
 import NotStarred from '../../assets/not_starred.svg';
 import UserCircle from '../../assets/user_circle.svg';
@@ -10,6 +11,9 @@ import Moment from 'react-moment';
 class Event extends Component {
   render() {
     const call = this.props.call;
+    console.log('callId r', call.id)
+    const callId = call
+
 
     return (
       <>
@@ -64,7 +68,9 @@ class Event extends Component {
                         )
                     })}
                   </div>
-                  <p>{call.participants.length} people are going</p>
+                  <Link to={`/${call.id}/guestlist`} style={{ color: '#574947' }}>
+                    <p>{call.participants.length} people are going</p>
+                  </Link>
                 </div>
               </div>
             </div>

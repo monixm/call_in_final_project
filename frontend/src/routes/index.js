@@ -48,9 +48,9 @@ class Routes extends Component {
           path='/create-ngo-project-profile'
           component={AuthComponent(CreateNGOProjectProfile)}
         />
-        <Route exact path='/guestlist' component={GuestList} />
         <Route exact path='/event/:eventId' component={EventPage} />
         <Route exact path='/call/:callId' component={CallPage} />
+        <Route exact path='/:eventId/guestlist' component={GuestList} />
       </>
     );
   }
