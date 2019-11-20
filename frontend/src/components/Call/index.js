@@ -17,8 +17,6 @@ class Call extends Component {
     this.state = {
       call_option_id: ''
     };
-    this.handleSelection = this.handleSelection.bind(this)
-
   }
 
 
@@ -49,7 +47,7 @@ class Call extends Component {
     // console.log('call_option', call_options)
 
     const volunteer_id = () => Storage.getItem('volunter_id')
-
+    console.log('dddd', call_options)
 
     return (
       <>
@@ -100,18 +98,19 @@ class Call extends Component {
                   </p>
                   <p className='feedVolunteer-call-desc'>{call.description}</p>
                   <div className='feedVolunteer-call-options'>
-                    {call_options.map(calls => {
+                    {call_options.map(option => {
                       return (
                         <>
                           <div className='feedVolunteer-radio-button'>
-                            <input
+                            {/* <input
                               type='radio'
                               className='hidden'
-                              value={calls.id}
-                              checked={this.state.call_option_id === calls.id}
+                              value={option.id}
+                              checked={true}
                               onChange={this.handleSelection}
-                            />
-                            <p>{calls.title}</p>
+                            /> */}
+                            <button id='volunteer_button' onClick={this.handleSubmit}>Volunteer</button>
+                            <p>{option.title}</p>
                           </div>
                         </>
                       );
@@ -145,21 +144,21 @@ class Call extends Component {
                 </div> */}
               </div>
               <div className='feedVolunteer-confirm-button'>
-                {call_options.map(item => {
+                {/* {call_options.map(item => {
                   return item.volunteers.includes(volunteer_id)
-                    ?
-                      <button onClick={this.handleSubmit}>Volunteer</button>
-                     : <button>Confirmed!</button>
+                    ? 
+                    <button>Confirmed!</button>
+                     : <button onClick={this.handleSubmit}>Volunteer</button>
                   })
-                })}
+                })} */}
                 {/* {this.props.call.call_options.maps(call_option =>
                   call_option.participants.maps(participant =>
                     participant
                     )
                   )} */}
-                <button onClick={this.handleSubmit}>
+                {/* <button onClick={this.handleSubmit}>
                   {this.props.call.participants ? ' Confirmed!' : 'Volunteer'}
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
