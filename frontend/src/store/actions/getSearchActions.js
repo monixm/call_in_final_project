@@ -1,5 +1,5 @@
 import {SEARCH} from '../types';
-import {baseUrl} from "../constants";
+import {baseUrl} from '../constants';
 
 export const search = (searched) =>({
     type: SEARCH,
@@ -22,7 +22,7 @@ export const getSearchAction = data => async (dispatch, getState)=> {
         search_location: data.searchLocation,
     };
     const queryString = Object.keys(params).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key])).join('&');
-    let url = `backend/api/search?${queryString}`;
+    let url = `backend/api/search/?${queryString}`;
     const response = await fetch(`${baseUrl}${url}`, config);
     const searchedData = await response.json();
     dispatch(search(searchedData));

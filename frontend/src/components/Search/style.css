@@ -108,6 +108,9 @@
 /*list focus*/
 .focus_list{
   display:flex;
+  justify-content: center;
+  flex-direction: row;
+  width:100%;
 }
 .focus_right{
   display:flex;

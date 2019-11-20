@@ -1,12 +1,12 @@
 from django.http import Http404
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from project.api.call_option.models import CallOption
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
 from .models import Volunteer
-from .serializers import VolunteerSerializer
+from .serializers import VolunteerSerializer, RegisterVolunteerSerializer
 
 
 class GetVolunteers(GenericAPIView):
@@ -25,8 +25,9 @@ class VolunteerCreateView(GenericAPIView):
     """
     POST: Create a new volunteer
     """
-    serializer_class = VolunteerSerializer
-    permission_classes = [IsAuthenticated]
+    serializer_class = RegisterVolunteerSerializer
+    authentication_classes = []
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)
