@@ -8,7 +8,7 @@ return (
         <div className='focus-popup-inner'> 
             <p className='org-focus-title'>What kind of focus does your organisation or project have?</p>
             <p className='org-focus-social'>Social</p>
-            <input className="org-focus-social-textarea" value={this.props.value_Social}
+            <input className="org-focus-social-textarea" value={this.props.value_Social} name="organisationFocus.social"
                 onChange={this.props.onChange_Social} placeholder='What social activities does your organisation do?' />
             <p className='org-focus-languages'>Languages</p>
             <input className="org-focus-languages-textarea" value={this.props.value_Languages}

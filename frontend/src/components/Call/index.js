@@ -1,31 +1,53 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './style.css';
 import NotStarred from '../../assets/not_starred.svg';
 import Share from '../../assets/share.svg';
 import Location from '../../assets/location_logo.svg';
 import PhotoPlaceholder from '../../assets/photo-placeholder.svg';
 import Moment from 'react-moment';
+import { joinCallOptionAction } from '../../store/actions/joinCallOptionAction';
+import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
+import { Link } from 'react-router-dom';
+
 
 class Call extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      volunteered: false,
-      disabled: false
+      call_option_id: ''
     };
-    this.handleButtonColorChange = this.handleButtonColorChange.bind(this);
   }
 
-  handleButtonColorChange(e) {
-    e.target.style.background = '#4497BD';
-    this.setState(prevState => ({
-      volunteered: !prevState.volunteered,
-      disabled: true
-    }));
+
+
+  handleSelection = (event) => {
+    console.log(event.currentTarget.value)
+    this.setState({
+      call_option_id: event.currentTarget.value
+    })
   }
+
+  handleSubmit = (e) => {
+    // e.target.style.background = '#4497BD';
+    this.props.dispatch(joinCallOptionAction(this.state.call_option_id))
+      .then(data => {
+        if (data) {
+          this.props.dispatch(getFeedVolunteerAction())
+          console.log('this.props', this.props)
+        }
+      })
+  };
+
 
   render() {
     const call = this.props.call;
+    const call_options = this.props.call.call_options
+    // console.log('call', call)
+    // console.log('call_option', call_options)
+
+    const volunteer_id = () => Storage.getItem('volunter_id')
+    console.log('dddd', call_options)
 
     return (
       <>
@@ -39,11 +61,13 @@ class Call extends Component {
                   alt=''
                 />
                 <div>
+                    <Link to={`/organisations/${this.props.call.organisation.id}/`}>
                   <p className='feedVolunteer-orgname'>
                     {call.organisation.name}
                   </p>
+                    </Link>
                   <p className='feedVolunteer-p'>
-                    <Moment fromNow>{call.start_datetime}</Moment>
+                    <Moment fromNow='h'>{call.created}</Moment>
                   </p>
                 </div>
               </div>
@@ -69,19 +93,24 @@ class Call extends Component {
               </div>
               <div className='feedVolunteer-call-main'>
                 <div className='feedVolunteer-right-side'>
+                  <p id='date'>
+                    <Moment format='DD MMM YYYY'>{call.start_datetime}</Moment>
+                  </p>
                   <p className='feedVolunteer-call-desc'>{call.description}</p>
                   <div className='feedVolunteer-call-options'>
-                    {this.props.call.call_options.map(calls => {
+                    {call_options.map(option => {
                       return (
                         <>
                           <div className='feedVolunteer-radio-button'>
-                            <input
+                            {/* <input
                               type='radio'
                               className='hidden'
-                              id='input1'
-                              name='inputs'
-                            />
-                            <p>{calls.title}</p>
+                              value={option.id}
+                              checked={true}
+                              onChange={this.handleSelection}
+                            /> */}
+                            <button id='volunteer_button' onClick={this.handleSubmit}>Volunteer</button>
+                            <p>{option.title}</p>
                           </div>
                         </>
                       );
@@ -115,12 +144,21 @@ class Call extends Component {
                 </div> */}
               </div>
               <div className='feedVolunteer-confirm-button'>
-                <button
-                  onClick={this.handleButtonColorChange}
-                  disabled={this.state.disabled}
-                >
-                  {this.state.volunteered ? ' Confirmed!' : 'Volunteer'}
-                </button>
+                {/* {call_options.map(item => {
+                  return item.volunteers.includes(volunteer_id)
+                    ?
+                    <button>Confirmed!</button>
+                     : <button onClick={this.handleSubmit}>Volunteer</button>
+                  })
+                })} */}
+                {/* {this.props.call.call_options.maps(call_option =>
+                  call_option.participants.maps(participant =>
+                    participant
+                    )
+                  )} */}
+                {/* <button onClick={this.handleSubmit}>
+                  {this.props.call.participants ? ' Confirmed!' : 'Volunteer'}
+                </button> */}
               </div>
             </div>
           </div>
@@ -131,4 +169,4 @@ class Call extends Component {
   }
 }
 
-export default Call;
+export default connect()(Call);

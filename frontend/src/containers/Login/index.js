@@ -7,9 +7,8 @@ import LogoCallBig from '../../assets/logo-call-big.svg';
 import './style.css';
 
 const Login = props => {
-  const [email, setEmail] = useState('monika.malecka19@gmail.com');
-  // const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('monixm1989');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const userLoginHandler = e => {
     e.preventDefault();

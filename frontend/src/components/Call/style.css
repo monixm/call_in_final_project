@@ -131,3 +131,14 @@
   justify-content: center;
   width: 100%;
 }
+
+#date {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+
+#volunteer_button {
+  height: 60%;
+  width: 70px
+} 

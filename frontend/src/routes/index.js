@@ -8,13 +8,18 @@ import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
+import CreateCall from '../components/CreateCall';
+import CreateEvent from '../components/CreateEvent';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
 import EditVolunteerProfile from '../components/EditVolunteerProfile';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
-import NewUser from '../containers/NewUser';
+import EventPage from '../components/EventPage';
+import CallPage from '../components/CallPage';
+import NewUser from '../containers/NewUser'
+import SwitchOrganisationProfileView from '../components/SwitchOrganisationProfileView';
 
 class Routes extends Component {
   render() {
@@ -23,6 +28,7 @@ class Routes extends Component {
         <Route exact path='/'>
           {this.props.authenticated ? <Redirect to='/feed' /> : <Login />}
         </Route>
+          <Route exact path="/organisations/:id/" component={SwitchOrganisationProfileView} />
         <Route exact path='/registration' component={Registration} />
         <Route exact path='/new-user' component={NewUser} />
         <Route exact path='/feed' component={FeedVolunteer} />
@@ -45,6 +51,11 @@ class Routes extends Component {
           path='/create-ngo-project-profile'
           component={CreateNGOProjectProfile}
         />
+        <Route exact path='/event/:eventId' component={EventPage} />
+        <Route exact path='/call/:callId' component={CallPage} />
+        <Route exact path='/:eventId/guestlist' component={GuestList} />
+        <Route exact path="/create-call" component={AuthComponent(CreateCall)}/>
+        <Route exact path="/create-event" component={AuthComponent(CreateEvent)}/>
         <Route exact path='/guestlist' component={GuestList} />
         <Route
           exact

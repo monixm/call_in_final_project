@@ -67,6 +67,7 @@
 
 .event-body-top {
   display: flex;
+  justify-content: space-between;
 }
 
 #date {
@@ -76,13 +77,14 @@
 
 #title {
   color: #4497bd;
+  font-size: 12px;
 }
 
 #description {
   font-weight: normal;
 }
 
-.even-body-right {
+.event-body-right {
   display: flex;
   flex-direction: column;
 }
@@ -107,7 +109,7 @@
 }
 
 .peopleGoing img {
-  margin-right: -6px;
+  margin-right: -3px;
 }
 
 .people {
@@ -117,18 +119,8 @@
 
 #pic1 {
   z-index: 2;
-}
-
-#pic2 {
-  z-index: 1;
   height: 22px;
-  background-color: #e5e5e5;
-}
-
-#pic3 {
-  z-index: 0;
-  height: 22px;
-  background-color: khaki;
+  border-radius: 10px
 }
 
 .event-org-logo {

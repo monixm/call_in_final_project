@@ -1,0 +1,30 @@
+.calendar-item {
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  width: 50%;
+}
+
+.right {
+  /* width: 60%; */
+}
+
+#title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #4497BD;
+  width: 95%;
+
+}
+
