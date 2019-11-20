@@ -33,5 +33,9 @@ export const getLoggedInUserProfileAction = () => async (
   );
   // console.log(response, 'response from fetch');
   const user = await response.json();
+  const username = user.username
+  const volunteer_id = user.volunteer.id
+  localStorage.setItem('username', username)
+  localStorage.setItem('volunteer_id', volunteer_id)
   dispatch(getLoggedInUserProfile(user));
 };

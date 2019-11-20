@@ -14,6 +14,8 @@ import CreateProfile from '../components/CreateProfile';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
+import EventPage from '../components/EventPage';
+import CallPage from '../components/CallPage';
 import NewUser from '../containers/NewUser'
 
 class Routes extends Component {
@@ -46,7 +48,9 @@ class Routes extends Component {
           path='/create-ngo-project-profile'
           component={CreateNGOProjectProfile}
         />
-        <Route exact path='/guestlist' component={GuestList} />
+        <Route exact path='/event/:eventId' component={EventPage} />
+        <Route exact path='/call/:callId' component={CallPage} />
+        <Route exact path='/:eventId/guestlist' component={GuestList} />
       </>
     );
   }

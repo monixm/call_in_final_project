@@ -2,46 +2,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-}
-
-.event-header {
-  display: flex;
-  font-style: normal;
-  font-size: 10px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  margin-left: 25px;
-  margin-right: 25px;
-  justify-content: space-between;
-}
-
-.event-header-left {
-  display: flex;
-}
-
-.event-header p {
-  margin-bottom: 0px;
-}
-
-.middleText {
-  display: flex;
-  flex-direction: column;
-  margin-left: 13px;
-}
-
-.event-header-right {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 10px;
-}
-
-.event-header-right img {
-  margin-right: 3px;
-}
-
-#organiser {
-  font-weight: 500;
-  color: #4497bd;
+  margin-bottom: 16px;
 }
 
 .event-body {
@@ -49,6 +10,7 @@
   flex-direction: column;
   border: 1px solid #574947;
   box-sizing: border-box;
+  margin-top: 15px;
   margin-bottom: 25px;
   margin-left: 25px;
   margin-right: 25px;
@@ -67,24 +29,36 @@
 
 .event-body-top {
   display: flex;
-  justify-content: space-between;
 }
 
 #date {
-  color: #dd6956;
+  color: #574947;
   border-radius: 10px;
+  font-weight: normal;
 }
 
 #title {
-  color: #4497bd;
-  font-size: 12px;
+  color: #4497BD;
+}
+
+#place {
+  margin-top: 0px;
+}
+
+.event-body-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-body-middle {
+  display: flex;
 }
 
 #description {
   font-weight: normal;
 }
 
-.event-body-right {
+.even-body-right {
   display: flex;
   flex-direction: column;
 }
@@ -105,11 +79,11 @@
 }
 
 .peopleGoing p {
-  margin-top: 3px;
+  margin-top: 3px
 }
 
 .peopleGoing img {
-  margin-right: -3px;
+  margin-right: -6px;
 }
 
 .people {
@@ -117,23 +91,18 @@
   margin-right: 6px;
 }
 
-#pic1 {
+#pic1{
   z-index: 2;
 }
 
-#pic2 {
+#pic2{
   z-index: 1;
   height: 22px;
-  background-color: #e5e5e5;
+  background-color: #E5E5E5
 }
 
-#pic3 {
+#pic3{
   z-index: 0;
   height: 22px;
   background-color: khaki;
-}
-
-.event-org-logo {
-  width: 20%;
-  height: 100%;
 }
