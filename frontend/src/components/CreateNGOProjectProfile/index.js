@@ -18,12 +18,15 @@ class Feed extends Component {
                 email:'',
                 code:'',
                 password:'',
-                confirm:'',
-              organisationName: '',
-              organisationType:'',
-              organisationLocation: '',
-              organisationDescription: '',
+                passwordConfirm:'',
+                organisationName: '',
+                organisationType:'',
+                organisationLocation: '',
+                organisationDescription: '',
+                organisationTerms:'',
+                privacy_setting:'',
                 organisationDocument:'',
+                profilePicture:'',
               organisationFocus: {
                   social:'',
                   languages:'',
@@ -43,15 +46,12 @@ class Feed extends Component {
                     instagram:'',
                     linkedIn:''
                 },
-              organisationTerms:'',
-                privacy_setting:''
             },
           showDescriptionPopup: false,
           showFocusPopup: false,
           showContactPopup: false,
             showProfilePopup: false,
             showPrivacyPopup: false,
-            profilePicture:'',
         }
     }
 
@@ -193,15 +193,15 @@ class Feed extends Component {
     }
 
     documentHandler = e => {
-        this.setState({
-            organisationDocument: e.target.files[0]
-        })
+        let newState = {...this.state}
+        newState.information.organisationDocument = e.target.files[0]
+        this.setState(newState)
     }
 
     profilePictureHandler = e => {
-        this.setState({
-            profilePicture: e.target.files[0]
-        })
+        let newState = {...this.state}
+        newState.information.profilePicture = e.target.files[0]
+        this.setState(newState)
     }
 
     nameValue = e => {
@@ -236,7 +236,7 @@ class Feed extends Component {
 
     confirmValue = e => {
         let newState = {...this.state}
-        newState.information.confirm = e.currentTarget.value
+        newState.information.passwordConfirm = e.currentTarget.value
         this.setState(newState)
     }
 
@@ -265,7 +265,7 @@ class Feed extends Component {
                     <input className='password-org-input' id='password-org' value={this.state.password}
                            onChange={this.passwordValue} type='text' name='password' required/>
                  <p className="confirm-org">Confirm your password</p>
-                    <input className='confirm-org-input' id='confirm-org' value={this.state.confirm}
+                    <input className='confirm-org-input' id='confirm-org' value={this.state.passwordConfirm}
                            onChange={this.confirmValue} type='text' name='code' required/>
                 <form className='name-org-form'>
                     <p className="name-org">Name</p>
@@ -281,11 +281,11 @@ class Feed extends Component {
                     <p className="ngo-pro-desc">Description</p>
                     <p className="ngo-pro-upload"><b>Please upload a verification document:</b>
                         <div className='doc-small-font'>(this is to secure the safety of individuals who will collaborate with you)</div></p>
-                    <button onClick={() => this.fileInput.click()} className='btn-ngo-pro-upload'>Upload document</button>
+                    <button onClick={() => this.documentInput.click()} className='btn-ngo-pro-upload'>Upload document</button>
                     <input style={{display: 'none'}}
                            type='file'
                            onChange={this.documentHandler}
-                           ref={fileInput => this.fileInput = fileInput}/>
+                           ref={fileInput => this.documentInput = fileInput}/>
                     <button className='btn-fill-out' onClick={this.toggleDescriptionPopup.bind(this)}>Fill out</button>
                     <p className="ngo-pro-focus"><b>What kind of focus does your organisation or project have? </b><br />
                         <div className='doc-small-font'>(please add keywords)</div></p>

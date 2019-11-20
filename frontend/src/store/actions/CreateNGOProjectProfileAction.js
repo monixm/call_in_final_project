@@ -1,7 +1,7 @@
 import {baseUrl} from "../constants";
 
 export const createNGOProjectProfileAction = (content) => async (dispatch, getState) => {
-
+    console.log(content)
     const headers = new Headers({
         'Content-Type': 'application/json',
     });
@@ -14,12 +14,15 @@ export const createNGOProjectProfileAction = (content) => async (dispatch, getSt
         first_name: content.organisationName,
         last_name: content.organisationName,
     };
+
     const organisation = {
         name: content.organisationName,
         type: content.organisationType,
         privacy_setting: content.privacy_setting,
         location: content.organisationLocation,
         description: content.organisationDescription,
+        document: content.organisationDocument,
+        profile_pic: content.profilePicture,
         website: content.organisationContact.website,
         phone: content.organisationContact.phone,
         terms_of_services: content.organisationTerms,
@@ -33,13 +36,11 @@ export const createNGOProjectProfileAction = (content) => async (dispatch, getSt
             politics: content.organisationFocus.politics,
             items: content.organisationFocus.items,
         },
-        profile_pic: content.profilePicture,
         organisationProfile: {
             facebook: content.facebook,
             instagram: content.instagram,
             linkedIn: content.linkedIn
         }
-
     };
 
     const body = JSON.stringify({validation, organisation});
@@ -49,6 +50,8 @@ export const createNGOProjectProfileAction = (content) => async (dispatch, getSt
         headers,
         body
     };
+
+    console.log('body', body)
 
     const response = await fetch(`${baseUrl}backend/api/organisations/new/`, config);
     return await response.json();
