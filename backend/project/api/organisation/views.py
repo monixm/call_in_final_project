@@ -1,5 +1,5 @@
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny
 
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
 from .serializers import OrganisationSerializer, RegisterOrganisationSerializer

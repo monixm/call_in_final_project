@@ -5,7 +5,6 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from project.api.call_option.models import CallOption
 from project.api.permissions import IsOwnerOrReadOnlyOrgAndVol
-from project.api.registration.serializer import RegistrationValidationSerializer
 from .models import Volunteer
 from .serializers import VolunteerSerializer, RegisterVolunteerSerializer
 

@@ -57,6 +57,3 @@ class RegisterVolunteerSerializer(Serializer):
         volunteer_data['user'] = user
         instance = VolunteerSerializer().create(volunteer_data)
         return instance
-
-
-
