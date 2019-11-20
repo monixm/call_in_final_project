@@ -73,16 +73,15 @@
 
 .call-org-title {
     position: absolute;
-    width: 33px;
+    width: 100px !important;
     height: 12px;
-    left: 65px;
+    left: 40px !important;
     top: 155px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 10px;
     line-height: 12px;
-    text-align: center;
     color: #574947;
 }
 

@@ -4,17 +4,12 @@ import { Link } from 'react-router-dom';
 import './index.css';
 import Header from '../Header';
 import profile from '../../assets/profile.svg';
-import {getOrganisationProfileAction} from "../../store/actions/getOrganisationProfileAction";
 
 class OrganisationProfile extends Component {
 
-  async componentDidMount() {
-    this.props.dispatch(getOrganisationProfileAction());
-  }
-
   render() {
-    const organisation = "**ORGANISATION PROFILE**";
-    return (
+
+     return (
       <>
         <Header />
         <div className='volunteer-profile'>
@@ -26,8 +21,8 @@ class OrganisationProfile extends Component {
                 alt=''
               />
             </div>
-            <h4 className='volunteer-name'>{this.props.profile[organisation] && this.props.profile[organisation].organisation.name}</h4>
-            <p className='volunteer-profile-type'>{this.props.profile[organisation] && this.props.profile[organisation].organisation.type}</p>
+            <h4 className='volunteer-name'>{this.props.profile.name}</h4>
+            <p className='volunteer-profile-type'>{this.props.profile.type}</p>
           </div>
           <div className='volunteer-buttons'>
             <Link to='/create_volunteer'>

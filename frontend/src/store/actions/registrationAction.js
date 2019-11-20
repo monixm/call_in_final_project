@@ -1,6 +1,5 @@
 import { baseUrl } from '../constants';
 import { USER_REGISTRATION_SUCCESS } from '../types';
-import { registrationValidationAction } from './registrationValidationAction';
 
 export const registration = code => ({
   type: USER_REGISTRATION_SUCCESS,

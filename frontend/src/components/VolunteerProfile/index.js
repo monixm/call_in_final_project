@@ -7,7 +7,6 @@ import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg
 import { getVolunteerProfileAction } from '../../store/actions/getVolunteerByIdAction';
 import PublicProfileButtons from './ButtonsComponent/PublicProfileButtons';
 import PrivateProfile from './PrivateProfile';
-import SecretProfile from './SecretProfile';
 import FollowButton from './ButtonsComponent/FollowButton';
 
 class VolunteerProfile extends Component {

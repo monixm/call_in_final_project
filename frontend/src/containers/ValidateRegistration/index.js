@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { registrationValidationAction } from '../../store/actions/registrationValidationAction';
 
 class ValidateRegistration extends Component {
-  constructor(props) {
-    super(props);
+//  constructor(props) {
+//    super(props);
 
     // handleEmailChange = (e, email) => {
     //   this.setState({ email });
@@ -29,7 +29,7 @@ class ValidateRegistration extends Component {
     // handleCodeChange = (e, code) => {
     //   this.setState({ code });
     // };
-  }
+//  }
   // onChange = ({ target: { name, value } }) => {
   //   this.setState({ [name]: value });
   // };
@@ -97,7 +97,7 @@ class ValidateRegistration extends Component {
             onChange={this.handlePasswordRepeatChange}
             placeholder='Repeat password'
           />
-          {this.state.password == this.state.password_repeat ? (
+          {this.state.password === this.state.password_repeat ? (
             <button onClick={this.handleSubmit}>Register</button>
           ) : (
             <div>

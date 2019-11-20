@@ -4,6 +4,8 @@ import NotStarred from '../../assets/not_starred.svg';
 import Share from '../../assets/share.svg';
 import Location from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
+
 
 class Call extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class Call extends Component {
     }));
   }
 
+
   render() {
     const call = this.props.call;
 
@@ -45,9 +48,11 @@ class Call extends Component {
                   alt=''
                 />
                 <div>
+                    <Link to={`/organisations/${this.props.call.organisation.id}/`}>
                   <p className='feedVolunteer-orgname'>
                     {call.organisation.name}
                   </p>
+                    </Link>
                   <p className='feedVolunteer-p'>
                     <Moment fromNow>{call.start_datetime}</Moment>
                   </p>

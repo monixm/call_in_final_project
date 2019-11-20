@@ -10,35 +10,27 @@ import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
-import Login from "../containers/Login";
-import { connect } from 'react-redux';
-import CreateProfile from '../components/CreateProfile'
-import LoggedInUserProfile from "../components/LoggedInUserProfile";
-import FeedVolunteer from "../components/FeedVolunteer/index.js";
-import GuestList from "../components/GuesList";
 import CreateCall from '../components/CreateCall';
 import CreateEvent from '../components/CreateEvent';
-import Organisation from '../components/OrganisationProfile'
-import OrganisationPublic from '../components/OrganisationProfilePublic';
-import CreateVolunteerProfile from '../components/CreateVolunteerProfile';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
+import SwitchOrganisationProfileView from '../components/SwitchOrganisationProfileView';
 
 class Routes extends Component {
   render() {
+
     return (
       <>
           <Route exact path="/">
             {this.props.authenticated ? <Redirect to="/feed/"/> : <Login/> }
         </Route>
+          <Route exact path="/organisations/:id/" component={SwitchOrganisationProfileView} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/validate" component={ValidateRegistration} />
         <Route exact path="/feed" component={FeedVolunteer} />
-        <Route exact path="/organisations/<int:id>/" component={AuthComponent(Organisation)} />
-        <Route exact path="/organisation-public" component={AuthComponent(OrganisationPublic)} />
         <Route
           exact
           path='/feed/me'
@@ -57,11 +49,6 @@ class Routes extends Component {
         <Route exact path='/calendar' component={AuthComponent(Calendar)} />
         <Route exact path='/chat' component={AuthComponent(Chat)} />
         <Route exact path='/volunteer/new' component={CreateProfile} />
-        <Route
-          exact
-          path='/create_volunteer'
-          component={AuthComponent(CreateVolunteerProfile)}
-        />
         <Route exact path='/home' component={AuthComponent(Home)} />
         <Route
           exact
@@ -79,7 +66,8 @@ class Routes extends Component {
 
 const mapStateToProps = state => {
   return {
-    authenticated: state.userLoginReducer.authenticated
+    authenticated: state.userLoginReducer.authenticated,
+      profile: state.organisationProfileReducer.profile,
   };
 };
 

@@ -7,8 +7,8 @@ import profile from '../../assets/profile.svg';
 
 class OrganisationProfilePublic extends Component {
 
-
   render() {
+
     return (
       <>
         <Header />
@@ -21,8 +21,8 @@ class OrganisationProfilePublic extends Component {
                 alt=''
               />
             </div>
-            <h4 className='volunteer-name'>Caritas</h4>
-            <p className='volunteer-profile-type'>Non-profit organisation</p>
+            <h4 className='volunteer-name'>{this.props.profile.name}</h4>
+            <p className='volunteer-profile-type'>{this.props.profile.type}</p>
           </div>
           <div className='volunteer-buttons'>
             <Link to='/create_volunteer'>
@@ -31,8 +31,18 @@ class OrganisationProfilePublic extends Component {
             <button>Approve requests</button>
           </div>
           <div className='color-break'></div>
-
+          <div>
           <p>Information</p>
+          </div>
+          <div>
+          <p>{this.props.profile.description}</p>
+          <a href={this.props.profile.website}>{this.props.profile.website}</a>
+          <p>{this.props.profile.phone}</p>
+          </div>
+          <div>
+
+          </div>
+
 
         </div>
       </>
@@ -41,6 +51,7 @@ class OrganisationProfilePublic extends Component {
 }
 
 const mapStateToProps = state => {
+
     return {
       profile: state.organisationProfileReducer.profile,
     }

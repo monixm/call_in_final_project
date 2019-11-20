@@ -8,7 +8,7 @@ const getOrganisationProfile = profile => {
   };
 };
 
-export const getOrganisationProfileAction = () => async (dispatch, getState) => {
+export const getOrganisationProfileAction = (id) => async (dispatch, getState) => {
 
   const token = localStorage.getItem('token');
 
@@ -22,7 +22,7 @@ export const getOrganisationProfileAction = () => async (dispatch, getState) => 
     method: "GET"
   };
 
-  const response = await fetch(`${baseUrl}backend/api/feed/organisation/me/`, config);
+  const response = await fetch(`${baseUrl}backend/api/organisations/${id}/`, config);
   const profile = await response.json();
   dispatch(getOrganisationProfile(profile));
 };

@@ -9,12 +9,7 @@ import CallEventPopup from "./callEventPopup";
 import calendar from '../../assets/calendar.svg';
 import location from '../../assets/location_logo.svg';
 import DateAndTimePickers from './dateTime';
-// import option from '../../assets/option-rect.svg';
-// import uuid from "uuid";
-import Input from './input';
 import { createCallAction } from "../../store/actions/createCallAction";
-// import option from "../../assets/option-rect.svg";
-
 
 class CreateCall extends Component {
     constructor(props) {
@@ -23,7 +18,6 @@ class CreateCall extends Component {
             showCallEventPopup: false,
             title:'',
             picture:'',
-            organisation:'',
             startDate:'',
             location:'',
             description:'',
@@ -132,7 +126,7 @@ class CreateCall extends Component {
             </div>
             <div className='call-profile'>
                 <img className='call-org-pic' src={profile} alt=''/>
-                <p className='call-org-title'>Caritas</p>
+                <p className='call-org-title'>{this.props.profile.name}</p>
                 <p className='call-org-desc'>Organizer</p>
             </div>
             <div>
@@ -152,10 +146,14 @@ class CreateCall extends Component {
             </div>
             </div>
             <div className='call-field-container'>
-                <Input onChange={this.onChange_FieldOne} value={this.props.fieldOne} />
-                <Input onChange={this.onChange_FieldTwo} value={this.props.fieldTwo} />
-                <Input onChange={this.onChange_FieldThree} value={this.props.fieldThree} />
-                <Input onChange={this.onChange_FieldFour} value={this.props.fieldFour} />
+                <input className="call-field-input" type="text" placeholder='Type field option'
+                       onChange={this.onChange_FieldOne} value={this.props.fieldOne}/>
+                <input className="call-field-input" type="text" placeholder='Type field option'
+                       onChange={this.onChange_FieldTwo} value={this.props.fieldTwo}/>
+                <input className="call-field-input" type="text" placeholder='Type field option'
+                       onChange={this.onChange_FieldThree} value={this.props.fieldThree}/>
+                <input className="call-field-input" type="text" placeholder='Type field option'
+                       onChange={this.onChange_FieldFour} value={this.props.fieldFour}/>
             </div>
             <div className='call-approval-container'>
             <p className='call-approval-text'>Post must be approved</p>
@@ -183,4 +181,11 @@ class CreateCall extends Component {
   }
 }
 
-export default connect()(CreateCall);
+const mapStateToProps = state => {
+
+    return {
+      profile: state.organisationProfileReducer.profile,
+    }
+  }
+
+export default connect(mapStateToProps)(CreateCall)

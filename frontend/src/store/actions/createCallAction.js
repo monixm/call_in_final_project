@@ -22,6 +22,7 @@ export const createCallAction = (content) => async (dispatch) => {
         must_be_approved: content.checkboxValue,
     }
 
+    console.log(data)
     const config = {
         method: 'POST',
         headers,

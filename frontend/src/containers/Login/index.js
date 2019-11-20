@@ -11,8 +11,7 @@ const Login = props => {
 
   const userLoginHandler = e => {
     e.preventDefault();
-    const data = props.dispatch(userLoginAction(username, password));
-    // if (data) props.history.push('/feed/me');
+    props.dispatch(userLoginAction(username, password));
   };
 
   const { errorMessage } = props;
