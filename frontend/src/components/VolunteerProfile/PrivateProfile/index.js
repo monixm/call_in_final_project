@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getVolunteerProfileAction } from '../../../store/actions/getVolunteerByIdAction';
 
 class PrivateProfile extends Component {
   render() {

@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import location_icon from '../../assets/location_icon.svg';
 import './styles.css';
 import upload_image from '../../assets/upload_image.svg';
-import { validateVolunteerRegistrationAction } from '../../store/actions/validateVolunteerRegistrationAction';
+import Header from '../Header';
+import { editVolunteerProfileAction } from '../../store/actions/editVolunteerProfileAction';
 import VolunteerInterestsPopup from './volunteerInterestsPopup';
 import VolunteerNetworkingPopup from './volunteerNetworkingPopup';
 import VolunteerPrivacySettingPopup from './volunteerPrivacyPopup';
 import VolunteerUploadPhotoPopup from './volunteerUploadPhotoPopup';
 import { withRouter } from 'react-router-dom';
 
-class CreateProfile extends Component {
+class EditVolunteerProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       name: '',
       lastName: '',
-      code: '',
       password: '',
       passwordConfirm: '',
       location: '',
@@ -95,15 +95,16 @@ class CreateProfile extends Component {
     this.setState(newState);
   };
   handleClick = async () => {
-    await validateVolunteerRegistrationAction(this.state);
-    this.props.history.push('/');
+    await editVolunteerProfileAction(this.state);
+    this.props.history.push('feed/me');
   };
 
   render() {
     return (
       <div className='main'>
-        <div className='title'>
-          <p>Create your profile</p>
+        <Header />
+        <div className='edit-title'>
+          <p>Edit your profile</p>
         </div>
         <div className='first_data'>
           <div className='first_left'>
@@ -116,20 +117,6 @@ class CreateProfile extends Component {
               placeholder=''
               onChange={event => this.handleTextInput(event, 'email')}
               value={this.state.email}
-            />
-          </div>
-        </div>
-        <div className='second_data_1'>
-          <div className='second_data_1_left'>
-            <p className='labels'>Code</p>
-          </div>
-          <div className='second_data_1_right'>
-            <input
-              type='text'
-              className='input_field'
-              placeholder=''
-              onChange={event => this.handleTextInput(event, 'code')}
-              value={this.state.code}
             />
           </div>
         </div>
@@ -244,31 +231,6 @@ class CreateProfile extends Component {
             <div></div>
           )}
         </div>
-
-        <div className='fifth_data'>
-          <div className='fifth_left'>
-            <p className='labels'>Set up our first meeting with us...</p>
-            <p className='lower_font'>
-              (We would love to meet you in person to talk about pour vision and
-              expectations for the Call In community)
-            </p>
-          </div>
-          <div className='fifth_right'>
-            <input className='input_radio' type='radio' name='select' />
-            {this.state.meeting === 'now' && (
-              <p className='lower_font'>message sent!</p>
-            )}
-          </div>
-          {/*{this.state.showMessagePopup ?}*/}
-        </div>
-        <div className='sixth_data'>
-          <div className='sixth_left'>
-            <p className='labels'>Set up a meeting later</p>
-          </div>
-          <div className='sixth_right'>
-            <input className='input_radio' type='radio' name='select' />
-          </div>
-        </div>
         <div className='seventh_data'>
           <div className='seventh_left'>
             <p className='labels'>
@@ -374,7 +336,7 @@ class CreateProfile extends Component {
         <div className='ninth_data'>
           <div className='ninth_middle'>
             <button className='ninth_middle' onClick={this.handleClick}>
-              Create Profile
+              Done
             </button>
           </div>
         </div>
@@ -383,4 +345,4 @@ class CreateProfile extends Component {
   }
 }
 
-export default withRouter(connect()(CreateProfile));
+export default withRouter(connect()(EditVolunteerProfile));

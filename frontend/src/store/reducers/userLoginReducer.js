@@ -1,5 +1,4 @@
-import { USER_LOGIN_SUCCESS } from '../types';
-import { USER_LOGIN_ERROR } from '../types';
+import { USER_LOGIN_SUCCESS, USER_LOGIN_ERROR, LOGOUT } from '../types';
 
 const initialState = {
   token: null,
@@ -25,6 +24,13 @@ export const userLoginReducer = (state = initialState, action) => {
         token: null,
         authenticated: false,
         errorMessage: 'Incorrect username or password'
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        authenticated: false,
+        token: null
       };
     }
     default:
