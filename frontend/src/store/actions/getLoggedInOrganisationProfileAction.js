@@ -31,7 +31,6 @@ export const getLoggedInOrganisationProfileAction = () => async (
     `${baseUrl}backend/api/feed/user/me`,
     config
   );
-  console.log('log-org-action', response)
   const user = await response.json();
   const username = user.username
   const organisation_id = user.organisation.id

@@ -7,13 +7,14 @@ import { getLoggedInUserProfileAction } from '../../store/actions/getLoggedInUse
 import EditableButtons from '../VolunteerProfile/ButtonsComponent/editableButtons';
 
 class LoggedInUser extends Component {
+
   async componentDidMount() {
     this.props.dispatch(getLoggedInUserProfileAction());
   }
 
   render() {
     const { user } = this.props;
-
+    console.log('user')
     return (
       <>
         <Header />
