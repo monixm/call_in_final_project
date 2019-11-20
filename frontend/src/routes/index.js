@@ -13,7 +13,7 @@ import CreateCall from '../components/CreateCall';
 import CreateEvent from '../components/CreateEvent';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
-import LoggedInUserProfile from '../components/LoggedInUserProfile';
+import SwitchFeed from '../components/SwitchFeed';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
 import EventPage from '../components/EventPage';
@@ -35,7 +35,7 @@ class Routes extends Component {
         <Route
           exact
           path='/feed/me'
-          component={AuthComponent(LoggedInUserProfile)}
+          component={AuthComponent(SwitchFeed)}
         />
         <Route exact path='/search' component={AuthComponent(Search)} />
         <Route
