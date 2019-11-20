@@ -12,6 +12,7 @@ import Calendar from '../components/Calendar';
 import Chat from '../components/Chat';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
+import HomePage from '../components/HomePage';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
@@ -47,6 +48,7 @@ class Routes extends Component {
           component={AuthComponent(CreateNGOProjectProfile)}
         />
         <Route exact path='/guestlist' component={GuestList} />
+        <Route exact path='/home-page' component={HomePage} />
       </>
     );
   }

@@ -16,13 +16,6 @@ class Call extends Component {
     this.handleButtonColorChange = this.handleButtonColorChange.bind(this);
   }
 
-  // handleButtonColorChange = e => {
-  //   e.preventDefault();
-  //   e.target.style.background = '#4497BD';
-  //   e.target.value = '#4497BD';
-
-  // };
-
   handleButtonColorChange(e) {
     e.target.style.background = '#4497BD';
     this.setState(prevState => ({

@@ -10,6 +10,7 @@ import PrivateProfile from './PrivateProfile';
 import SecretProfile from './SecretProfile';
 import FollowButton from './ButtonsComponent/FollowButton';
 
+
 class VolunteerProfile extends Component {
   async componentDidMount() {
     const userId = this.props.match.params.id;
@@ -21,42 +22,42 @@ class VolunteerProfile extends Component {
     return (
       <>
         <Header />
-        {user && (
-           user.privacy_setting === 'secret' ? (
+        {user &&
+          (user.privacy_setting === 'secret' ? (
             <SecretProfile />
           ) : (
-          <div className='volunteer-profile'>
-            <div className='volunteer-intro'>
-              <div className='imgs'>
-                {user.profile_picture !== null ? (
-                  <img
-                    src={user.profile_picture}
-                    className='volunteer-profile-pic'
-                    alt=''
-                  />
-                ) : (
-                  <img alt='' src={UserCircleVolunteerProf} />
-                )}
+            <div className='volunteer-profile'>
+              <div className='volunteer-intro'>
+                <div className='imgs'>
+                  {user.profile_picture !== null ? (
+                    <img
+                      src={user.profile_picture}
+                      className='volunteer-profile-pic'
+                      alt=''
+                    />
+                  ) : (
+                    <img alt='' src={UserCircleVolunteerProf} />
+                  )}
+                </div>
+                <h4 className='volunteer-name'>
+                  {user.first_name} {user.last_name}
+                </h4>
+                <p className='volunteer-profile-type'>{user.location}</p>
               </div>
-              <h4 className='volunteer-name'>
-                {user.first_name} {user.last_name}
-              </h4>
-              <p className='volunteer-profile-type'>{user.location}</p>
+              {user.privacy_setting !== 'private' ? (
+                <PublicProfileButtons />
+              ) : (
+                <FollowButton />
+              )}
+
+              <div className='color-break'></div>
+              {user.privacy_setting !== 'private' ? (
+                <VolunteerInterests />
+              ) : (
+                <PrivateProfile />
+              )}
             </div>
-            {user.privacy_setting !== 'private' ? (
-              <PublicProfileButtons />
-            ) : (
-              <FollowButton />
-            )}
-            <div className='color-break'></div>
-            {user.privacy_setting !== 'private' ? (
-              <VolunteerInterests />
-            ) : (
-              <PrivateProfile />
-            )}
-          </div>
-          )
-        )}
+          ))}
       </>
     );
   }
