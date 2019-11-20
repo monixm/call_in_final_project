@@ -1,6 +1,6 @@
 import {baseUrl} from "../constants";
 
-export const createNGOProjectProfileAction = async content => {
+export const createNGOProjectProfileAction = (content) => async (dispatch, getState) => {
 
     const headers = new Headers({
         'Content-Type': 'application/json',
@@ -34,13 +34,15 @@ export const createNGOProjectProfileAction = async content => {
             items: content.organisationFocus.items,
         },
         profile_pic: content.profilePicture,
+        organisationProfile: {
+            facebook: content.facebook,
+            instagram: content.instagram,
+            linkedIn: content.linkedIn
+        }
+
     };
 
     const body = JSON.stringify({validation, organisation});
-        facebook: content.organisationProfile.facebook,
-        instagram: content.organisationProfile.instagram,
-        linkedin: content.organisationProfile.linkedIn,
-    }
 
     const config = {
         method: 'POST',

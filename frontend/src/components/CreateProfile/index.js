@@ -167,7 +167,7 @@ class CreateProfile extends Component {
                         <p className='lower_font'>(Call In notifies you needs depending on your location)</p>
                     </div>
                     <div className='third_center'>
-                        <img src={location_icon} className='location_icon'/>
+                        <img src={location_icon} className='location_icon' alt=''/>
                     </div>
                     <div className='third_right'>
                         <input type='text' className='input_field' placeholder=''
@@ -273,7 +273,7 @@ class CreateProfile extends Component {
                         <p className='labels'>Please add a profile picture: </p>
                     </div>
                     <div className='eighth_right'>
-                        <img onClick={() => this.toggleUploadPhotoPopup()} src={upload_image} className='camera'/>
+                        <img onClick={() => this.toggleUploadPhotoPopup()} src={upload_image} className='camera' alt=''/>
                     </div>
                     {this.state.showUploadPhoto ?
                         <VolunteerUploadPhotoPopup

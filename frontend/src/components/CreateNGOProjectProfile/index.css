@@ -1,9 +1,101 @@
-.name-org-input {
+.email-org-input {
     position: absolute;
     width: 124px;
     height: 18px;
     left: 204px;
-    top: 93px;
+    top: 83px;
+    border: 1px solid #574947;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #F5F2EE;
+}
+
+.email-org {
+    position: absolute;
+    width: 360px;
+    height: 19px;
+    left: 31px;
+    top: 77px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.code-org-input {
+    position: absolute;
+    width: 124px;
+    height: 18px;
+    left: 204px;
+    top: 108px;
+    border: 1px solid #574947;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #F5F2EE;
+}
+
+.code-org {
+    position: absolute;
+    width: 360px;
+    height: 19px;
+    left: 31px;
+    top: 102px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.password-org-input {
+    position: absolute;
+    width: 124px;
+    height: 18px;
+    left: 204px;
+    top: 133px;
+    border: 1px solid #574947;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #F5F2EE;
+}
+
+.password-org {
+    position: absolute;
+    width: 360px;
+    height: 19px;
+    left: 31px;
+    top: 127px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.confirm-org {
+    position: absolute;
+    width: 360px;
+    height: 19px;
+    left: 31px;
+    top: 152px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.confirm-org-input {
+    position: absolute;
+    width: 124px;
+    height: 18px;
+    left: 204px;
+    top: 158px;
     border: 1px solid #574947;
     box-sizing: border-box;
     border-radius: 5px;
@@ -15,7 +107,19 @@
     width: 124px;
     height: 18px;
     left: 204px;
-    top: 137px;
+    top: 208px;
+    border: 1px solid #574947;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #F5F2EE;
+}
+
+.name-org-input {
+    position: absolute;
+    width: 124px;
+    height: 18px;
+    left: 204px;
+    top: 183px;
     border: 1px solid #574947;
     box-sizing: border-box;
     border-radius: 5px;
@@ -27,7 +131,7 @@
     width: 360px;
     height: 19px;
     left: 31px;
-    top: 87px;
+    top: 177px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -41,7 +145,7 @@
     width: 113px;
     height: 19px;
     left: 31px;
-    top: 129px;
+    top: 204px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -119,7 +223,7 @@
     width: 113px;
     height: 19px;
     left: 31px;
-    top: 177px;
+    top: 232px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -133,7 +237,7 @@
     width: 130px;
     height: 20px;
     left: 204px;
-    top: 184px;    
+    top: 239px;
     background: #4497BD;
     mix-blend-mode: normal;
     border-radius: 20px;
@@ -145,7 +249,7 @@
     width: 158px;
     height: 41px;
     left: 31px;
-    top: 214px;
+    top: 264px;
     font-family: Roboto;
     font-style: normal;
     font-size: 10px;
@@ -158,7 +262,7 @@
     width: 130px;
     height: 20px;
     left: 204px;
-    top: 223px;
+    top: 283px;
     background: #4497BD;
     mix-blend-mode: normal;
     border-radius: 20px;
@@ -170,7 +274,7 @@
     width: 137px;
     height: 46px;
     left: 31px;
-    top: 267px;
+    top: 317px;
     font-family: Roboto;
     font-style: normal;
     font-size: 10px;
@@ -260,7 +364,7 @@ input:valid {
     width: 130px;
     height: 20px;
     left: 204px;
-    top: 275px;
+    top: 330px;
     background: #4497BD;
     mix-blend-mode: normal;
     border-radius: 20px;
@@ -276,7 +380,7 @@ input:valid {
     width: 130px;
     height: 20px;
     left: 204px;
-    top: 325px;
+    top: 375px;
     background: #4497BD;
     mix-blend-mode: normal;
     border-radius: 20px;
@@ -288,7 +392,7 @@ input:valid {
     width: 113px;
     height: 19px;
     left: 31px;
-    top: 318px;
+    top: 368px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -300,7 +404,7 @@ input:valid {
 .location-logo {
     position: absolute;
     left: 145px;
-    top: 130px;
+    top: 205px;
 }
 
 .ngo-pro-connect {
@@ -322,7 +426,7 @@ input:valid {
     width: 130px;
     height: 20px;
     left: 206px;
-    top: 403px;
+    top: 413px;
     background: #4497BD;
     border-radius: 20px;
     color: #F2E2B0;
@@ -930,7 +1034,7 @@ input:valid {
     width: 130px;
     height: 20px;
     left: 204px;
-    top: 455px;
+    top: 450px;
     background: #4497BD;
     mix-blend-mode: normal;
     border-radius: 20px;

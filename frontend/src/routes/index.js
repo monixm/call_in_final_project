@@ -5,7 +5,6 @@ import AuthComponent from '../HOC/authComponent';
 import Search from '../components/Search';
 import Home from '../components/Home';
 import Registration from '../containers/Registration';
-import ValidateRegistration from '../containers/ValidateRegistration';
 import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
 import Calendar from '../components/Calendar';
@@ -29,7 +28,6 @@ class Routes extends Component {
         </Route>
           <Route exact path="/organisations/:id/" component={SwitchOrganisationProfileView} />
         <Route exact path="/registration" component={Registration} />
-        <Route exact path="/validate" component={ValidateRegistration} />
         <Route exact path="/feed" component={FeedVolunteer} />
         <Route exact path='/new-user' component={NewUser} />
         <Route

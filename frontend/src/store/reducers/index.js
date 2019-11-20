@@ -17,5 +17,4 @@ export const reducers = combineReducers({
   loggedInUserReducer,
   feedVolunteerReducer,
   organisationProfileReducer
-  feedVolunteerReducer,
 });

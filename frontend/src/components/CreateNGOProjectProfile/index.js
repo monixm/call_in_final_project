@@ -15,6 +15,10 @@ class Feed extends Component {
         super(props);
         this.state = {
             information: {
+                email:'',
+                code:'',
+                password:'',
+                confirm:'',
               organisationName: '',
               organisationType:'',
               organisationLocation: '',
@@ -184,6 +188,7 @@ class Feed extends Component {
     }
 
     handleCreateProfile = () => {
+        console.log(this.state)
         this.props.dispatch(createNGOProjectProfileAction(this.state.information))
     }
 
@@ -211,6 +216,31 @@ class Feed extends Component {
         this.setState(newState)
     }
 
+    emailValue = e => {
+        let newState = {...this.state}
+        newState.information.email = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    codeValue = e => {
+        let newState = {...this.state}
+        newState.information.code = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    passwordValue = e => {
+        let newState = {...this.state}
+        newState.information.password = e.currentTarget.value
+        this.setState(newState)
+    }
+
+    confirmValue = e => {
+        let newState = {...this.state}
+        newState.information.confirm = e.currentTarget.value
+        this.setState(newState)
+    }
+
+
 
     render() {
 
@@ -225,6 +255,18 @@ class Feed extends Component {
                    onClick={this.handleTypeInput} />
                    <label className='project-radio-label' htmlFor="project">Project</label>
             </div>
+                <p className="email-org">Email</p>
+                    <input className='email-org-input' id='email-org' value={this.state.information.email}
+                           onChange={this.emailValue} type='text' name='email' required/>
+                 <p className="code-org">Code</p>
+                    <input className='code-org-input' id='code-org' value={this.state.information.code}
+                           onChange={this.codeValue} type='text' name='code' required/>
+                 <p className="password-org">Password</p>
+                    <input className='password-org-input' id='password-org' value={this.state.password}
+                           onChange={this.passwordValue} type='text' name='password' required/>
+                 <p className="confirm-org">Confirm your password</p>
+                    <input className='confirm-org-input' id='confirm-org' value={this.state.confirm}
+                           onChange={this.confirmValue} type='text' name='code' required/>
                 <form className='name-org-form'>
                     <p className="name-org">Name</p>
                     <input className='name-org-input' id='name-org' value={this.state.information.organisationName}
