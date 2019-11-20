@@ -10,9 +10,10 @@ const Login = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const userLoginHandler = e => {
+  const userLoginHandler = async e => {
     e.preventDefault();
-    props.dispatch(userLoginAction(username, password));
+    const data = await props.dispatch(userLoginAction(username, password));
+    // if (data) props.history.push('/feed/me');
   };
 
   const { errorMessage } = props;

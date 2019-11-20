@@ -3,6 +3,7 @@
 .guestlist {
   background-color: #f2e2b0;
   margin-top: 5px;
+  height: 100vh;
 }
 
 .guestlist-title p {
