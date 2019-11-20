@@ -21,7 +21,7 @@ class Calendar extends Component {
         <div className='calls'>
           <div className='top'>
             <p>Projects I'm Volunteering in</p>
-            <img src={confirmed} />
+            <img src={confirmed} alt=''/>
           </div>
           <div className='list'>
             {this.props.call.map(call =>
@@ -36,7 +36,7 @@ class Calendar extends Component {
         <div className='events'>
           <div className='top'>
             <p>Events I'm going</p>
-            <img src={going} />
+            <img src={going} alt=''/>
           </div>
           <div className='list'>
             {this.props.call.map(call => {
@@ -53,7 +53,7 @@ class Calendar extends Component {
         <div className='bookmarks'>
           <div className='top'>
             <p>Projects and Events marked</p>
-            <img src={starred} />
+            <img src={starred} alt=''/>
           </div>
         </div>
       </>

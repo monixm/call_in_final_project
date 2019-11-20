@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom'
 import NotGoing from '../../assets/not_going.svg';
 import NotStarred from '../../assets/not_starred.svg';
 import UserCircle from '../../assets/user_circle.svg';
-import Ellipse from '../../assets/ellipse.svg';
 import LocationLogo from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
-import {Link} from "react-router-dom";
 
 class Event extends Component {
   render() {
     const call = this.props.call;
     console.log('callId r', call.id)
-    const callId = call
 
 
     return (

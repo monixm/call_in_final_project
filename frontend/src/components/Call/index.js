@@ -108,7 +108,7 @@ class Call extends Component {
                               type='radio'
                               className='hidden'
                               value={calls.id}
-                              checked={this.state.call_option_id == calls.id}
+                              checked={this.state.call_option_id === calls.id}
                               onChange={this.handleSelection}
                             />
                             <p>{calls.title}</p>
