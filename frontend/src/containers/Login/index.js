@@ -55,7 +55,7 @@ const Login = props => {
           </button>
           <p>
             Don't have an account?
-            <Link to='/validation'>
+            <Link to='/registration'>
               <span style={{ color: '#4497BD' }}> Register</span>
             </Link>
           </p>

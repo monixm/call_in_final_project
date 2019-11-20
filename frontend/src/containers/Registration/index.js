@@ -17,12 +17,12 @@ class Registration extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
-    const response = this.props.dispatch(registrationAction(this.state));
+    const response = await this.props.dispatch(registrationAction(this.state));
     console.log('handleSubmit', response);
     if (response) {
-      this.props.history.push('/validate');
+      this.props.history.push('/new-user');
     }
   };
 
