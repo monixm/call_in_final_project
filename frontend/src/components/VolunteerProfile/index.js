@@ -21,9 +21,9 @@ class VolunteerProfile extends Component {
       <>
         <Header />
         {user && (
-            //  {user.privacy_setting === 'secret' ? (
-            //   <SecretProfile />
-            // ) : (
+           user.privacy_setting === 'secret' ? (
+            <SecretProfile />
+          ) : (
           <div className='volunteer-profile'>
             <div className='volunteer-intro'>
               <div className='imgs'>
@@ -54,7 +54,7 @@ class VolunteerProfile extends Component {
               <PrivateProfile />
             )}
           </div>
-           )}
+          )
         )}
       </>
     );

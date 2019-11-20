@@ -4,7 +4,8 @@
   display: flex;
   align-items: baseline;
   margin: 20px;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 90%;
 }
 
 .volunteer-interests h6 {
@@ -38,7 +39,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100px;
+  width: 40%;
   margin: 0 10px 0 10px;
   /* margin-left: 30px; */
 }

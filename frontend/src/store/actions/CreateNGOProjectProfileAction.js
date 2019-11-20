@@ -1,15 +1,20 @@
 import {baseUrl} from "../constants";
 
-export const createNGOProjectProfileAction = (content) => async (dispatch) => {
-
-    const token = localStorage.getItem('token');
+export const createNGOProjectProfileAction = async content => {
 
     const headers = new Headers({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${ token }`
-        });
-    
-    const data = {
+    });
+
+    const validation = {
+        code: content.code,
+        email: content.email,
+        password: content.password,
+        password_repeat: content.passwordConfirm,
+        first_name: content.organisationName,
+        last_name: content.organisationName,
+    };
+    const organisation = {
         name: content.organisationName,
         type: content.organisationType,
         privacy_setting: content.privacy_setting,
@@ -28,6 +33,10 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
             politics: content.organisationFocus.politics,
             items: content.organisationFocus.items,
         },
+        profile_pic: content.profilePicture,
+    };
+
+    const body = JSON.stringify({validation, organisation});
         facebook: content.organisationProfile.facebook,
         instagram: content.organisationProfile.instagram,
         linkedin: content.organisationProfile.linkedIn,
@@ -36,8 +45,9 @@ export const createNGOProjectProfileAction = (content) => async (dispatch) => {
     const config = {
         method: 'POST',
         headers,
-        body: JSON.stringify(data)
-        };
+        body
+    };
 
-    await fetch(`${baseUrl}backend/api/organisations/new/`, config);
-}
+    const response = await fetch(`${baseUrl}backend/api/organisations/new/`, config);
+    return await response.json();
+};

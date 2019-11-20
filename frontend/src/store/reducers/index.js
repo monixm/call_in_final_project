@@ -5,10 +5,8 @@ import { userRegistrationReducer } from './userRegistrationReducer';
 import { volunteerProfileReducer } from './volunteerProfileReducer';
 import { loggedInUserReducer } from './loggedInUserReducer';
 import { feedVolunteerReducer } from './feedVolunteerReducer';
-import {searchReducer} from './getSearchReducer';
+import { searchReducer } from './getSearchReducer';
 import {organisationProfileReducer} from './organisationProfileReducer';
-
-
 
 export const reducers = combineReducers({
   userLoginReducer,
@@ -19,4 +17,5 @@ export const reducers = combineReducers({
   loggedInUserReducer,
   feedVolunteerReducer,
   organisationProfileReducer
+  feedVolunteerReducer,
 });

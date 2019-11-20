@@ -1,10 +1,10 @@
 /*font-styles*/
 .main{
-    border:1px blue solid;
     display:flex;
     flex-direction: column;
     width:318px;
     height:100%;
+    width:100%;
     margin:0px;
     padding:0px;
     font-family: Roboto;
@@ -12,7 +12,6 @@
 
 }
 .title{
-    border:solid 1px red;
     padding-left: 10px;
     width:307px;
     height:5%;
@@ -48,30 +47,26 @@
 }
 /*first block*/
 .first_data{
-    border:solid 1px aquamarine;
-    width:100%;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .first_left{
-    border:solid 1px deeppink;
     padding-left: 10px;
-    width:30%;
+    width:50%;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 .first_right{
-    border:solid 1px darkgreen;
-    width:70%;
-    padding-left: 70px;
+    width:50%;
+    padding-left: 20px;
     padding-top: 5px;
 }
 .input_field{
-    width:137px;
+    width:133px;
     height:18px;
-    left:170px;
+    left:140px;
     top:50px;
     border: 1px solid #574947;
     box-sizing: border-box;
@@ -83,15 +78,13 @@
 
 /*second block*/
 .second_data{
-    border:solid 1px greenyellow;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .second_left{
-    border:solid 1px deeppink;
     padding-left: 10px;
-    width:30%;
+    width:50%;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
@@ -102,36 +95,85 @@
     font-size: 10px;
 }
 .second_right{
-    border:solid 1px darkgreen;
-    width:70%;
-    padding-left: 70px;
+    width:50%;
+    padding-left: 20px;
     padding-top: 5px;
 }
+/*second_data_1*/
+.second_data_1{
+    height:10%;
+    display:flex;
+    flex-direction: row;
+}
+.second_data_1_left{
+    width:50%;
+    padding-left:10px;
+    font-weight: bold;
+    font-size: 10px;
+    color:#574947;
+}
+.second_data_1_right{
+    width:50%;
+    padding-left: 20px;
+    padding-top:5px;
+}
+/*second_data_2*/
+.second_data_2{
+    height:10%;
+    display:flex;
+    flex-direction: row;
+}
+.second_data_2_left{
+    width:50%;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size:10px;
+    color:#574947;
+}
+.second_data_2_right{
+    width:50%;
+    padding-left: 20px;
+    padding-top:5px;
+}
 
+/*second_data_3*/
+.second_data_3{
+    height:10%;
+    display:flex;
+    flex-direction: row;
+}
+.second_data_3_left{
+    width:50%;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size:10px;
+    color:#574947;
+}
+.second_data_3_right{
+    width:50%;
+    padding-left: 20px;
+    padding-top:5px;
+}
 /*third block*/
 
 .third_data{
-    border:solid 1px yellow;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .third_left{
-    border:solid 1px deeppink;
-    width:34%;
+    width:50%;
     padding-left: 10px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 .third_center{
-    border:solid 1px darkgreen;
-    width:5%;
+    width:9%;
 }
 .third_right{
-    border:solid 1px darkgreen;
-    width:51%;
-    padding-left:17px;
+    width:60%;
+    padding-left:20px;
     padding-top: 10px;
 }
 .location_icon{
@@ -144,58 +186,51 @@
 
 /*fourth block*/
 .fourth_data{
-    border:solid 1px navajowhite;
     height:100%;
     display:flex;
     flex-direction: row;
 }
 .fourth_left{
-    border:solid 1px deeppink;
-    width:40%;
+    width:50%;
     padding-left: 10px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 .fourth_right{
-    border:solid 1px pink;
-    width:60%;
-    padding-left: 40px;
+    width:50%;
+    padding-left: 20px;
     padding-top: 5px;
 }
 /*fifth block*/
 .fifth_data{
-    border:solid 1px darkred;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .fifth_left{
-    border:solid 1px rebeccapurple;
-    width:40%;
+    width:50%;
     padding-left: 10px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 .fifth_right{
-    border:solid 1px blue;
-    width:60%;
-    padding-left: 10px;
+    width:50%;
+    padding-left: 20px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
+    align-items: center;
 }
 /*sixth_block*/
 .sixth_data{
-    border:solid 1px darkred;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .sixth_left{
-    border:solid 1px rebeccapurple;
-    width:40%;
+    width:50%;
     padding-left: 10px;
     font-weight: bold;
     font-size: 10px;
@@ -203,22 +238,20 @@
 }
 
 .sixth_right{
-    border:solid 1px blue;
-    width:60%;
-    padding-left: 10px;
+    width:50%;
+    padding-left: 20px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 /*seventh_block*/
+
 .seventh_data{
-    border:solid 1px hotpink;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .seventh_left{
-    border:solid 1px rebeccapurple;
     width:50%;
     padding-left: 10px;
     font-weight: bold;
@@ -226,30 +259,26 @@
     color: #574947;
 }
 .seventh_right{
-    border:solid 1px pink;
-    width:60%;
+    width:50%;
     padding-left: 15px;
     padding-top: 5px;
 }
 /*eight_block*/
 .eighth_data{
-    border:solid 1px blueviolet;
     height:10%;
     display:flex;
     flex-direction: row;
 }
 .eighth_left{
-    border:solid 1px rebeccapurple;
-    width:55%;
+    width:50%;
     padding-left: 10px;
     font-weight: bold;
     font-size: 10px;
     color: #574947;
 }
 .eighth_right{
-    border:solid 1px pink;
-    width:45%;
-    padding-left: 30px;
+    width:50%;
+    padding-left: 15px;
     padding-top: 5px;
 }
 .camera{
@@ -258,7 +287,6 @@
 }
 /*ninth block*/
 .ninth_data{
-    border:solid 1px darkred;
     height:10%;
     display:flex;
     flex-direction: row;

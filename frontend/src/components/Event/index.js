@@ -55,7 +55,11 @@ class Event extends Component {
                 <div className='icons'></div>
                 <div className='peopleGoing'>
                   <div className='people'>
-                    <img id='pic1' src={call.participants.profile_picture} alt='' />
+                    <img
+                      id='pic1'
+                      src={call.participants.profile_picture}
+                      alt=''
+                    />
                     <img id='pic2' src={Ellipse} alt='' />
                     <img id='pic3' src={Ellipse} alt='' />
                   </div>

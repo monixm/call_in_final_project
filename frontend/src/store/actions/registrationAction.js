@@ -6,13 +6,13 @@ export const registration = code => ({
   payload: code
 });
 
-export const registrationAction = email => async (dispatch, getState) => {
+export const registrationAction = data => async (dispatch, getState) => {
   try {
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
 
-    const body = JSON.stringify();
+    const body = JSON.stringify({email: data.email});
 
     const config = {
       headers,
@@ -20,10 +20,11 @@ export const registrationAction = email => async (dispatch, getState) => {
       method: 'POST'
     };
 
-    const response = await fetch(`${baseUrl}backend/api/registration`, config);
+    const response = await fetch(`${baseUrl}backend/api/registration/`, config);
     const code = await response.json();
     console.log(response, 'response');
     dispatch(registration(code));
+    return code;
   } catch (error) {
     console.log(error);
   }

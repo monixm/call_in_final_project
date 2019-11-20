@@ -30,6 +30,7 @@
   height: 56px;
   border-radius: 50%;
   margin-right: 10px;
+  margin-bottom: 8px;
 }
 
 .feedVolunteer-organisation {
@@ -62,7 +63,7 @@
 .feedVolunteer-call-img {
   width: 100%;
   min-height: 230px;
-  background-color: rgb(204, 199, 199);
+  /* background-color: rgb(204, 199, 199); */
   margin: 0;
   padding: 0;
 }
