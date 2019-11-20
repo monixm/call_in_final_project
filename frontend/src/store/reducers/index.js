@@ -6,7 +6,9 @@ import { volunteerProfileReducer } from './volunteerProfileReducer';
 import { loggedInUserReducer } from './loggedInUserReducer';
 import { feedVolunteerReducer } from './feedVolunteerReducer';
 import { searchReducer } from './getSearchReducer';
+import {organisationProfileReducer} from './organisationProfileReducer';
 import { eventAndCallReducer } from './eventAndCallReducer';
+import { organisationMeReducer } from './organisationMeReducer';
 
 
 
@@ -18,5 +20,7 @@ export const reducers = combineReducers({
   volunteerProfileReducer,
   loggedInUserReducer,
   feedVolunteerReducer,
+  organisationProfileReducer,
+  organisationMeReducer,
   eventAndCallReducer
 });

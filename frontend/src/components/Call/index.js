@@ -8,6 +8,8 @@ import PhotoPlaceholder from '../../assets/photo-placeholder.svg';
 import Moment from 'react-moment';
 import { joinCallOptionAction } from '../../store/actions/joinCallOptionAction';
 import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
+import { Link } from 'react-router-dom';
+
 
 class Call extends Component {
   constructor(props) {
@@ -59,9 +61,11 @@ class Call extends Component {
                   alt=''
                 />
                 <div>
+                    <Link to={`/organisations/${this.props.call.organisation.id}/`}>
                   <p className='feedVolunteer-orgname'>
                     {call.organisation.name}
                   </p>
+                    </Link>
                   <p className='feedVolunteer-p'>
                     <Moment fromNow='h'>{call.created}</Moment>
                   </p>
