@@ -50,7 +50,7 @@ class CreateCall extends Component {
     }
 
     redirectClose = () => {
-        return this.props.history.push("/organisation")
+        return this.props.history.push("/feed")
     }
 
     checkboxHandler = () => {

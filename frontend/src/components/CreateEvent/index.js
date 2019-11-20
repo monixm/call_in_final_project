@@ -66,7 +66,7 @@ class CreateEvent extends Component {
     }
 
     redirectClose = () => {
-            return this.props.history.push("/organisation")
+            return this.props.history.push("/feed")
     }
 
     handlePublish = () => {

@@ -5,6 +5,7 @@ import NotStarred from '../../assets/not_starred.svg';
 import Ellipse from '../../assets/ellipse.svg';
 import LocationLogo from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
+import {Link} from "react-router-dom";
 
 class Event extends Component {
   render() {
@@ -23,7 +24,10 @@ class Event extends Component {
                   alt=''
                 />
                 <div className='middleText'>
-                  <p id='organiser'>{call.organisation.name}</p>
+                  <Link to={`/organisations/${this.props.call.organisation.id}/`}>
+                  <p id='organiser'>{call.organisation.name}
+                  </p>
+                    </Link>
                   <p>
                     <Moment format='DD-MM-YYYY'>{call.created}</Moment>
                   </p>
