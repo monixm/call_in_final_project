@@ -1,127 +1,127 @@
 /*search item*/
-.search_item{
-  display:flex;
-  flex-direction:row;
+.search_item {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   margin-top: 24px;
 }
-.search_right{
+.search_right {
   border: solid 1px #574947;
   border-right: none;
   margin-right: 0;
-  height:24px;
-  width:12%;
+  height: 24px;
+  width: 12%;
   border-radius: 15px 0px 0px 15px;
-  background-color:white;
+  background-color: white;
 }
-.search_left{
+.search_left {
   border: solid 1px #574947;
   border-left: none;
-  height:24px;
-  width:58%;
+  height: 24px;
+  width: 58%;
   margin-left: 0;
   border-radius: 0px 15px 15px 0px;
-  background-color:white;
+  background-color: white;
 }
-.search_box{
-  width:80%;
+.search_box {
+  width: 80%;
 }
-.search_box:focus{
+.search_box:focus {
   outline: none;
 }
-.orange_lens{
+.orange_lens {
   position: absolute;
-  margin-left:10px;
-  width:15px;
-  height:15px;
-  margin-top:5px;
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  margin-left:5px;
+  margin-left: 5px;
 }
-.enter_button{
-  display:flex;
-  flex-direction:row;
+.enter_button {
+  display: flex;
+  flex-direction: row;
   padding-left: 100px;
 }
-.buttonSearch{
+.buttonSearch {
   font-family: Roboto;
-  color: #F2E2B0;
+  color: #f2e2b0;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  text-align:center;
-  width:130px;
-  height:20px;
+  text-align: center;
+  width: 130px;
+  height: 20px;
   border-radius: 20px;
   justify-content: center;
-  background: #DD6956;
+  background: #dd6956;
 }
 
 /*location item*/
 
-.location_item{
-  display:flex;
-  flex-direction:row;
+.location_item {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   margin-top: 24px;
 }
-.location_right{
-  border:solid 0px #F2E2B0;
-  border-right:none;
-  height:44px;
-  width:10%;
-  margin-right:0;
-  background-color:#F2E2B0;
+.location_right {
+  border: solid 0px #f2e2b0;
+  border-right: none;
+  height: 44px;
+  width: 10%;
+  margin-right: 0;
+  background-color: #f2e2b0;
 }
-.location_left{
-  border:solid 0px #F2E2B0;
+.location_left {
+  border: solid 0px #f2e2b0;
   border-left: none;
-  height:44px;
-  width:90%;
-  margin-left:0;
-  background-color:#F2E2B0;
+  height: 44px;
+  width: 90%;
+  margin-left: 0;
+  background-color: #f2e2b0;
 }
-.location{
-  width:270px;
-  height:20px;
-  background-color: #F2E2B0;
+.location {
+  width: 270px;
+  height: 20px;
+  background-color: #f2e2b0;
 }
-.location_box{
-  position:absolute;
-  border:0 solid;
-  width:80%;
+.location_box {
+  position: absolute;
+  border: 0 solid;
+  width: 80%;
   margin-top: 15px;
-  background-color: #F2E2B0;
+  background-color: #f2e2b0 !important;
 }
-.location_box:focus{
+.location_box:focus {
   outline: none;
 }
-.location_icon{
-  position:absolute;
-  height:21px;
-  width:28px;
+.location_icon {
+  position: absolute;
+  height: 21px;
+  width: 28px;
   align-items: center;
   margin-top: 9px;
   margin-left: 5px;
 }
 
 /*list focus*/
-.focus_list{
-  display:flex;
+.focus_list {
+  display: flex;
   justify-content: center;
   flex-direction: row;
-  width:100%;
+  width: 100%;
 }
-.focus_right{
-  display:flex;
+.focus_right {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 150px;
   padding: 40px 10px 40px 15px;
 }
-.focus_left{
-  display:flex;
+.focus_left {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -129,38 +129,36 @@
   padding: 40px 15px 40px 20px;
 }
 
-
 /*buttons_list*/
-.button-decoration{
+.button-decoration {
   font-family: Roboto;
-  font-style:normal;
+  font-style: normal;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  text-align:center;
-  color:#F2E2B0;
-  width:130px;
-  height:20px;
-  background: #4497BD;
+  text-align: center;
+  color: #f2e2b0;
+  width: 130px;
+  height: 20px;
+  background: #4497bd;
   border-radius: 20px;
   align-items: center;
 }
 
-
-.button-clicked-decoration{
+.button-clicked-decoration {
   font-family: Roboto;
-  font-style:normal;
+  font-style: normal;
   font-weight: bold;
   font-size: 10px;
   line-height: 12px;
-  text-align:center;
-  color:#F2E2B0;
-  width:130px;
-  height:20px;
+  text-align: center;
+  color: #f2e2b0;
+  width: 130px;
+  height: 20px;
   background: orange;
   border-radius: 20px;
   align-items: center;
 }
-.results-display{
+.results-display {
   margin-top: 40px;
 }

@@ -146,7 +146,7 @@ class Call extends Component {
               <div className='feedVolunteer-confirm-button'>
                 {/* {call_options.map(item => {
                   return item.volunteers.includes(volunteer_id)
-                    ? 
+                    ?
                     <button>Confirmed!</button>
                      : <button onClick={this.handleSubmit}>Volunteer</button>
                   })

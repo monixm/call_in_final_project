@@ -5,7 +5,7 @@ class EditableButtons extends Component {
   render() {
     return (
       <div className='volunteer-buttons'>
-        <Link to='/create_volunteer'>
+        <Link to='/edit-volunteer-profile'>
           <button>Edit profile</button>
         </Link>
         <button>Approve requests</button>

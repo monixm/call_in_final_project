@@ -87,9 +87,9 @@
   border-radius: 20px;
 }
 
-/* .login-page input:focus {
+.login-page input:focus {
   outline: none;
-} */
+}
 
 .registration-link {
   color: #dd6956;

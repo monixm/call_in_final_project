@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthComponent from '../HOC/authComponent';
 import Search from '../components/Search';
-import Home from '../components/Home';
 import Registration from '../containers/Registration';
 import CreateNGOProjectProfile from '../components/CreateNGOProjectProfile';
 import VolunteerProfile from '../components/VolunteerProfile';
@@ -13,6 +12,7 @@ import CreateCall from '../components/CreateCall';
 import CreateEvent from '../components/CreateEvent';
 import Login from '../containers/Login';
 import CreateProfile from '../components/CreateProfile';
+import EditVolunteerProfile from '../components/EditVolunteerProfile';
 import LoggedInUserProfile from '../components/LoggedInUserProfile';
 import FeedVolunteer from '../components/FeedVolunteer/index.js';
 import GuestList from '../components/GuesList';
@@ -26,7 +26,7 @@ class Routes extends Component {
     return (
       <>
         <Route exact path='/'>
-          {this.props.authenticated ? <Redirect to='/feed/' /> : <Login />}
+          {this.props.authenticated ? <Redirect to='/feed' /> : <Login />}
         </Route>
           <Route exact path="/organisations/:id/" component={SwitchOrganisationProfileView} />
         <Route exact path='/registration' component={Registration} />
@@ -46,7 +46,6 @@ class Routes extends Component {
         <Route exact path='/calendar' component={AuthComponent(Calendar)} />
         <Route exact path='/chat' component={AuthComponent(Chat)} />
         <Route exact path='/volunteer/create/new' component={CreateProfile} />
-        <Route exact path='/home' component={AuthComponent(Home)} />
         <Route
           exact
           path='/create-ngo-project-profile'
@@ -58,6 +57,11 @@ class Routes extends Component {
         <Route exact path="/create-call" component={AuthComponent(CreateCall)}/>
         <Route exact path="/create-event" component={AuthComponent(CreateEvent)}/>
         <Route exact path='/guestlist' component={GuestList} />
+        <Route
+          exact
+          path='/edit-volunteer-profile'
+          component={EditVolunteerProfile}
+        />
       </>
     );
   }

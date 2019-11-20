@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Chat from '../../assets/chat.svg';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Search from '../../assets/search.svg';
 import Calendar from '../../assets/calendar.svg';
 import Profile from '../../assets/profile.svg';
@@ -8,13 +9,30 @@ import Logo from '../../assets/logo-call.svg';
 import LogoActive from '../../assets/logo-call-active.svg';
 import ProfileActive from '../../assets/profile-active.svg';
 import SearchActive from '../../assets/search-active.svg';
-import ChatActive from '../../assets/chat-active.svg';
+import Logout from '../../assets/logout.svg';
 import CalendarActive from '../../assets/calendar-active.svg';
 import './style.css';
 import { withRouter } from 'react-router-dom';
+import { userLogout } from '../../store/actions/logoutAction';
+
 
 class Header extends Component {
+  // state = {
+  //   navigate: false
+  // };
+
+  logoutHandler = () => {
+    this.props.dispatch(userLogout());
+    console.log(this.props.logoutHandler);
+  };
+
   render() {
+    // const { navigate } = this.state;
+
+    // if (navigate) {
+    //   return <Redirect to='' push={true} />;
+    // }
+
     return (
       <div className='navbar'>
         <div className='right-nav'>
@@ -54,19 +72,16 @@ class Header extends Component {
               )}
             </NavLink>
           </li>
-          <li className='Header-li'>
-            <NavLink to='/chat'>
-              {this.props.location.pathname === '/chat' ? (
-                <img src={ChatActive} alt='chat-icon' />
-              ) : (
-                <img src={Chat} alt='chat-icon' />
-              )}
-            </NavLink>
-          </li>
+          <Link to='/'>
+            <li className='Header-li'>
+              <img onClick={this.logoutHandler} src={Logout} alt='logout' />
+            </li>
+          </Link>
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(Header);
+// export default withRouter connect()(Header);
+export default withRouter(connect()(Header));

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { userLoginReducer } from './userLoginReducer';
-import { userLogoutReducer } from './userLogoutReducer';
 import { userRegistrationReducer } from './userRegistrationReducer';
 import { volunteerProfileReducer } from './volunteerProfileReducer';
 import { loggedInUserReducer } from './loggedInUserReducer';
@@ -14,7 +13,6 @@ import { organisationMeReducer } from './organisationMeReducer';
 
 export const reducers = combineReducers({
   userLoginReducer,
-  userLogoutReducer,
   userRegistrationReducer,
   searchReducer,
   volunteerProfileReducer,
