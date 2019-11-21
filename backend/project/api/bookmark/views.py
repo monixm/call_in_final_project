@@ -85,9 +85,9 @@ class GetAllBookmarkByIdView(ListAPIView):
         return Response(results, status=status.HTTP_200_OK)
 
 
-class PostDeleteCallByIdView(CreateAPIView, DestroyAPIView):
+class PostDeleteBookmarkCallByIdView(CreateAPIView, DestroyAPIView):
     """"
-    POST AND DELETE: the calls by id
+    POST AND DELETE: the bookmarked calls by id
     """
     model = BookmarkModel
     serializer_class = BookmarkModelSerializer
@@ -96,7 +96,7 @@ class PostDeleteCallByIdView(CreateAPIView, DestroyAPIView):
     permission_classes = (IsAuthenticated,)
 
     def create(self, request, *args, **kwargs):
-        call = get_object_or_404(Call, id=kwargs[PostDeleteCallByIdView.lookup_url_kwarg])
+        call = get_object_or_404(Call, id=kwargs[PostDeleteBookmarkCallByIdView.lookup_url_kwarg])
         user = request.user
         volunteer = user.volunteer if hasattr(user, 'volunteer') else None
         organisation = user.organisation if hasattr(user, 'organisation') else None
@@ -108,7 +108,7 @@ class PostDeleteCallByIdView(CreateAPIView, DestroyAPIView):
         return Response('Yupi, you bookmark the call', status=status.HTTP_201_CREATED)
 
     def destroy(self, request, *args, **kwargs):
-        call = get_object_or_404(Call, id=kwargs[PostDeleteCallByIdView.lookup_url_kwarg])
+        call = get_object_or_404(Call, id=kwargs[PostDeleteBookmarkCallByIdView.lookup_url_kwarg])
         user = request.user
         volunteer = user.volunteer if hasattr(user, 'volunteer') else None
         organisation = user.organisation if hasattr(user, 'organisation') else None
@@ -123,7 +123,7 @@ class PostDeleteCallByIdView(CreateAPIView, DestroyAPIView):
         return Response('This bookmark of this call has been deleted', status=status.HTTP_201_CREATED)
 
 
-class PostDeleteEventByIdView(CreateAPIView, DestroyAPIView):
+class PostDeleteBookmarkEventByIdView(CreateAPIView, DestroyAPIView):
     """"
     POST AND DELETE: the events by id
     """
@@ -134,7 +134,7 @@ class PostDeleteEventByIdView(CreateAPIView, DestroyAPIView):
     permission_classes = (IsAuthenticated,)
 
     def create(self, request, *args, **kwargs):
-        event = get_object_or_404(Event, id=kwargs[PostDeleteEventByIdView.lookup_url_kwarg])
+        event = get_object_or_404(Event, id=kwargs[PostDeleteBookmarkEventByIdView.lookup_url_kwarg])
         user = request.user
         volunteer = user.volunteer if hasattr(user, 'volunteer') else None
         organisation = user.organisation if hasattr(user, 'organisation') else None
@@ -145,7 +145,7 @@ class PostDeleteEventByIdView(CreateAPIView, DestroyAPIView):
         return Response("Yupi, you bookmark the event", status=status.HTTP_201_CREATED)
 
     def destroy(self, request, *args, **kwargs):
-        event = get_object_or_404(Event, id=kwargs[PostDeleteEventByIdView.lookup_url_kwarg])
+        event = get_object_or_404(Event, id=kwargs[PostDeleteBookmarkEventByIdView.lookup_url_kwarg])
         user = request.user
         volunteer = user.volunteer if hasattr(user, 'volunteer') else None
         organisation = user.organisation if hasattr(user, 'organisation') else None

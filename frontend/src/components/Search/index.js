@@ -55,8 +55,8 @@ class Search extends Component {
         return (
             <div>
                 {
-                    this.props.searchResults.map((result) => {
-                        return <SearchItem key={result.id} result={result} interests={this.state.volunteerInterest}/>;
+                    this.props.searchResults.map((result, index) => {
+                        return <SearchItem key={index} result={result} interests={this.state.volunteerInterest}/>;
                     })
                 }
             </div>

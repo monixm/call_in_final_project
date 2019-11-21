@@ -4,10 +4,12 @@ import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerActi
 import Call from '../Call';
 import Event from '../Event';
 import Header from '../Header';
+import {loadBookmarkAction} from "../../store/actions/loadBookmarkAction";
 
 class FeedVolunteer extends Component {
   async componentDidMount() {
     this.props.dispatch(getFeedVolunteerAction());
+    this.props.dispatch(loadBookmarkAction())
   }
 
   render() {

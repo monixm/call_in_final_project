@@ -8,6 +8,7 @@ import { searchReducer } from './getSearchReducer';
 import {organisationProfileReducer} from './organisationProfileReducer';
 import { eventAndCallReducer } from './eventAndCallReducer';
 import { organisationMeReducer } from './organisationMeReducer';
+import { bookmarkReducer } from './bookmarkReducer';
 
 
 
@@ -20,5 +21,6 @@ export const reducers = combineReducers({
   feedVolunteerReducer,
   organisationProfileReducer,
   organisationMeReducer,
-  eventAndCallReducer
+  eventAndCallReducer,
+  bookmarkReducer,
 });

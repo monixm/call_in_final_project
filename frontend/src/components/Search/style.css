@@ -41,7 +41,7 @@
 .enter_button {
   display: flex;
   flex-direction: row;
-  padding-left: 100px;
+  justify-content: center;
 }
 .buttonSearch {
   font-family: Roboto;

@@ -15,13 +15,13 @@ export const getFeedVolunteerAction = () => async (dispatch, getState) => {
   }
 
   const headers = new Headers({
-    "Content-type": "application/json",
+    'Content-type': 'application/json',
     Authorization: `Bearer ${token}`
   });
 
   const config = {
     headers,
-    method: "GET"
+    method: 'GET'
   };
 
   const response = await fetch(`${baseUrl}backend/api/feed`, config);
