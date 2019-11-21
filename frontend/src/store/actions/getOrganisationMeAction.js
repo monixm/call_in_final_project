@@ -23,7 +23,6 @@ export const getOrganisationMeAction = () => async (dispatch, getState) => {
   };
 
   const response = await fetch(`${baseUrl}backend/api/feed/organisation/me`, config);
-  console.log('action', response)
   const profile = await response.json();
   dispatch(getOrganisationProfile(profile));
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './style.css';
+import '../LoggedInUserProfile/style.css';
 import Header from '../Header';
 import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg';
 import EditableButtons from '../VolunteerProfile/ButtonsComponent/editableButtons';
@@ -11,7 +11,6 @@ class LoggedInOrganisation extends Component {
   async componentDidMount() {
     this.props.dispatch(getOrganisationMeAction());
   }
-
   render() {
     const organisation = "**ORGANISATION PROFILE**";
 
