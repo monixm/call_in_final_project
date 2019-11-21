@@ -9,6 +9,7 @@ import {organisationProfileReducer} from './organisationProfileReducer';
 import { eventAndCallReducer } from './eventAndCallReducer';
 import { organisationMeReducer } from './organisationMeReducer';
 import { bookmarkReducer } from './bookmarkReducer';
+import { loggedInOrganisationReducer } from './loggedInOrganisationReducer'
 
 
 
@@ -23,4 +24,5 @@ export const reducers = combineReducers({
   organisationMeReducer,
   eventAndCallReducer,
   bookmarkReducer,
+  loggedInOrganisationReducer
 });

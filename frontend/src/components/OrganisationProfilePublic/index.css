@@ -1,16 +1,14 @@
-/* Volunteer profile */
-/* 
-.volunteer-profile p {
+.org-profile p {
   font-size: 10px;
 }
 
-.volunteer-profile h4 {
+.org-profile h4 {
   font-size: 15px;
   color: #4497bd;
   text-align: center;
 }
 
-.volunteer-intro {
+.org-intro {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -23,28 +21,32 @@
   margin-bottom: -10px;
 }
 
-.volunteer-profile-type {
+.org-profile-type {
   margin-top: -10px;
 }
 
-.volunteer-profile-pic {
+.org-profile-pic {
   width: 120px;
   height: 110px;
   border-radius: 50%;
 }
 
-.volunteer-buttons button {
-  width: 130px;
-  height: 20px;
-  background: #4497bd;
-  border-radius: 20px;
+.org-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 11px;
 }
 
-.volunteer-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 11px;
+.org-follow-btn {
+    width: 70px;
+    height: 20px;
+    left: 45px;
+    top: 278px;
+    background: #DD6956;
+    border-radius: 20px;
+    color: #F2E2B0;
 }
 
 .color-break {
@@ -52,43 +54,10 @@
   height: 10px;
 }
 
-.volunteer-name {
+.org-name {
   margin-top: 5px;
   color: #4497bd;
 } */
-
-/* VOLUNTEER INTERESTS */
-/* 
-.volunteer-interests {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 20px;
-  border-bottom: 10px solid #f2e2b0;
-  margin-top: -30px;
-}
-
-.volunteer-interests h4,
-h6 {
-  margin-bottom: 0;
-}
-
-.volunteer-interests h4 {
-  color: #dd6956;
-  text-align: center;
-}
-
-.volunteer-interests h6 {
-  color: #4497bd;
-  font-size: 12px;
-}
-
-.interests-box {
-  width: 40%;
-  margin-bottom: -10px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
 
 .org-new-call-btn {
     position: absolute;
@@ -98,4 +67,63 @@ h6 {
     top: 314px;
     background: #DD6956;
     border-radius: 20px;
-} */
+}
+
+.org-prof-information {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #DD6956;
+}
+
+.org-prof-description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #574947;
+}
+
+.org-prof-website {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #4497BD;
+}
+
+.org-prof-phone {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #4497BD;
+}
+
+.org-msg-share {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.org-share-icon {
+    margin-left: 10px;
+}
+
+.org-info-cont {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.org-prof-email {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #4497BD;
+}

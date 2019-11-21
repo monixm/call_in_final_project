@@ -5,11 +5,16 @@ import Call from '../Call';
 import Event from '../Event';
 import Header from '../Header';
 import {loadBookmarkAction} from "../../store/actions/loadBookmarkAction";
+import {getLoggedInOrganisationProfileAction} from "../../store/actions/getLoggedInOrganisationProfileAction";
+import {getOrganisationMeAction} from "../../store/actions/getOrganisationMeAction";
+
 
 class FeedVolunteer extends Component {
   async componentDidMount() {
     this.props.dispatch(getFeedVolunteerAction());
     this.props.dispatch(loadBookmarkAction())
+    this.props.dispatch(getLoggedInOrganisationProfileAction());
+    this.props.dispatch(getOrganisationMeAction());
   }
 
   render() {

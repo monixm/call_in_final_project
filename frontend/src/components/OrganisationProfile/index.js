@@ -12,28 +12,29 @@ class OrganisationProfile extends Component {
     return (
       <>
         <Header />
-        <div className='volunteer-profile'>
-          <div className='volunteer-intro'>
+        <div className='org-profile'>
+          <div className='org-intro'>
             <div className='imgs'>
               <img
-                src={profile}
-                className='volunteer-profile-pic'
+                src={this.props.profile.profile_pic}
+                className='org-profile-pic'
                 alt=''
               />
             </div>
-            <h4 className='volunteer-name'>{this.props.profile.name}</h4>
-            <p className='volunteer-profile-type'>{this.props.profile.type}</p>
+            <h4 className='org-name'>{this.props.profile.name}</h4>
+            <p className='org-profile-type'>{this.props.profile.type}</p>
           </div>
-          <div className='volunteer-buttons'>
-            <Link to='/create_volunteer'>
-              <button>Edit profile</button>
-            </Link>
-            <button>Approve requests</button>
+          <div className='org-buttons'>
+              <button className='org-edit-btn'>Edit profile</button>
+              <button className='org-approve-btn'>Approve requests</button>
           </div>
           <div className='color-break'></div>
+            <div>
             <Link to='/create-call'>
-                <button className='org-new-call-btn' >Add a new call</button>
+                <button className='org-create-call-btn' >Add a new call</button>
             </Link>
+            </div>
+            <div className='color-break'></div>
         </div>
       </>
     );

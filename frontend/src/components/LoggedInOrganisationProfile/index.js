@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './style.css';
+import '../LoggedInUserProfile/style.css';
 import Header from '../Header';
 import UserCircleVolunteerProf from '../../assets/user_circle_volunteer_page.svg';
-import { getLoggedInUserProfileAction } from '../../store/actions/getLoggedInUserProfileAction';
 import EditableButtons from '../VolunteerProfile/ButtonsComponent/editableButtons';
+import { getOrganisationMeAction } from '../../store/actions/getOrganisationMeAction';
 
-class LoggedInUser extends Component {
-
-  async componentDidMount() {
-    this.props.dispatch(getLoggedInUserProfileAction());
-  }
+class LoggedInOrganisation extends Component {
 
   render() {
-    const { user } = this.props;
-    console.log('user')
+    const organisation = "**ORGANISATION PROFILE**";
+    console.log('org')
     return (
       <>
         <Header />
-        {user && (
+        {this.props && (
           <div className='volunteer-profile'>
             <div className='volunteer-intro'>
               <div className='imgs'>
-                {user.volunteer.profile_picture !== null ? (
+                {this.props.profile[organisation] && this.props.profile[organisation].organisation.profile_pic !== null ? (
                   <img
-                    src={user.volunteer.profile_picture}
+                    src={this.props.profile[organisation] && this.props.profile[organisation].organisation.profile_pic}
                     className='volunteer-profile-pic'
                     alt=''
                   />
@@ -33,54 +29,54 @@ class LoggedInUser extends Component {
                 )}
               </div>
               <h4 className='volunteer-name'>
-                {user.volunteer.first_name} {user.volunteer.last_name}
+                {this.props.profile[organisation] && this.props.profile[organisation].organisation.name}
               </h4>
               <p className='volunteer-profile-type'>
-                {user.volunteer.location}
+                {this.props.profile[organisation] && this.props.profile[organisation].organisation.location}
               </p>
             </div>
             <EditableButtons />
             <div className='color-break'></div>
-            {user.volunteer.interests && (
+            {this.props.profile[organisation] && this.props.profile[organisation].organisation.focus && (
               <>
                 <h4>
-                  {user.volunteer.first_name}'s interests in projects and events
+                  {this.props.profile[organisation] && this.props.profile[organisation].organisation.name}'s interests in projects and events
                 </h4>
                 <div className='volunteer-interests'>
                   <div className='interests-left-side'>
                     <div className='interests-box'>
                       <h6>Social</h6>
-                      <p>{user.volunteer.interests.social}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.social}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Languages</h6>
-                      <p>{user.volunteer.interests.languages}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.languages}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Sports</h6>
-                      <p>{user.volunteer.interests.sports}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.sports}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Arts & culture</h6>
-                      <p>{user.volunteer.interests.arts_culture}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.arts_culture}</p>
                     </div>
                   </div>
                   <div className='interests-right-side'>
                     <div className='interests-box'>
                       <h6>Job coaching</h6>
-                      <p>{user.volunteer.interests.coaching}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.coaching}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Food</h6>
-                      <p>{user.volunteer.interests.food}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.food}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Politics</h6>
-                      <p>{user.volunteer.interests.politics}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.politics}</p>
                     </div>
                     <div className='interests-box'>
                       <h6>Items</h6>
-                      <p>{user.volunteer.interests.items}</p>
+                      <p>{this.props.profile[organisation] && this.props.profile[organisation].organisation.focus.items}</p>
                     </div>
                   </div>
                 </div>
@@ -96,8 +92,8 @@ class LoggedInUser extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.loggedInUserReducer.user
+    profile: state.organisationMeReducer.profile
   };
 };
 
-export default connect(mapStateToProps)(LoggedInUser);
+export default connect(mapStateToProps)(LoggedInOrganisation);
