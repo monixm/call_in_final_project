@@ -8,12 +8,9 @@ import { getOrganisationMeAction } from '../../store/actions/getOrganisationMeAc
 
 class LoggedInOrganisation extends Component {
 
-  async componentDidMount() {
-    this.props.dispatch(getOrganisationMeAction());
-  }
   render() {
     const organisation = "**ORGANISATION PROFILE**";
-
+    console.log('org')
     return (
       <>
         <Header />

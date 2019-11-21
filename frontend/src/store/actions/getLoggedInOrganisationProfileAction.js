@@ -32,9 +32,8 @@ export const getLoggedInOrganisationProfileAction = () => async (
     config
   );
   const user = await response.json();
+  console.log(user)
   const username = user.username
-  const organisation_id = user.organisation.id
   localStorage.setItem('username', username)
-  localStorage.setItem('organisation_id', organisation_id)
   dispatch(getLoggedInOrganisationProfile(user));
 };

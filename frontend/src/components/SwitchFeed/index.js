@@ -7,14 +7,10 @@ import {getLoggedInOrganisationProfileAction} from "../../store/actions/getLogge
 
 class SwitchFeed extends Component {
 
-  async componentDidMount() {
-    this.props.dispatch(getLoggedInOrganisationProfileAction());
-  }
-
   render() {
-
+  console.log('org id', this.props.profile.organisation)
     return (
-        this.props.profile.organisation !== 'null'
+        this.props.profile.organisation !== null
         ? <LoggedInOrganisationProfile />
         : <LoggedInUserProfile />
     )
@@ -22,7 +18,6 @@ class SwitchFeed extends Component {
 }
 
 const mapStateToProps = state => {
-
     return {
       profile: state.loggedInOrganisationReducer.profile,
     }
