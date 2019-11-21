@@ -1,6 +1,4 @@
-import coreapi
 from django.contrib.auth.models import User
-from django.shortcuts import render
 from rest_framework import status
 
 from rest_framework.generics import ListAPIView, GenericAPIView, get_object_or_404, CreateAPIView, DestroyAPIView
@@ -14,8 +12,6 @@ from project.api.event.serializers import EventSerializer
 
 from project.api.event.models import Event
 from project.api.call.models import Call
-from project.api.organisation.models import Organisation
-from project.api.volunteer.models import Volunteer
 
 
 class ListBookmarkView(GenericAPIView):

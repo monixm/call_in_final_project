@@ -1,11 +1,9 @@
 from django.db import models
-from rest_framework import settings
 
 from project.api.call.models import Call
 from project.api.event.models import Event
 from project.api.organisation.models import Organisation
 from project.api.volunteer.models import Volunteer
-from django.contrib.auth.models import User
 
 
 class BookmarkModel(models.Model):
@@ -43,4 +41,3 @@ class BookmarkModel(models.Model):
         null=True,
         related_name='bookmarks'
     )
-
