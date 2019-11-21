@@ -27,12 +27,12 @@ class VolunteerFeedView(ListAPIView):
         # participants=self.request.user.volunteer.id)
 
     def list(self, request, *args, **kwargs):
-        call = self.serializer_class_Calls(self.get_queryset_call(), many=True)
-        event = self.serializer_class_Event(self.get_queryset_event(), many=True)
-        return Response({
-            "**CALL**": call.data,
-            "**EVENT**": event.data
-        })
+            call = self.serializer_class_Calls(self.get_queryset_call(), many=True)
+            event = self.serializer_class_Event(self.get_queryset_event(), many=True)
+            return Response({
+                "**CALL**": call.data,
+                "**EVENT**": event.data
+            })
 
 
 class ReadMeVolunteer(GenericAPIView):

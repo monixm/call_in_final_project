@@ -14,5 +14,6 @@ urlpatterns = [
     path('backend/api/search/', include('project.api.search.urls', namespace='search')),
     path('backend/api/feed/', include('project.api.feed.urls', namespace='feed')),
     path('backend/api/calloptions/', include('project.api.call_option.urls', namespace='call_option')),
-    path('backend/api/volunteers/', include('project.api.volunteer.urls', namespace='volunteers'))
+    path('backend/api/volunteers/', include('project.api.volunteer.urls', namespace='volunteers')),
+    path('backend/api/bookmarks/', include('project.api.bookmark.urls', namespace='bookmarks'))
 ]
