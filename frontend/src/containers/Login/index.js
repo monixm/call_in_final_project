@@ -7,12 +7,13 @@ import LogoCallBig from '../../assets/logo-call-big.svg';
 import './style.css';
 
 const Login = props => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const userLoginHandler = async e => {
+  const userLoginHandler = e => {
     e.preventDefault();
-    await props.dispatch(userLoginAction(username, password));
+    const data = props.dispatch(userLoginAction(email, password));
+    // if (data) props.history.push('/feed/me');
   };
 
   const { errorMessage } = props;
@@ -37,11 +38,17 @@ const Login = props => {
 
         <form className='login-form'>
           <input
+            type='email'
+            value={email}
+            placeholder='email'
+            onChange={e => setEmail(e.currentTarget.value)}
+          />
+          {/* <input
             type='username'
             value={username}
             placeholder='username'
             onChange={e => setUsername(e.currentTarget.value)}
-          />
+          /> */}
           <input
             placeholder='password'
             type='password'

@@ -15,3 +15,7 @@ button {
   font-weight: bold;
   border: none;
 }
+
+input:valid {
+  background-color: white;
+}

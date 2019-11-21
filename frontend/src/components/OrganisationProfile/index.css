@@ -1,6 +1,6 @@
 /* Volunteer profile */
 
-.volunteer-profile p {
+/* .volunteer-profile p {
   font-size: 10px;
 }
 
@@ -55,10 +55,10 @@
 .volunteer-name {
   margin-top: 5px;
   color: #4497bd;
-}
+} */
 
 /* VOLUNTEER INTERESTS */
-
+/* 
 .volunteer-interests {
   display: flex;
   flex-wrap: wrap;
@@ -98,4 +98,4 @@ h6 {
     top: 314px;
     background: #DD6956;
     border-radius: 20px;
-}
+} */
