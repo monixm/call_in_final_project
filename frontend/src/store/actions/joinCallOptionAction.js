@@ -7,8 +7,8 @@ export const joinCallOptionAction = (call_option_id) => async (dispatch, getStat
   }
 
   const headers = new Headers({
-    "Content-type": "application/json",
-    Authorization: `Bearer ${token}`
+    'Content-type': 'application/json',
+    'Authorization': `Bearer ${token}`
   });
 
   const config = {

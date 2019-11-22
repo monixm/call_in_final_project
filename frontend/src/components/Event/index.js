@@ -6,6 +6,7 @@ import NotStarred from '../../assets/not_starred.svg';
 import UserCircle from '../../assets/user_circle.svg';
 import LocationLogo from '../../assets/location_logo.svg';
 import Moment from 'react-moment';
+import Bookmark from "../Bookmark";
 
 class Event extends Component {
   render() {
@@ -53,7 +54,7 @@ class Event extends Component {
                   <p id='description'>{call.description}</p>
                 </div>
                 <div className='event-body-right'>
-                  <img src={NotStarred} alt='' />
+                  <Bookmark happening={call}/>
                   <img src={NotGoing} alt='' />
                 </div>
               </div>
@@ -61,11 +62,11 @@ class Event extends Component {
                 <div className='icons'></div>
                 <div className='peopleGoing'>
                   <div className='people'>
-                    {call.participants.slice(0, 3).map(user => {
+                    {call.participants.slice(0, 3).map((user, index) => {
                       return user.profile_picture !== null ? (
-                        <img id='pic1' src={user.profile_picture} alt='' />
+                        <img id='pic1' key={index} src={user.profile_picture} alt='' />
                       ) : (
-                          <img alt='' src={UserCircle} />
+                          <img alt='' key={index} src={UserCircle} />
                         )
                     })}
                   </div>

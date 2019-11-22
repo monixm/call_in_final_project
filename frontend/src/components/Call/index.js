@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './style.css';
-import NotStarred from '../../assets/not_starred.svg';
 import Share from '../../assets/share.svg';
 import Location from '../../assets/location_logo.svg';
 import PhotoPlaceholder from '../../assets/photo-placeholder.svg';
@@ -9,6 +8,7 @@ import Moment from 'react-moment';
 import { joinCallOptionAction } from '../../store/actions/joinCallOptionAction';
 import { getFeedVolunteerAction } from '../../store/actions/getFeedVolunteerAction';
 import { Link } from 'react-router-dom';
+import Bookmark from "../Bookmark";
 
 
 class Call extends Component {
@@ -118,11 +118,8 @@ class Call extends Component {
                   </div>
                 </div>
                 <div className='feedVolunteer-side-buttons'>
-                  <img
-                    src={NotStarred}
-                    className='feedVolunteer-not-starred-button'
-                    alt=''
-                  ></img>
+                  <Bookmark happening={call}/>
+
                   <img
                     src={Share}
                     className='feedVolunteer-share-button'

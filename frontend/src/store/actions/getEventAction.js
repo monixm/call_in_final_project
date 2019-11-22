@@ -21,7 +21,7 @@ export const getEventAction = eventId => async (dispatch, getState) => {
 
   const config = {
     headers,
-    method: "GET"
+    method: 'GET'
   };
 
   const response = await fetch(`${baseUrl}backend/api/events/${eventId}`, config);
