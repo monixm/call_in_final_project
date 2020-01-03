@@ -2,7 +2,7 @@ version: '3'
 services:
 
   backend:
-    image: registry.gitlab.com/monixm/last-propulsion-project:latest
+    image: registry.gitlab.com/monixm/last-propulsion-project
     restart: always
     networks:
       - nginx_network

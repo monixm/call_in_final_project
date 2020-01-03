@@ -10,7 +10,7 @@ services:
       - database:/var/lib/postgresql/data
 
   app:
-    image: registry.gitlab.com/monixm/last-propulsion-project:latest
+    image: registry.gitlab.com/monixm/last-propulsion-project
     restart: always
     env_file:
       - dev.env
