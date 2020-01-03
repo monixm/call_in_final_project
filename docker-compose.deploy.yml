@@ -2,7 +2,7 @@ version: '3'
 services:
 
   backend:
-    image: registry.gitlab.propulsion-home.ch/full-stack/batch-9-september-2019/personal-projects/call_in
+    image: registry.gitlab.com/monixm/last-propulsion-project:latest
     restart: always
     networks:
       - nginx_network
