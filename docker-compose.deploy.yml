@@ -6,7 +6,7 @@ services:
     restart: always
     networks:
       - nginx_network
-      - database1_network  # <-- connect to the bridge
+      - database1_network
     env_file:
       - prod.env
     command: 'sh /scripts/run.sh'
