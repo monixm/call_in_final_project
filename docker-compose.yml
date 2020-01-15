@@ -10,13 +10,13 @@ services:
       - database:/var/lib/postgresql/data
 
   app:
-    image: registry.gitlab.com/monixm/last-propulsion-project
+    image: registry.gitlab.com/monixm/last-propulsion-project:latest
     restart: always
     env_file:
       - dev.env
     command: '/usr/sbin/sshd -D'
     ports:
-      - '8002:8000'
+      - '8003:8000'
       - '4777:22'
     depends_on:
       - database
@@ -26,22 +26,6 @@ services:
       - ./media-files:/media-files
       - ./static-files:/static-files
       - ./scripts:/scripts
-nginx:
-    image: nginx:latest
-    volumes:
-      - static-files:/static-files
-      - media-files:/media-files
-      - ./config:/etc/nginx/conf.d
-      - frontend:/frontend
-      - /etc/letsencrypt:/etc/letsencrypt
-    ports:
-      - "80:80"
-      - "443:443"
-    command: /bin/bash -c "nginx -g 'daemon off;'"
-    depends_on:
-      - backend
-    networks:
-      - nginx_network
 
 volumes:
   database:
