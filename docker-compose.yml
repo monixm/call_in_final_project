@@ -26,6 +26,22 @@ services:
       - ./media-files:/media-files
       - ./static-files:/static-files
       - ./scripts:/scripts
+nginx:
+    image: nginx:latest
+    volumes:
+      - static-files:/static-files
+      - media-files:/media-files
+      - ./config:/etc/nginx/conf.d
+      - frontend:/frontend
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+    depends_on:
+      - backend
+    networks:
+      - nginx_network
 
 volumes:
   database:
