@@ -59,5 +59,7 @@ COPY ./backend /backend
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*
 
-
 WORKDIR /backend
+
+EXPOSE 8000
+EXPOSE 22
