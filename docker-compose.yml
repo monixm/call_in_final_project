@@ -9,7 +9,7 @@ services:
     volumes:
       - database:/var/lib/postgresql/data
 
-  backend:
+  app:
     image: registry.gitlab.com/monixm/last-propulsion-project:latest
     restart: always
     env_file:
